@@ -5,9 +5,6 @@ using UnityEngine;
 public class playermanager : MonoBehaviour
 {
     public GameObject player;
-    public GameObject daggerObject;
-    public List<GameObject> daggerPool;
-    public float angleData = 180f;
     public float speed = 100f;
     public Camera cam;
     
@@ -41,7 +38,7 @@ public class playermanager : MonoBehaviour
             {
                 bigTimer += Time.deltaTime;
             }
-            GameObject dagger = GameObject.Instantiate(daggerObject, null);
+            GameObject dagger = gamemanager.instance.poolmng.pulling(0);
             dagger.transform.position = this.transform.position;
             float x=Random.Range(transform.position.x, transform.position.x+50);
             float y=Random.Range(transform.position.y+50,transform.position.y-50);
@@ -57,6 +54,12 @@ public class playermanager : MonoBehaviour
                 yield return null;
             }
             bigTimer = 0;
+            StartCoroutine(daggerfalse(dagger));
         }
+    }
+
+    IEnumerator daggerfalse(GameObject used_dagger) {
+        yield return new WaitForSeconds(5f);
+        used_dagger.SetActive(false);
     }
 }
