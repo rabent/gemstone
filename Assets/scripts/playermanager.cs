@@ -8,11 +8,6 @@ public class playermanager : MonoBehaviour
     public float speed = 100f;
     public Camera cam;
     
-
-    void Start() {
-        StartCoroutine(DaggerActionCoroutine());
-    }
-    
     void Update() {
         if(Input.GetKey(KeyCode.D)) {
             transform.Translate(new Vector3(speed*Time.deltaTime,0,0));
@@ -29,37 +24,5 @@ public class playermanager : MonoBehaviour
         }
         cam.transform.position=new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z-10);
     }
-     IEnumerator DaggerActionCoroutine()
-    {
-        float bigTimer = 0;
-        while(true)
-        {
-            if(bigTimer < 1)
-            {
-                bigTimer += Time.deltaTime;
-            }
-            GameObject dagger = gamemanager.instance.poolmng.pulling(0);
-            dagger.transform.position = this.transform.position;
-            float x=Random.Range(transform.position.x, transform.position.x+50);
-            float y=Random.Range(transform.position.y+50,transform.position.y-50);
-            Vector3 dir=new Vector3(x,y,0)-transform.position;
-            dir=dir.normalized;
-            dagger.transform.rotation=Quaternion.FromToRotation(Vector3.up,dir);
-            float timer = 0;
-            Rigidbody2D rigid=dagger.GetComponent<Rigidbody2D>();
-            while (timer < 1)
-            {
-                rigid.velocity=dir*50;
-                timer += Time.deltaTime;
-                yield return null;
-            }
-            bigTimer = 0;
-            StartCoroutine(daggerfalse(dagger));
-        }
-    }
-
-    IEnumerator daggerfalse(GameObject used_dagger) {
-        yield return new WaitForSeconds(5f);
-        used_dagger.SetActive(false);
-    }
+    
 }

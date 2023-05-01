@@ -207,6 +207,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &565623191
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 565623192}
+  - component: {fileID: 565623193}
+  m_Layer: 0
+  m_Name: monolith0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &565623192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565623191}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1052100329}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &565623193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565623191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32064aec29e1d9744b0889a1d41e14eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  prefabid: 0
+  damage: 5
+  count: 3
+  penet: 0
+  radius: 0
+  speed: 50
 --- !u!1 &898153790
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,7 +302,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4d1fd73616463c49b2c53ac59e157b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs: []
+  prefabs:
+  - {fileID: 3303337532907680103, guid: 54c85180f84abcb4da3730e6c49b96bf, type: 3}
 --- !u!1 &1052100326
 GameObject:
   m_ObjectHideFlags: 0
@@ -283,9 +335,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1052100326}
-  daggerObject: {fileID: 3303337532907680103, guid: 54c85180f84abcb4da3730e6c49b96bf, type: 3}
-  daggerPool: []
-  angleData: 180
   speed: 100
   cam: {fileID: 2018344496}
 --- !u!212 &1052100328
@@ -351,7 +400,8 @@ Transform:
   m_LocalPosition: {x: 1194.6743, y: 511.09534, z: 0}
   m_LocalScale: {x: 50, y: 50, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 565623192}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
