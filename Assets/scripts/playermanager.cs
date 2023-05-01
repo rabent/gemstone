@@ -30,7 +30,7 @@ public class playermanager : MonoBehaviour
         if(Input.GetKey(KeyCode.S)) {
             transform.Translate(new Vector3(0,-speed*Time.deltaTime,0));
         }
-        cam.transform.position=new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z);
+        cam.transform.position=new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.z-10);
     }
      IEnumerator DaggerActionCoroutine()
     {
@@ -43,16 +43,16 @@ public class playermanager : MonoBehaviour
             }
             GameObject dagger = GameObject.Instantiate(daggerObject, null);
             dagger.transform.position = this.transform.position;
-            Vector3 myAngle = transform.localEulerAngles;
-            float randomY = Random.Range(myAngle.y - angleData / 2f, myAngle.y + angleData / 2f);
-            Vector3 daggerAngle = dagger.transform.localEulerAngles;
-            daggerAngle.y = randomY;
-            dagger.transform.localEulerAngles = daggerAngle;
-            var forwardVector = dagger.transform.forward;
+            float x=Random.Range(transform.position.x, transform.position.x+50);
+            float y=Random.Range(transform.position.y+50,transform.position.y-50);
+            Vector3 dir=new Vector3(x,y,0)-transform.position;
+            dir=dir.normalized;
+            dagger.transform.rotation=Quaternion.FromToRotation(Vector3.up,dir);
             float timer = 0;
+            Rigidbody2D rigid=dagger.GetComponent<Rigidbody2D>();
             while (timer < 1)
             {
-                dagger.transform.Translate(forwardVector);
+                rigid.velocity=dir*50;
                 timer += Time.deltaTime;
                 yield return null;
             }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class gamemanager : MonoBehaviour
 {
     public static gamemanager instance=null;
+    public poolmanager poolmng;
     void Awake()
     {
         if(instance==null) {
