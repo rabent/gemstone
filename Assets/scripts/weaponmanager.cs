@@ -13,9 +13,21 @@ public class weaponmanager : MonoBehaviour
     public float speed;
 
     void Start() {
-        StartCoroutine(projectile());
+
+        StartCoroutine(magicuse(2f));
     }
 
+
+    IEnumerator magicuse(float delay) {
+        while(true) {
+            for(int i=0; i<count; i++) {
+                GameObject mag=gamemanager.instance.poolmng.pulling(prefabid);
+                mag.transform.position=this.transform.position;
+                mag.GetComponent<magic>().init(this.damage,this.radius);
+            }
+            yield return new WaitForSeconds(delay);
+        }
+    }
     IEnumerator projectile()
     {
         while(true)
