@@ -11,10 +11,14 @@ public class weaponmanager : MonoBehaviour
     public int penet;
     public float radius;
     public float speed;
+    public int gem_color;
+    public GameObject player;
+
+    public gem[] gems;
 
     void Start() {
-
-        StartCoroutine(magicuse(2f));
+        gems=new gem[1];
+        
     }
 
 
@@ -28,20 +32,20 @@ public class weaponmanager : MonoBehaviour
             yield return new WaitForSeconds(delay);
         }
     }
-    IEnumerator projectile()
+    IEnumerator projectile(float delay)
     {
         while(true)
         {
             for(int i=0; i<count; i++) {
                 StartCoroutine(fire());
             }
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(delay);
         }
     }
 
     IEnumerator fire() {
         GameObject dagger = gamemanager.instance.poolmng.pulling(prefabid);
-        dagger.transform.position = this.transform.position;
+        dagger.transform.position = player.transform.position;
         dagger.GetComponent<projectile>().init(damage, penet);
         float x=Random.Range(0, 30);
         float y=Random.Range(-30,30);
@@ -58,6 +62,27 @@ public class weaponmanager : MonoBehaviour
     IEnumerator daggerfalse(GameObject used_dagger) {
         yield return new WaitForSeconds(5f);
         used_dagger.SetActive(false);
+    }
+
+    public void monolith_reset() {
+        foreach(gem g in gems) {
+            if(g.isactive) {
+                this.damage=g.damage;
+                this.count=g.count;
+                this.prefabid=g.id;
+                this.gem_color=g.color;
+                this.speed=g.speed;
+                if(gem_color==1) {
+                    StartCoroutine(projectile(2f));
+                }
+                else if(gem_color==2) {
+                    StartCoroutine(magicuse(2f));
+                }
+            }
+            else if(g.ispassive) {
+
+            }
+        }
     }
 
 }
