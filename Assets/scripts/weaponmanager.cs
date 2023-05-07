@@ -80,7 +80,7 @@ public class weaponmanager : MonoBehaviour
                 }
             }
             else if(g.ispassive) {
-
+                this.count+=g.count;
             }
         }
     }

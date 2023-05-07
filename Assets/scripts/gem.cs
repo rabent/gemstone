@@ -13,10 +13,9 @@ public class gem : MonoBehaviour
     public int count;
     public int speed;
 
-    private void Update() {
-        if(Input.GetMouseButtonDown(1)) {
-            transform.parent.GetComponent<invenmanager>().monoliths[0].GetComponent<weaponmanager>().gems[0]=this.GetComponent<gem>();
-            transform.parent.GetComponent<invenmanager>().monoliths[0].GetComponent<weaponmanager>().monolith_reset();
-        }
+    private void OnMouseDown() {
+        transform.parent.GetComponent<invenmanager>().monoliths[0].GetComponent<weaponmanager>().gems[0]=this.GetComponent<gem>();
+        this.transform.position+=new Vector3(0,70,0);
+        transform.parent.GetComponent<invenmanager>().monoliths[0].GetComponent<weaponmanager>().monolith_reset();
     }
 }
