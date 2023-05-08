@@ -7,7 +7,7 @@ public class gamemanager : MonoBehaviour
     public static gamemanager instance=null;
     public poolmanager poolmng;
     public GameObject inventory;
-    public GameObject player;
+    public playermanager player;
     void Awake()
     {
         if(instance==null) {
