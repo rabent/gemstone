@@ -190,8 +190,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AssetsPPU: 18
-  m_RefResolutionX: 135
-  m_RefResolutionY: 270
+  m_RefResolutionX: 270
+  m_RefResolutionY: 135
   m_UpscaleRT: 0
   m_PixelSnapping: 0
   m_CropFrameX: 0
@@ -232,7 +232,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.8390827
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4989,9 +4989,10 @@ GameObject:
   - component: {fileID: 588657738}
   - component: {fileID: 588657737}
   - component: {fileID: 588657739}
+  - component: {fileID: 588657740}
   m_Layer: 0
   m_Name: gem
-  m_TagString: Untagged
+  m_TagString: gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5029,7 +5030,7 @@ MonoBehaviour:
   id: 0
   damage: 5
   count: 3
-  speed: 40
+  speed: 10
 --- !u!212 &588657738
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5098,6 +5099,27 @@ CircleCollider2D:
   m_Offset: {x: 0.000061035156, y: -0.000061035156}
   serializedVersion: 2
   m_Radius: 0.50000006
+--- !u!50 &588657740
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588657735}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &898153790
 GameObject:
   m_ObjectHideFlags: 0
@@ -5157,9 +5179,10 @@ GameObject:
   - component: {fileID: 962209648}
   - component: {fileID: 962209647}
   - component: {fileID: 962209649}
+  - component: {fileID: 962209650}
   m_Layer: 0
   m_Name: gem1
-  m_TagString: Untagged
+  m_TagString: gem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5266,6 +5289,27 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.000061035156}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!50 &962209650
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 962209645}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1052100326
 GameObject:
   m_ObjectHideFlags: 0
@@ -9924,7 +9968,7 @@ MonoBehaviour:
   m_Follow: {fileID: 268939865}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 4.8390827
+    OrthographicSize: 3
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -18563,8 +18607,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093549768}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 725.2484, y: 715.1359, z: 0}
-  m_LocalScale: {x: 9.681512, y: 15.078535, z: 1}
+  m_LocalPosition: {x: 727.7063, y: 718.9344, z: 0}
+  m_LocalScale: {x: 4.766208, y: 7.481969, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 104888688}

@@ -12,8 +12,8 @@ public class playermanager : MonoBehaviour
     }
     
     void Update() {
-        inputvec.x=Input.GetAxis("Horizontal");
-        inputvec.y=Input.GetAxis("Vertical");
+        inputvec.x=Input.GetAxis("Horizontal")*0.2f;
+        inputvec.y=Input.GetAxis("Vertical")*0.2f;
     }
 
     private void FixedUpdate() {
