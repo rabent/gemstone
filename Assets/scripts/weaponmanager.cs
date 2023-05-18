@@ -66,12 +66,13 @@ public class weaponmanager : MonoBehaviour
 
     public void monolith_reset() {
         foreach(gem g in gems) {
-            if(g.isactive) {
-                this.damage=g.damage;
-                this.count=g.count;
-                this.prefabid=g.id;
-                this.gem_color=g.color;
-                this.speed=g.speed;
+            gemData gd=g.GemData;
+            if(gd.isactive) {
+                this.damage=gd.damage;
+                this.count=gd.count;
+                this.prefabid=gd.id;
+                this.gem_color=gd.color;
+                this.speed=gd.speed;
                 if(gem_color==1) {
                     StartCoroutine(projectile(2f));
                 }
@@ -79,10 +80,9 @@ public class weaponmanager : MonoBehaviour
                     StartCoroutine(magicuse(2f));
                 }
             }
-            else if(g.ispassive) {
-                this.count+=g.count;
+            else if(gd.ispassive) {
+                this.count+=gd.count;
             }
         }
     }
-
 }

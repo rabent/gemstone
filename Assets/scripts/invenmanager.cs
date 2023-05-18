@@ -17,7 +17,7 @@ public class invenmanager : MonoBehaviour
             if(hit.transform.gameObject.tag == "gem") {
                 monoliths[0].GetComponent<weaponmanager>().gems[0]=hit.transform.gameObject.GetComponent<gem>();
                 hit.transform.gameObject.transform.position+=new Vector3(0,3,0);
-                monoliths[0].GetComponent<weaponmanager>().monolith_reset();
+                 monoliths[0].GetComponent<weaponmanager>().monolith_reset();
             }
             }
             
