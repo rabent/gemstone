@@ -6,8 +6,9 @@ public class invenmanager : MonoBehaviour
 {
     // Start is called before the first frame update
     private RaycastHit2D hit;
-    public GameObject[] gemlist;
+    public List<gemData> gemlist;
     public GameObject[] monoliths;
+    public GameObject[] slots;
 
     private void Update() {
         if(Input.GetMouseButtonDown(1)) {
@@ -22,5 +23,26 @@ public class invenmanager : MonoBehaviour
             }
             
         }
+    
+    public void slot_refresh() {
+        int gemcount=0;
+        for(int i=0; i<gemlist.Count && i<slots.Length; i++) {
+            slots[i].GetComponent<slot>().g=gemlist[i];
+            gemcount++;
+        }
+        for(int i=gemcount; i<slots.Length; i++) {
+            slots[i].GetComponent<slot>().g=null;
+        }
+    }
+
+    public void add_gem(gemData gd) {
+        if(gemlist.Count<slots.Length) {
+            gemlist.Add(gd);
+            slot_refresh();
+        }
+        else {
+            Debug.Log("slot full");
+        }
+    }
 
 }

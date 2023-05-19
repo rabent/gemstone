@@ -5,13 +5,13 @@ using UnityEngine;
 public class slot : MonoBehaviour
 {
     // Start is called before the first frame update
-   private gem pgem;
-   public gem g {
+   private gemData pgem;
+   public gemData g {
     get {return pgem;}
     set {
         pgem=value;
         if(pgem==null) {
-            this.gameObject.GetComponent<SpriteRenderer>().sprite=g.gameObject.GetComponent<SpriteRenderer>().sprite;
+            this.gameObject.GetComponent<SpriteRenderer>().sprite=g.spr;
         }
     }
    }

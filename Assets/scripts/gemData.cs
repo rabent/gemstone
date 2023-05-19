@@ -14,6 +14,6 @@ public class gemData : ScriptableObject
     public float damage;
     public int count;
     public int speed;
-
+    public Sprite spr;
     
 }
