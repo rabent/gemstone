@@ -25,10 +25,11 @@ public class invenmanager : MonoBehaviour
         }
     
     public void slot_refresh() {
-        int gemcount=0;
+        int gemcount=1;
         for(int i=0; i<gemlist.Count && i<slots.Length; i++) {
             slots[i].GetComponent<slot>().g=gemlist[i];
             gemcount++;
+            Debug.Log("slot refresh");
         }
         for(int i=gemcount; i<slots.Length; i++) {
             slots[i].GetComponent<slot>().g=null;

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class playermanager : MonoBehaviour
 {
+    public invenmanager inv;
     Rigidbody2D rigid;
     public Vector2 inputvec;
 
@@ -18,6 +19,14 @@ public class playermanager : MonoBehaviour
 
     private void FixedUpdate() {
         rigid.MovePosition(rigid.position + inputvec);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.gameObject.tag == "gem") {
+            gemData gd = collision.gameObject.GetComponent<gem>().GemData;
+            inv.add_gem(gd);
+            collision.gameObject.SetActive(false);
+        }
     }
     
 }
