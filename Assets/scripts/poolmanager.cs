@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,6 +26,11 @@ public class poolmanager : MonoBehaviour
             pools[num].Add(prefab);
         }
         return prefab;
+    }
+
+    internal void Get(int v)
+    {
+        throw new NotImplementedException();
     }
 }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class gamemanager : MonoBehaviour
 {
     public static gamemanager instance=null;
+    public poolmanager pool;
     public poolmanager poolmng;
     public GameObject inventory;
     public playermanager player;
