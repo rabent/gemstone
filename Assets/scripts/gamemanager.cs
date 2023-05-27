@@ -7,6 +7,7 @@ public class gamemanager : MonoBehaviour
     public static gamemanager instance=null;
     public poolmanager poolmng;
     public GameObject inventory;
+    public invenmanager invenmanager;
     public playermanager player;
     void Awake()
     {
@@ -19,11 +20,12 @@ public class gamemanager : MonoBehaviour
 
     private void Update() {
         if(Input.GetKey(KeyCode.I)) {
-            inventory.transform.position=player.transform.position;
+            inventory.SetActive(true);
+            invenmanager.slot_refresh();
             Debug.Log("das");
         }
         if(Input.GetKey(KeyCode.Escape)) {
-            inventory.transform.position=new Vector3(500,500,0);
+            inventory.SetActive(false);
         }
     }
 

@@ -14,11 +14,10 @@ public class weaponmanager : MonoBehaviour
     public int gem_color;
     public GameObject player;
 
-    public gem[] gems;
+    public gemData[] gems;
+    public slot[] mono_slots;
 
     void Start() {
-        gems=new gem[1];
-        
     }
 
 
@@ -65,8 +64,9 @@ public class weaponmanager : MonoBehaviour
     }
 
     public void monolith_reset() {
-        foreach(gem g in gems) {
-            gemData gd=g.GemData;
+
+                gems[0]=mono_slots[0].g;
+        foreach(gemData gd in gems) {
             if(gd.isactive) {
                 this.damage=gd.damage;
                 this.count=gd.count;
