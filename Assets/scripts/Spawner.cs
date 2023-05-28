@@ -5,7 +5,8 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public Transform[] spwanPoint;
-
+    public SpawnData[] spawnData;
+    int level;
     float timer;
 
     void Awake() 
@@ -16,8 +17,9 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        level = Mathf.Min(Mathf.FloorToInt(gamemanager.instance.gameTime / 10f), spawnData.Length - 1); // 10초마다 spawner elements 넘어감
 
-        if(timer > 0.2f)
+        if(timer > spawnData[level].spawnTime)
         {
             timer = 0;
             Spawn();
@@ -25,7 +27,17 @@ public class Spawner : MonoBehaviour
     }
     void Spawn()
     {
-       GameObject enemy = gamemanager.instance.pool.pulling(Random.Range(2, 4));
-       enemy.transform.position = spwanPoint[Random.Range(1, spwanPoint.Length)].position;
+        GameObject Enemy = gamemanager.instance.pool.pulling(2);
+        Enemy.transform.position = spwanPoint[Random.Range(1, spwanPoint.Length)].position;
+        Enemy.GetComponent<Enemy>().Init(spawnData[level]);
     }
+}
+
+[System.Serializable]
+public class SpawnData
+{
+    public float spawnTime;
+    public int spriteType;
+    public int health;
+    public float speed;
 }

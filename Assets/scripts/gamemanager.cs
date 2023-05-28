@@ -9,6 +9,8 @@ public class gamemanager : MonoBehaviour
     public poolmanager poolmng;
     public GameObject inventory;
     public playermanager player;
+    public float gameTime;
+    public float maxGameTime = 2 * 10f; // 20초 / 5 * 60f >> 5분
     void Awake()
     {
         if(instance==null) {
@@ -18,11 +20,19 @@ public class gamemanager : MonoBehaviour
         else Destroy(this.gameObject);
     }
 
-    private void Update() {
+    private void Update()
+    {
+        gameTime += Time.deltaTime;
+
+        if(gameTime > maxGameTime){
+            gameTime = maxGameTime;
+        }
+
         if(Input.GetKey(KeyCode.I)) {
             inventory.transform.position=player.transform.position;
             Debug.Log("das");
         }
+
         if(Input.GetKey(KeyCode.Escape)) {
             inventory.transform.position=new Vector3(500,500,0);
         }
