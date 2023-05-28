@@ -8,6 +8,8 @@ TagManager:
   - Area
   - gem
   - monoslot
+  - Enemy
+
   layers:
   - Default
   - TransparentFX
