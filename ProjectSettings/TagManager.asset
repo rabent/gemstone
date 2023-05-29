@@ -8,6 +8,7 @@ TagManager:
   - Area
   - gem
   - monoslot
+  - slot
   layers:
   - Default
   - TransparentFX
