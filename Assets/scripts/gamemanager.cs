@@ -22,10 +22,12 @@ public class gamemanager : MonoBehaviour
         if(Input.GetKey(KeyCode.I)) {
             inventory.SetActive(true);
             invenmanager.slot_refresh();
+            Time.timeScale=0;
             Debug.Log("das");
         }
         if(Input.GetKey(KeyCode.Escape)) {
             inventory.SetActive(false);
+            Time.timeScale=1;
         }
     }
 
