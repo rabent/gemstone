@@ -7,8 +7,12 @@ public class draggedslot : MonoBehaviour
 {
     static public draggedslot instance;
     public slot dragslot;
+    public int change_idx=-1;
+    public gemData change_gd;
     [SerializeField]
     Image itemimg;
+    public bool is_change=false;
+    public bool is_monolith=false;
     // Start is called before the first frame update
     void Start()
     {
