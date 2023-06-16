@@ -28,10 +28,12 @@ public class playermanager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if(collision.gameObject.tag == "gem") {
+            Debug.Log("gem");
             gemData gd = collision.gameObject.GetComponent<gem>().GemData;
             inv.add_gem(gd);
             collision.gameObject.SetActive(false);
-
+        }
+    }
     void LateUpdate(){
         anim.SetFloat("Speed", inputvec.magnitude);
 
