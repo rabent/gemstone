@@ -32,7 +32,6 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnBeginDrag(PointerEventData eventData)
     {
         if(isfull) {
-            Debug.Log("item click");
             draggedslot.instance.dragslot=this;
             draggedslot.instance.dragset(slot_img);
             draggedslot.instance.transform.position=eventData.position;
@@ -50,7 +49,6 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnEndDrag(PointerEventData eventData)
     {
         if(draggedslot.instance.is_monolith==true) {
-            Debug.Log("slot reset");
             this.g=null;
             invenmanager.inventory.gemlist[slot_index]=null;
             draggedslot.instance.is_monolith=false;
@@ -73,8 +71,9 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     {
         if(draggedslot.instance.dragslot!=null && this.gameObject.tag=="monoslot") {
             this.g=draggedslot.instance.dragslot.g;
-            Debug.Log("drop");
-            this.gameObject.transform.GetComponentInParent<weaponmanager>().monolith_reset();
+            foreach(GameObject mono in invenmanager.inventory.monoliths) {
+                mono.GetComponent<weaponmanager>().monolith_reset();
+            }
             draggedslot.instance.is_monolith=true;
         }
         else if(draggedslot.instance.dragslot!=null && this.gameObject.tag=="slot") {

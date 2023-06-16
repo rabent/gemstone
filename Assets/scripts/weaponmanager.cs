@@ -13,7 +13,6 @@ public class weaponmanager : MonoBehaviour
     public float speed;
     public int gem_color;
     public GameObject player;
-
     public gemData[] gems;
     public slot[] mono_slots;
 
@@ -64,7 +63,7 @@ public class weaponmanager : MonoBehaviour
     }
 
     public void monolith_reset() {
-
+        Debug.Log("gem set");
                 gems[0]=mono_slots[0].g;
         foreach(gemData gd in gems) {
             if(gd.isactive) {

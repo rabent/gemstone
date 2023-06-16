@@ -16,19 +16,6 @@ public class invenmanager : MonoBehaviour
         inventory=this;
     }
 
-    private void Update() {
-        if(Input.GetMouseButtonDown(1)) {
-            Vector2 point=Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            hit = Physics2D.Raycast(point, Vector2.zero);
-            Debug.Log(hit.transform.gameObject);
-            if(hit.transform.gameObject.tag == "slot" && hit.transform.gameObject.GetComponent<slot>().isfull) {
-                //monoliths[0].GetComponent<weaponmanager>().gems[0]=hit.transform.gameObject.GetComponent<gemData>();
-                hit.transform.gameObject.transform.position+=new Vector3(0,3,0);
-                 monoliths[0].GetComponent<weaponmanager>().monolith_reset();
-            }
-            }
-            
-        }
     
     public void slot_refresh() {
         gemcount=0;
