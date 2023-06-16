@@ -5884,6 +5884,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2335861937036018935, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2335861937036018939, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
       propertyPath: m_Name
       value: gemprefab
@@ -6164,6 +6168,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2894252800044901940, guid: bdb2c1f8ed893aa44b5ff9be5fd6a051, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2894252800451133491, guid: bdb2c1f8ed893aa44b5ff9be5fd6a051, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -6254,6 +6262,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2894252800734328328, guid: bdb2c1f8ed893aa44b5ff9be5fd6a051, type: 3}
       propertyPath: slots.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2894252800734328328, guid: bdb2c1f8ed893aa44b5ff9be5fd6a051, type: 3}
+      propertyPath: gemlist.Array.size
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2894252800734328328, guid: bdb2c1f8ed893aa44b5ff9be5fd6a051, type: 3}

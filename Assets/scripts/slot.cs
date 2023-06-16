@@ -32,6 +32,7 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnBeginDrag(PointerEventData eventData)
     {
         if(isfull) {
+            Debug.Log("item click");
             draggedslot.instance.dragslot=this;
             draggedslot.instance.dragset(slot_img);
             draggedslot.instance.transform.position=eventData.position;
