@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5057fd548eda22428412b202873ee3a, type: 3}
-  m_Name: New Gem Data
+  m_Name: special data
   m_EditorClassIdentifier: 
-  isactive: 1
+  isactive: 0
   ispassive: 0
-  isspecial: 0
-  color: 1
-  id: 0
-  damage: 5
-  count: 3
-  speed: 10
+  isspecial: 1
+  color: 0
+  id: 3
+  damage: 0
+  count: 0
+  speed: 0
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  radius: 1
+  radius: 0

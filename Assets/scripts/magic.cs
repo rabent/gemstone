@@ -7,9 +7,9 @@ public class magic : MonoBehaviour
     public float damage;
     public float radius;
 
-    public void init(float dam, float rad) {
-        float x=Random.Range(this.transform.position.x-100,this.transform.position.x+100);
-        float y=Random.Range(this.transform.position.y-100, this.transform.position.y+100);
+    public void init(float dam, float rad, Transform player) {
+        float x=Random.Range(player.position.x-4,player.transform.position.x+4);
+        float y=Random.Range(player.position.y-4, player.position.y+4);
         this.damage=dam;
         this.radius=rad;
         this.transform.localScale=new Vector3(rad, rad, rad);
@@ -18,7 +18,7 @@ public class magic : MonoBehaviour
     }   
 
     IEnumerator magicfalse(GameObject magic) {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         magic.SetActive(false);
     }
 }

@@ -10,7 +10,7 @@ public class invenmanager : MonoBehaviour
     public gemData[] gemlist;
     public GameObject[] monoliths;
     public GameObject[] slots;
-    public int gemcount;
+    public int gemcount=0;
 
     void Start() {
         inventory=this;
@@ -18,18 +18,15 @@ public class invenmanager : MonoBehaviour
 
     
     public void slot_refresh() {
-        gemcount=0;
         for(int i=0; i<slots.Length; i++) {
             if(gemlist[i]!=null){
                 slots[i].GetComponent<slot>().g=gemlist[i];
-                gemcount++;
             }
-            else slots[i].GetComponent<slot>().g=gemlist[i];
             Debug.Log("slot refresh");  
         }
-        for(int i=gemcount; i<slots.Length; i++) {
-            slots[i].GetComponent<slot>().g=null;
-        }
+        //for(int i=gemcount; i<slots.Length; i++) {
+           // slots[i].GetComponent<slot>().g=null;
+        //}
     }
 
     public void add_gem(gemData gd) {
@@ -37,6 +34,7 @@ public class invenmanager : MonoBehaviour
             for(int i=0; i<slots.Length; i++) {
                 if(gemlist[i]==null) {
                     gemlist[i]=gd;
+                    gemcount++;
                     break;
                 }
             }

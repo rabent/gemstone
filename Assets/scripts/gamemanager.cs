@@ -29,14 +29,18 @@ public class gamemanager : MonoBehaviour
             gameTime = maxGameTime;
         }
 
-        if(Input.GetKey(KeyCode.I)) {
+        if(Input.GetKeyDown(KeyCode.I)) {
             inventory.SetActive(true);
             invenmanager.slot_refresh();
             Time.timeScale=0;
             Debug.Log("das");
         }
 
-        if(Input.GetKey(KeyCode.Escape)) {
+        if(Input.GetKeyDown(KeyCode.Escape)) {
+            GameObject[] monoliths=invenmanager.monoliths;
+            foreach(GameObject mono in monoliths) {
+                mono.GetComponent<weaponmanager>().monolith_active();
+            }
             inventory.SetActive(false);
             Time.timeScale=1;
         }

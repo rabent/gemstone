@@ -15,6 +15,8 @@ public class weaponmanager : MonoBehaviour
     public GameObject player;
     public gemData[] gems;
     public slot[] mono_slots;
+    public GameObject special_manager;
+    Coroutine crt;
 
     void Start() {
     }
@@ -25,7 +27,7 @@ public class weaponmanager : MonoBehaviour
             for(int i=0; i<count; i++) {
                 GameObject mag=gamemanager.instance.poolmng.pulling(prefabid);
                 mag.transform.position=this.transform.position;
-                mag.GetComponent<magic>().init(this.damage,this.radius);
+                mag.GetComponent<magic>().init(this.damage,this.radius, player.transform);
             }
             yield return new WaitForSeconds(delay);
         }
@@ -62,25 +64,38 @@ public class weaponmanager : MonoBehaviour
         used_dagger.SetActive(false);
     }
 
+    public void skill_use() {
+        if(gem_color==1) {
+            crt=StartCoroutine(projectile(2f));
+        }
+        else if(gem_color==2) {
+            crt=StartCoroutine(magicuse(2f));
+        }
+    }
+
     public void monolith_reset() {
         Debug.Log("gem set");
-                gems[0]=mono_slots[0].g;
+        for(int i=0; i<3; i++) {
+            if(mono_slots[i].g!=null) gems[i]=mono_slots[i].g;
+        }
+    }
+    public void monolith_active() {
         foreach(gemData gd in gems) {
+            if(gd==null) continue;
             if(gd.isactive) {
                 this.damage=gd.damage;
                 this.count=gd.count;
                 this.prefabid=gd.id;
                 this.gem_color=gd.color;
                 this.speed=gd.speed;
-                if(gem_color==1) {
-                    StartCoroutine(projectile(2f));
-                }
-                else if(gem_color==2) {
-                    StartCoroutine(magicuse(2f));
-                }
+                this.radius=gd.radius;
+                skill_use();
             }
             else if(gd.ispassive) {
                 this.count+=gd.count;
+            }
+            else if(gd.isspecial) {
+                special_manager.GetComponent<special>().init(this);
             }
         }
     }
