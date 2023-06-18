@@ -9,7 +9,8 @@ TagManager:
   - gem
   - monoslot
   - Enemy
-
+  - slot
+  - Bullet
   layers:
   - Default
   - TransparentFX
