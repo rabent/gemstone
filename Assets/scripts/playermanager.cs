@@ -7,6 +7,7 @@ public class playermanager : MonoBehaviour
     public invenmanager inv;
     Rigidbody2D rigid;
     public Vector2 inputvec;
+    public GameObject pivot;
     SpriteRenderer spriter;
     Animator anim;
 

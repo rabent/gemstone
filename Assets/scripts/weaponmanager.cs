@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class weaponmanager : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class weaponmanager : MonoBehaviour
     public float speed;
     public int gem_color;
     public GameObject player;
+    public GameObject pivot;
     public gemData[] gems;
     public slot[] mono_slots;
     public GameObject special_manager;
@@ -64,12 +66,36 @@ public class weaponmanager : MonoBehaviour
         used_dagger.SetActive(false);
     }
 
+    IEnumerator swing(float delay) {
+        while(true) {
+        GameObject melee=gamemanager.instance.poolmng.pulling(prefabid);
+        melee.transform.parent=pivot.transform;
+        melee.transform.position=pivot.transform.position+new Vector3(0,1,0);
+        melee.GetComponent<melee>().init(damage, penet);
+        pivot.transform.DORotate(new Vector3(0,0,180f),0.75f)
+        .SetEase(Ease.OutQuart)
+        .OnComplete(()=> {
+            pivot.transform.localEulerAngles=new Vector3(0,0,0);
+        });
+        StartCoroutine(swing_false(melee));
+        yield return new WaitForSeconds(delay);
+        }
+    }
+
+    IEnumerator swing_false(GameObject melee) {
+        yield return new WaitForSeconds(0.75f);
+        melee.SetActive(false);
+    }
+
     public void skill_use() {
         if(gem_color==1) {
             crt=StartCoroutine(projectile(2f));
         }
         else if(gem_color==2) {
             crt=StartCoroutine(magicuse(2f));
+        }
+        else if(gem_color==3) {
+            crt=StartCoroutine(swing(3f));
         }
     }
 
