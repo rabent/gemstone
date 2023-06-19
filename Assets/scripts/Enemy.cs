@@ -65,18 +65,28 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision) 
     {
-        if (!collision.CompareTag("Bullet"))
+        if (!collision.CompareTag("Bullet") && !collision.CompareTag("melee") && !collision.CompareTag("magic"))
             return;
 
-        health -= collision.GetComponent<projectile>().damage;
-        StartCoroutine(KonckBack());
+        if(collision.CompareTag("Bullet")) {
+            health -= collision.GetComponent<projectile>().damage;
+            StartCoroutine(KonckBack());
+        }
+        else if(collision.CompareTag("melee")) {
+            health -= collision.GetComponent<melee>().damage;
+            StartCoroutine(KonckBack());
+        }
+        else if(collision.CompareTag("magic")) {
+            health -= collision.GetComponent<magic>().damage;
+            StartCoroutine(KonckBack());
+        }
 
         if(health > 0){
-            //ì‚´ì•„ìˆì„ë•Œ Hit
+            //?‚´?•„?ˆ?„?•Œ Hit
             anim.SetTrigger("Hit");
         }
         else {
-            //ì£½ì–´ìˆì„ë•Œ
+            //ì£½ì–´?ˆ?„?•Œ
             isLive = false;
             coll.enabled = false;
             rigid.simulated = false;
@@ -87,7 +97,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator KonckBack()
     {
-        yield return wait; //í”„ë ˆì„ ë”œë ˆì´
+        yield return wait; //?”„? ˆ?„ ?”œ? ˆ?´
         Vector3 playerPos = gamemanager.instance.player.transform.position;
         Vector3 dirVec = transform.position - playerPos;
         rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);

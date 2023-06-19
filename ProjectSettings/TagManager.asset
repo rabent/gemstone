@@ -11,6 +11,8 @@ TagManager:
   - Enemy
   - slot
   - Bullet
+  - melee
+  - magic
   layers:
   - Default
   - TransparentFX

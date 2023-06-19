@@ -22,3 +22,4 @@ MonoBehaviour:
   speed: 10
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 1
+  penet: 3

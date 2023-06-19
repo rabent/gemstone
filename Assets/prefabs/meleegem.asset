@@ -21,4 +21,5 @@ MonoBehaviour:
   count: 1
   speed: 0
   spr: {fileID: 362616440, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  radius: 0
+  radius: 2
+  penet: 0

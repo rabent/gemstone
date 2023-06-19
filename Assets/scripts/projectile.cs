@@ -11,4 +11,11 @@ public class projectile : MonoBehaviour
         this.damage=dam;
         this.penet=pen;
     }
+
+    private void OnTriggerEnter2D(Collider2D collision) {
+        if(collision.gameObject.tag == "Enemy") {
+            if(penet>0) penet--;
+            else if(penet==0) this.gameObject.SetActive(false);
+        }
+    }
 }

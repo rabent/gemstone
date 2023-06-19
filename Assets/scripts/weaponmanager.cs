@@ -71,7 +71,7 @@ public class weaponmanager : MonoBehaviour
         GameObject melee=gamemanager.instance.poolmng.pulling(prefabid);
         melee.transform.parent=pivot.transform;
         melee.transform.position=pivot.transform.position+new Vector3(0,1,0);
-        melee.GetComponent<melee>().init(damage, penet);
+        melee.GetComponent<melee>().init(damage, penet, radius);
         pivot.transform.DORotate(new Vector3(0,0,180f),0.75f)
         .SetEase(Ease.OutQuart)
         .OnComplete(()=> {
@@ -115,6 +115,7 @@ public class weaponmanager : MonoBehaviour
                 this.gem_color=gd.color;
                 this.speed=gd.speed;
                 this.radius=gd.radius;
+                this.penet=gd.penet;
                 skill_use();
             }
             else if(gd.ispassive) {

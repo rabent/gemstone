@@ -19,6 +19,7 @@ public class special : MonoBehaviour
         shawmng.gem_color=wmng.gem_color;
         shawmng.speed=wmng.speed;
         shawmng.radius=wmng.radius;
+        shawmng.penet=wmng.penet;
         shawmng.skill_use();
         StartCoroutine(shadow_false(shadow));
         yield return new WaitForSeconds(3f);

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2459922812628737121}
   m_Layer: 0
   m_Name: shovel
-  m_TagString: Untagged
+  m_TagString: melee
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 1737672109, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,8 +99,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.2777778, y: 0.5}
+  m_Offset: {x: 0, y: -0.011245728}
+  m_Size: {x: 0.2777778, y: 0.99002075}
   m_Direction: 0
 --- !u!114 &2459922812628737121
 MonoBehaviour:
@@ -116,3 +116,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   penet: 0
+  radius: 0

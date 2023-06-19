@@ -12576,7 +12576,7 @@ MonoBehaviour:
   - {fileID: 1107121507}
   - {fileID: 973850311}
   - {fileID: 455504611}
-  special_manager: {fileID: 0}
+  special_manager: {fileID: 157714145}
 --- !u!224 &1718413637 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6483973046241080405, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
@@ -12885,7 +12885,7 @@ MonoBehaviour:
   - {fileID: 527651567}
   - {fileID: 9166882}
   - {fileID: 734522548}
-  special_manager: {fileID: 0}
+  special_manager: {fileID: 157714145}
 --- !u!224 &1797918325 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6483973046241080405, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
@@ -22071,7 +22071,7 @@ MonoBehaviour:
   - {fileID: 1282088921}
   - {fileID: 1119465243}
   - {fileID: 1976993718}
-  special_manager: {fileID: 0}
+  special_manager: {fileID: 157714145}
 --- !u!1 &2113795431
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,4 +17,5 @@ public class gemData : ScriptableObject
     public int speed;
     public Sprite spr;
     public float radius;
+    public int penet;
 }
