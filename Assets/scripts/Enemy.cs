@@ -36,13 +36,13 @@ public class Enemy : MonoBehaviour
         Vector2 nextVec = dirVec.normalized * speed * Time.fixedDeltaTime;
         rigid.MovePosition(rigid.position + nextVec);
         rigid.velocity = Vector2.zero;
-    }
+    } //몹 위치 갱신
     void LateUpdate() 
     {
         if(!isLive)
             return;
         spriter.flipX = target.position.x < rigid.position.x;
-    }
+    }//몹이 캐릭터를 향하도록 위치변경 
     void OnEnable() 
     {
         target = gamemanager.instance.player.GetComponent<Rigidbody2D>();
@@ -52,7 +52,7 @@ public class Enemy : MonoBehaviour
         spriter.sortingOrder = 2;
         anim.SetBool("Dead", false);
         health = maxHealth;
-    }
+    } //몹 초기화
 
     public void Init(SpawnData data)
     {
@@ -61,7 +61,7 @@ public class Enemy : MonoBehaviour
         speed = data.speed;
         maxHealth = data.health;
         health = data.health;
-    }
+    } //데이터대로 몹 파라미터를 설정
 
     void OnTriggerEnter2D(Collider2D collision) 
     {
@@ -81,29 +81,27 @@ public class Enemy : MonoBehaviour
             StartCoroutine(KonckBack());
         }
 
-        if(health > 0){
-            //?궡?븘?엳?쓣?븣 Hit
+        if(health > 0){ //살아있을때 피격 애니메이션 작동
             anim.SetTrigger("Hit");
         }
         else {
-            //二쎌뼱?엳?쓣?븣
             isLive = false;
             coll.enabled = false;
             rigid.simulated = false;
             spriter.sortingOrder = 1;
             anim.SetBool("Dead", true);
-        }
+        } //사망 시 파라미터 변경 및 애니메이션 활성화
     }
 
     IEnumerator KonckBack()
     {
-        yield return wait; //?봽?젅?엫 ?뵜?젅?씠
+        yield return wait; 
         Vector3 playerPos = gamemanager.instance.player.transform.position;
         Vector3 dirVec = transform.position - playerPos;
         rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
-    }
+    } //피격 시 몹 넉백
 
     void Dead(){
         gameObject.SetActive(false);
-    }
+    } //오브젝트 비활성화
 }

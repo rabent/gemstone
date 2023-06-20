@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class weaponmanager : MonoBehaviour
 {
-    public int id;
     public int prefabid;
     public float damage;
     public int count;
@@ -24,7 +23,7 @@ public class weaponmanager : MonoBehaviour
     }
 
 
-    IEnumerator magicuse(float delay) {
+    IEnumerator magicuse(float delay) {//딜레이마다 마법을 생성해서 count만큼 사용
         while(true) {
             for(int i=0; i<count; i++) {
                 GameObject mag=gamemanager.instance.poolmng.pulling(prefabid);
@@ -35,7 +34,7 @@ public class weaponmanager : MonoBehaviour
         }
     }
     IEnumerator projectile(float delay)
-    {
+    { //delay마다 count만큼 fire함수 발동
         while(true)
         {
             for(int i=0; i<count; i++) {
@@ -46,6 +45,7 @@ public class weaponmanager : MonoBehaviour
     }
 
     IEnumerator fire() {
+        //오브젝트 생성 후 전방 180도에 랜덤으로 발사
         GameObject dagger = gamemanager.instance.poolmng.pulling(prefabid);
         dagger.transform.position = player.transform.position;
         dagger.GetComponent<projectile>().init(damage, penet);
@@ -67,6 +67,7 @@ public class weaponmanager : MonoBehaviour
     }
 
     IEnumerator swing(float delay) {
+        //오브젝트를 pivot의 자식으로 생성 후 전방 180도로 휘두름
         while(true) {
         GameObject melee=gamemanager.instance.poolmng.pulling(prefabid);
         melee.transform.parent=pivot.transform;
@@ -87,7 +88,7 @@ public class weaponmanager : MonoBehaviour
         melee.SetActive(false);
     }
 
-    public void skill_use() {
+    public void skill_use() { //스킬을 gem color따라서 사용
         if(gem_color==1) {
             crt=StartCoroutine(projectile(2f));
         }
@@ -99,13 +100,15 @@ public class weaponmanager : MonoBehaviour
         }
     }
 
-    public void monolith_reset() {
+    public void monolith_reset() { //인벤토리의 석판 슬롯에 젬 장착시
+    //슬롯의 데이터들을 monolith empty로 넘겨받음
         Debug.Log("gem set");
         for(int i=0; i<3; i++) {
             if(mono_slots[i].g!=null) gems[i]=mono_slots[i].g;
         }
     }
     public void monolith_active() {
+        //인벤토리 비활성화시 작동, 젬리스트의 젬들을 검사하여 파라미터를 받아오고 스킬을 작동
         foreach(gemData gd in gems) {
             if(gd==null) continue;
             if(gd.isactive) {
@@ -119,6 +122,10 @@ public class weaponmanager : MonoBehaviour
                 skill_use();
             }
             else if(gd.ispassive) {
+                this.damage+=gd.damage;
+                this.speed+=gd.speed;
+                this.radius+=gd.radius;
+                this.penet+=gd.penet;
                 this.count+=gd.count;
             }
             else if(gd.isspecial) {

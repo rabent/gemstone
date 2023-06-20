@@ -14,10 +14,10 @@ public class Spawner : MonoBehaviour
         spwanPoint = GetComponentsInChildren<Transform>();    
     }
 
-    void Update()
+    void Update() //½Ã°£¿¡ µû¶ó ·¹º§ º¯°æ
     {
         timer += Time.deltaTime;
-        level = Mathf.Min(Mathf.FloorToInt(gamemanager.instance.gameTime / 10f), spawnData.Length - 1); // 10ì´ˆë§ˆë‹¤ spawner elements ë„˜ì–´ê°
+        level = Mathf.Min(Mathf.FloorToInt(gamemanager.instance.gameTime / 10f), spawnData.Length - 1);
 
         if(timer > spawnData[level].spawnTime)
         {
@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
             Spawn();
         }
     }
-    void Spawn()
+    void Spawn() //Àû ¿ÀºêÁ§Æ® Ç®¸µ
     {
         GameObject Enemy = gamemanager.instance.pool.pulling(2);
         Enemy.transform.position = spwanPoint[Random.Range(1, spwanPoint.Length)].position;

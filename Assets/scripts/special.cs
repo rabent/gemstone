@@ -8,7 +8,7 @@ public class special : MonoBehaviour
         StartCoroutine(make_shadow(wmng));
     }
 
-    IEnumerator make_shadow(weaponmanager wmng) {
+    IEnumerator make_shadow(weaponmanager wmng) { //그림자 생성 후 weaponmanager 파라미터 넘겨줌
         while(true) {
         GameObject shadow = gamemanager.instance.poolmng.pulling(3);
         shadow.transform.position = wmng.player.transform.position;

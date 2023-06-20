@@ -17,17 +17,17 @@ public class playermanager : MonoBehaviour
         anim = GetComponent<Animator>();
     }
     
-    void Update() {
+    void Update() { //플레이어 이동
         inputvec.x=Input.GetAxis("Horizontal")*0.1f;
         inputvec.y=Input.GetAxis("Vertical")*0.1f;
     }
 
-    private void FixedUpdate() {
+    private void FixedUpdate() { //플레이어 위치 갱신
         rigid.MovePosition(rigid.position + inputvec);
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision) { //젬 획득
         if(collision.gameObject.tag == "gem") {
             Debug.Log("gem");
             gemData gd = collision.gameObject.GetComponent<gem>().GemData;
@@ -35,7 +35,7 @@ public class playermanager : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
     }
-    void LateUpdate(){
+    void LateUpdate(){ //이동 애니메이션
         anim.SetFloat("Speed", inputvec.magnitude);
 
         if (inputvec.x != 0) {

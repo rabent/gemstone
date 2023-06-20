@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5057fd548eda22428412b202873ee3a, type: 3}
-  m_Name: magicgem
+  m_Name: passive
   m_EditorClassIdentifier: 
-  isactive: 1
-  ispassive: 0
+  isactive: 0
+  ispassive: 1
   isspecial: 0
-  color: 2
-  id: 1
-  damage: 15
+  color: 1
+  id: 0
+  damage: 0
   count: 3
   speed: 0
-  spr: {fileID: -1997803578, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  radius: 1
+  spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  radius: 0
   penet: 0

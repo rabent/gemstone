@@ -11,8 +11,8 @@ public class gamemanager : MonoBehaviour
     public invenmanager invenmanager;
     public playermanager player;
     public float gameTime;
-    public float maxGameTime = 2 * 10f; // 20Ï¥à / 5 * 60f >> 5Î∂Ñ
-    void Awake()
+    public float maxGameTime = 2 * 10f; // 20Ï¥? / 5 * 60f >> 5Î∂?
+    void Awake() //ΩÃ±€≈Ê ±‚π˝
     {
         if(instance==null) {
             instance=this;
@@ -29,14 +29,14 @@ public class gamemanager : MonoBehaviour
             gameTime = maxGameTime;
         }
 
-        if(Input.GetKeyDown(KeyCode.I)) {
+        if(Input.GetKeyDown(KeyCode.I)) { //¿Œ∫•≈‰∏Æ »∞º∫»≠
             inventory.SetActive(true);
             invenmanager.slot_refresh();
             Time.timeScale=0;
             Debug.Log("das");
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape)) {
+        if(Input.GetKeyDown(KeyCode.Escape)) {//¿Œ∫•≈‰∏Æ ∫Ò»∞º∫»≠
             GameObject[] monoliths=invenmanager.monoliths;
             foreach(GameObject mono in monoliths) {
                 mono.GetComponent<weaponmanager>().monolith_active();

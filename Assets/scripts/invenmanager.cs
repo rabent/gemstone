@@ -6,7 +6,6 @@ public class invenmanager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static invenmanager inventory;
-    private RaycastHit2D hit;
     public gemData[] gemlist;
     public GameObject[] monoliths;
     public GameObject[] slots;
@@ -17,7 +16,7 @@ public class invenmanager : MonoBehaviour
     }
 
     
-    public void slot_refresh() {
+    public void slot_refresh() { // 인벤토리 활성화시 슬롯 새로고침
         for(int i=0; i<slots.Length; i++) {
             if(gemlist[i]!=null){
                 slots[i].GetComponent<slot>().g=gemlist[i];

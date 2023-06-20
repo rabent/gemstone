@@ -12,7 +12,7 @@ public class Reposition : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if(!collision.CompareTag("Area"))
+        if(!collision.CompareTag("Area")) //甘 犁积己
             return;
 
         Vector3 playerPos = gamemanager.instance.player.transform.position;
@@ -25,7 +25,7 @@ public class Reposition : MonoBehaviour
         float dirY = playerDir.y < 0 ? -1 : 1;
 
         switch(transform.tag) {
-            case "Ground":
+            case "Ground": //甘 府器瘤记
                 if (diffX > diffY){
                     transform.Translate(Vector3.right * dirX * 40);
                 }
@@ -33,7 +33,7 @@ public class Reposition : MonoBehaviour
                     transform.Translate(Vector3.up * dirY * 40);
                 }
                 break;
-            case "Enemy":
+            case "Enemy": //利 pulling
                 if (coll.enabled){
                     transform.Translate(playerDir * 20 + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0f));
                 }

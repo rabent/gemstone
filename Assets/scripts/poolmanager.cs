@@ -7,14 +7,14 @@ public class poolmanager : MonoBehaviour
 {
     public GameObject[] prefabs;
     public List<GameObject>[] pools; 
-    private void Awake() {
+    private void Awake() { //프리팹 리스트 받아오기
         pools=new List<GameObject>[prefabs.Length];
         for(int i=0; i<prefabs.Length; i++) {
             pools[i]=new List<GameObject>();
         }
     }
 
-    public GameObject pulling(int num) {
+    public GameObject pulling(int num) { //없으면 생성, 있으면 재생성
         GameObject prefab=null;
         foreach(GameObject obj in pools[num]) {
             if(!obj.activeSelf) {
@@ -28,10 +28,7 @@ public class poolmanager : MonoBehaviour
         return prefab;
     }
 
-    internal void Get(int v)
-    {
-        throw new NotImplementedException();
-    }
+
 }
 
 
