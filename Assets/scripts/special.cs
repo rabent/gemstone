@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class special : MonoBehaviour
 {
-    public void init(weaponmanager wmng) {
-        StartCoroutine(make_shadow(wmng));
+    public Coroutine init(weaponmanager wmng) {
+       Coroutine crt=StartCoroutine(make_shadow(wmng));
+       return crt;
     }
 
     IEnumerator make_shadow(weaponmanager wmng) { //그림자 생성 후 weaponmanager 파라미터 넘겨줌

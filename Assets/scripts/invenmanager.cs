@@ -28,6 +28,13 @@ public class invenmanager : MonoBehaviour
         //}
     }
 
+    public void gemlist_refresh() {
+        for(int i=0; i<slots.Length; i++) {
+            gemlist[i]=slots[i].GetComponent<slot>().g;
+        }
+        Debug.Log("gemlist refresh");  
+    }
+
     public void add_gem(gemData gd) {
         if(gemcount<slots.Length) {
             for(int i=0; i<slots.Length; i++) {

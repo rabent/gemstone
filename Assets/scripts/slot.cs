@@ -11,6 +11,7 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
    private gemData pgem;
    public Image slot_img;
    public bool isfull=false;
+   public bool begin_mono=false;
    public int slot_index;
    public gemData g { //슬롯에 젬데이터 input
     get {return pgem;}
@@ -32,6 +33,7 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnBeginDrag(PointerEventData eventData)
     { //드래그 시작 시 draggedslot에 데이터 저장
         if(isfull) {
+            if(this.gameObject.tag=="monoslot") begin_mono=true;
             draggedslot.instance.dragslot=this;
             draggedslot.instance.dragset(slot_img);
             draggedslot.instance.transform.position=eventData.position;
@@ -48,7 +50,7 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnEndDrag(PointerEventData eventData)
     { //드래그가 끝날 시 begindrag한 슬롯에서 발동
     //석판에 드랍했는지 인벤토리에 드랍했는지에 따라 처리 진행
-        if(draggedslot.instance.is_monolith==true) {
+        if(draggedslot.instance.is_monolith==true && draggedslot.instance.is_change==false) {
             this.g=null;
             invenmanager.inventory.gemlist[slot_index]=null;
             draggedslot.instance.is_monolith=false;
@@ -57,14 +59,27 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             Debug.Log(draggedslot.instance.change_gd);
             this.g=draggedslot.instance.change_gd;
             int idx=draggedslot.instance.change_idx;
-            invenmanager.inventory.gemlist[idx]=this.g;
-            invenmanager.inventory.gemlist[slot_index]=draggedslot.instance.change_gd;
+            if(draggedslot.instance.is_monolith) {
+                invenmanager.inventory.gemlist[slot_index]=draggedslot.instance.change_gd;
+                draggedslot.instance.is_monolith=false;
+            }
+            else {
+                invenmanager.inventory.gemlist[idx]=this.g;
+                if(!begin_mono) invenmanager.inventory.gemlist[slot_index]=draggedslot.instance.change_gd;
+            }
             draggedslot.instance.change_gd=null;
             draggedslot.instance.change_idx=-1;
             draggedslot.instance.is_change=false;
         }
+        if(begin_mono) {
+             foreach(GameObject mono in invenmanager.inventory.monoliths) {
+                mono.GetComponent<weaponmanager>().monolith_reset();
+            }
+        }
         draggedslot.instance.drag_invisible(0);
         draggedslot.instance.dragslot=null;
+        begin_mono=false;
+        invenmanager.inventory.gemlist_refresh();
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -72,6 +87,11 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     //석판에 drop시 데이터 넘겨주고 석판을 refresh
     //인벤토리에 drop시 서로 데이터를 교환
         if(draggedslot.instance.dragslot!=null && this.gameObject.tag=="monoslot") {
+            if(this.g!=null) {
+                draggedslot.instance.change_idx=this.slot_index;
+                draggedslot.instance.change_gd=this.g;
+                draggedslot.instance.is_change=true;
+            }
             this.g=draggedslot.instance.dragslot.g;
             foreach(GameObject mono in invenmanager.inventory.monoliths) {
                 mono.GetComponent<weaponmanager>().monolith_reset();

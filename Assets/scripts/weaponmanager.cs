@@ -18,6 +18,7 @@ public class weaponmanager : MonoBehaviour
     public slot[] mono_slots;
     public GameObject special_manager;
     Coroutine crt;
+    Coroutine spcrt=null;
 
     void Start() {
     }
@@ -104,10 +105,23 @@ public class weaponmanager : MonoBehaviour
     //슬롯의 데이터들을 monolith empty로 넘겨받음
         Debug.Log("gem set");
         for(int i=0; i<3; i++) {
-            if(mono_slots[i].g!=null) gems[i]=mono_slots[i].g;
+            gems[i]=mono_slots[i].g;
         }
     }
+
+    public void monolith_clear() {
+        this.damage=0;
+        this.count=0;
+        this.prefabid=0;
+        this.gem_color=0;
+        this.speed=0;
+        this.radius=0;
+        this.penet=0;
+        if(crt!=null) StopCoroutine(crt);
+        if(spcrt!=null) special_manager.GetComponent<special>().StopCoroutine(spcrt);
+    }
     public void monolith_active() {
+        monolith_clear();
         //인벤토리 비활성화시 작동, 젬리스트의 젬들을 검사하여 파라미터를 받아오고 스킬을 작동
         foreach(gemData gd in gems) {
             if(gd==null) continue;
@@ -129,7 +143,7 @@ public class weaponmanager : MonoBehaviour
                 this.count+=gd.count;
             }
             else if(gd.isspecial) {
-                special_manager.GetComponent<special>().init(this);
+                spcrt=special_manager.GetComponent<special>().init(this);
             }
         }
     }

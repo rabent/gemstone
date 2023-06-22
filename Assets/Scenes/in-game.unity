@@ -355,7 +355,8 @@ MonoBehaviour:
   pgem: {fileID: 0}
   slot_img: {fileID: 9166880}
   isfull: 0
-  slot_index: 0
+  begin_mono: 0
+  slot_index: 1
 --- !u!1 &42908186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5350,7 +5351,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6483973046533982846, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
       propertyPath: slot_index
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
@@ -5693,7 +5694,8 @@ MonoBehaviour:
   pgem: {fileID: 0}
   slot_img: {fileID: 381187225}
   isfull: 0
-  slot_index: 0
+  begin_mono: 0
+  slot_index: 2
 --- !u!1 &412729269
 GameObject:
   m_ObjectHideFlags: 0
@@ -5863,7 +5865,8 @@ MonoBehaviour:
   pgem: {fileID: 0}
   slot_img: {fileID: 455504609}
   isfull: 0
-  slot_index: 0
+  begin_mono: 0
+  slot_index: 2
 --- !u!1001 &474673347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5973,7 +5976,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6483973046533982846, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
       propertyPath: slot_index
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
@@ -6086,7 +6089,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6483973046533982846, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
       propertyPath: slot_index
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
@@ -6182,6 +6185,7 @@ MonoBehaviour:
   pgem: {fileID: 0}
   slot_img: {fileID: 527651565}
   isfull: 0
+  begin_mono: 0
   slot_index: 0
 --- !u!1 &598843526
 GameObject:
@@ -6400,7 +6404,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6483973046533982846, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
       propertyPath: slot_index
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
@@ -6589,7 +6593,8 @@ MonoBehaviour:
   pgem: {fileID: 0}
   slot_img: {fileID: 734522546}
   isfull: 0
-  slot_index: 0
+  begin_mono: 0
+  slot_index: 2
 --- !u!1001 &744757175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6699,7 +6704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6483973046533982846, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
       propertyPath: slot_index
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
@@ -6963,7 +6968,8 @@ MonoBehaviour:
   pgem: {fileID: 0}
   slot_img: {fileID: 973850309}
   isfull: 0
-  slot_index: 0
+  begin_mono: 0
+  slot_index: 1
 --- !u!1 &999237726
 GameObject:
   m_ObjectHideFlags: 0
@@ -7236,6 +7242,7 @@ MonoBehaviour:
   pgem: {fileID: 0}
   slot_img: {fileID: 1107121505}
   isfull: 0
+  begin_mono: 0
   slot_index: 0
 --- !u!1 &1119465239
 GameObject:
@@ -7329,7 +7336,8 @@ MonoBehaviour:
   pgem: {fileID: 0}
   slot_img: {fileID: 1119465241}
   isfull: 0
-  slot_index: 0
+  begin_mono: 0
+  slot_index: 1
 --- !u!1001 &1120064169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7532,7 +7540,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6483973046533982846, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
       propertyPath: slot_index
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
@@ -7695,6 +7703,7 @@ MonoBehaviour:
   pgem: {fileID: 0}
   slot_img: {fileID: 1282088919}
   isfull: 0
+  begin_mono: 0
   slot_index: 0
 --- !u!1 &1302086670
 GameObject:
@@ -8142,6 +8151,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1666118910 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6483973046533982845, guid: afcb5e3e65a03274da686278d1a342fa, type: 3}
+  m_PrefabInstance: {fileID: 474673347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1670635967
 GameObject:
   m_ObjectHideFlags: 0
@@ -13140,7 +13154,8 @@ MonoBehaviour:
   pgem: {fileID: 0}
   slot_img: {fileID: 1873843765}
   isfull: 0
-  slot_index: 0
+  begin_mono: 0
+  slot_index: 1
 --- !u!1 &1886074537
 GameObject:
   m_ObjectHideFlags: 0
@@ -17602,7 +17617,8 @@ MonoBehaviour:
   pgem: {fileID: 0}
   slot_img: {fileID: 1976993716}
   isfull: 0
-  slot_index: 0
+  begin_mono: 0
+  slot_index: 2
 --- !u!1 &1983065627
 GameObject:
   m_ObjectHideFlags: 0
@@ -22203,7 +22219,7 @@ MonoBehaviour:
   - {fileID: 1231701943}
   - {fileID: 1855464637}
   - {fileID: 1011733511}
-  - {fileID: 862976723}
+  - {fileID: 1666118910}
   gemcount: 0
 --- !u!222 &2894252799378168338
 CanvasRenderer:
@@ -22766,6 +22782,7 @@ MonoBehaviour:
   pgem: {fileID: 0}
   slot_img: {fileID: 2894252800564062812}
   isfull: 0
+  begin_mono: 0
   slot_index: 0
 --- !u!114 &2894252800564062812
 MonoBehaviour:
