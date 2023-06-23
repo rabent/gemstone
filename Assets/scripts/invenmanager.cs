@@ -29,8 +29,10 @@ public class invenmanager : MonoBehaviour
     }
 
     public void gemlist_refresh() {
+        gemcount=0;
         for(int i=0; i<slots.Length; i++) {
             gemlist[i]=slots[i].GetComponent<slot>().g;
+            if(gemlist[i]!=null) gemcount++;
         }
         Debug.Log("gemlist refresh");  
     }

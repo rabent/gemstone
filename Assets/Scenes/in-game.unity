@@ -12486,6 +12486,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1728032340}
   - component: {fileID: 1728032339}
+  - component: {fileID: 1728032341}
   m_Layer: 0
   m_Name: gamemanager
   m_TagString: Untagged
@@ -12527,6 +12528,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1728032341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728032338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17f2a6155682d584f81266afd6400057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gemprefab: {fileID: 2335861937036018939, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
+  gems:
+  - {fileID: 11400000, guid: cd6e8dfe26dea88459ca4597cedb7b7a, type: 2}
+  - {fileID: 11400000, guid: e2c2f295fe495354ba0d4fab2f75f04b, type: 2}
+  - {fileID: 11400000, guid: 9f345c2025e1bd9498efc31dd3997fc1, type: 2}
+  - {fileID: 11400000, guid: bf5466298acf26148badd477f50a85b9, type: 2}
+  - {fileID: 11400000, guid: cea729ba0774e7243a2aa72446300e4c, type: 2}
 --- !u!1 &1729621162
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public float maxHealth;
     public RuntimeAnimatorController[] animCon;
     public Rigidbody2D target;
+    public gemspawner gemspawner;
 
     bool isLive = true;
 
@@ -26,7 +27,7 @@ public class Enemy : MonoBehaviour
         spriter = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         wait = new WaitForFixedUpdate();
-
+        gemspawner=gamemanager.instance.GetComponent<gemspawner>();
     }
     void FixedUpdate()
     {
@@ -103,5 +104,10 @@ public class Enemy : MonoBehaviour
 
     void Dead(){
         gameObject.SetActive(false);
+        int i=Random.Range(0,10);
+        if(i==0) {
+        var gem=gemspawner.gem_spawn();
+        gem.transform.position=this.transform.position;
+        }
     } //오브젝트 비활성화
 }
