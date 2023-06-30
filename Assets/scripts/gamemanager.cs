@@ -10,8 +10,13 @@ public class gamemanager : MonoBehaviour
     public GameObject inventory;
     public invenmanager invenmanager;
     public playermanager player;
+    public GameObject uimng;
+    public uimanager ui;
+    public int char_num;
     public float gameTime;
-    public float maxGameTime;
+    public bool inv_active=false;
+    public float maxGameTime = 2 * 10f; // 20珥? / 5 * 60f >> 5遺?
+
     void Awake() //싱글톤 기법
     {
         if(instance==null) {
@@ -19,7 +24,12 @@ public class gamemanager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
         else Destroy(this.gameObject);
+
+        uimng=GameObject.Find("UImanager");
+        ui=uimng.GetComponent<uimanager>();
+        char_num=ui.char_num;
     }
+    
 
     private void Update()
     {
@@ -33,15 +43,16 @@ public class gamemanager : MonoBehaviour
             inventory.SetActive(true);
             invenmanager.slot_refresh();
             Time.timeScale=0;
-            Debug.Log("das");
+            inv_active=true;
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape)) {//인벤토리 비활성화
+        if(inv_active==true && Input.GetKeyDown(KeyCode.Escape)) {//인벤토리 비활성화
             GameObject[] monoliths=invenmanager.monoliths;
             foreach(GameObject mono in monoliths) {
                 mono.GetComponent<weaponmanager>().monolith_active();
             }
             inventory.SetActive(false);
+            inv_active=false;
             Time.timeScale=1;
         }
     }
