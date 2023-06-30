@@ -11,7 +11,7 @@ public class gamemanager : MonoBehaviour
     public invenmanager invenmanager;
     public playermanager player;
     public float gameTime;
-    public float maxGameTime = 2 * 10f; // 20ì´? / 5 * 60f >> 5ë¶?
+    public float maxGameTime;
     void Awake() //½Ì±ÛÅæ ±â¹ý
     {
         if(instance==null) {

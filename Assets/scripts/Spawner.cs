@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
     public Transform[] spwanPoint;
     public SpawnData[] spawnData;
-    int level;
+    public int level;
     float timer;
 
     void Awake() 
@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
     void Update() //시간에 따라 레벨 변경
     {
         timer += Time.deltaTime;
-        level = Mathf.Min(Mathf.FloorToInt(gamemanager.instance.gameTime / 10f), spawnData.Length - 1);
+        level = Mathf.Min(Mathf.FloorToInt(gamemanager.instance.gameTime / 10f), spawnData.Length);
 
         if(timer > spawnData[level].spawnTime)
         {

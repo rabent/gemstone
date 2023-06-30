@@ -12512,7 +12512,7 @@ MonoBehaviour:
   invenmanager: {fileID: 2894252799332834239}
   player: {fileID: 268939861}
   gameTime: 0
-  maxGameTime: 20
+  maxGameTime: 100
 --- !u!4 &1728032340
 Transform:
   m_ObjectHideFlags: 0
@@ -21981,6 +21981,15 @@ MonoBehaviour:
     spriteType: 1
     health: 15
     speed: 2.4
+  - spawnTime: 2
+    spriteType: 2
+    health: 30
+    speed: 1.5
+  - spawnTime: 9
+    spriteType: 3
+    health: 150
+    speed: 1
+  level: 0
 --- !u!1 &2095234321
 GameObject:
   m_ObjectHideFlags: 0
