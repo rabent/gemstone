@@ -7,6 +7,7 @@ public class weaponmanager : MonoBehaviour
 {
     public int prefabid;
     public float damage;
+    public int element=0;
     public int count;
     public int penet;
     public float radius;
@@ -29,7 +30,7 @@ public class weaponmanager : MonoBehaviour
             for(int i=0; i<count; i++) {
                 GameObject mag=gamemanager.instance.poolmng.pulling(prefabid);
                 mag.transform.position=this.transform.position;
-                mag.GetComponent<magic>().init(this.damage,this.radius, player.transform);
+                mag.GetComponent<magic>().init(this.damage,this.radius, this.element, player.transform);
             }
             yield return new WaitForSeconds(delay);
         }
@@ -49,7 +50,7 @@ public class weaponmanager : MonoBehaviour
         //오브젝트 생성 후 전방 180도에 랜덤으로 발사
         GameObject dagger = gamemanager.instance.poolmng.pulling(prefabid);
         dagger.transform.position = player.transform.position;
-        dagger.GetComponent<projectile>().init(damage, penet);
+        dagger.GetComponent<projectile>().init(damage, penet,element);
         float x=Random.Range(0, 30);
         float y=Random.Range(-30,30);
         Vector3 dir=new Vector3(x,y,0);
@@ -73,7 +74,7 @@ public class weaponmanager : MonoBehaviour
         GameObject melee=gamemanager.instance.poolmng.pulling(prefabid);
         melee.transform.parent=pivot.transform;
         melee.transform.position=pivot.transform.position+new Vector3(0,1,0);
-        melee.GetComponent<melee>().init(damage, penet, radius);
+        melee.GetComponent<melee>().init(damage, penet, element, radius);
         pivot.transform.DORotate(new Vector3(0,0,180f),0.75f)
         .SetEase(Ease.OutQuart)
         .OnComplete(()=> {
@@ -117,6 +118,7 @@ public class weaponmanager : MonoBehaviour
         this.speed=0;
         this.radius=0;
         this.penet=0;
+        this.element=0;
         if(crt!=null) StopCoroutine(crt);
         if(spcrt!=null) special_manager.GetComponent<special>().StopCoroutine(spcrt);
     }
@@ -133,6 +135,7 @@ public class weaponmanager : MonoBehaviour
                 this.speed=gd.speed;
                 this.radius=gd.radius;
                 this.penet=gd.penet;
+                this.element=gd.element;
                 skill_use();
             }
             else if(gd.ispassive) {
@@ -141,6 +144,7 @@ public class weaponmanager : MonoBehaviour
                 this.radius+=gd.radius;
                 this.penet+=gd.penet;
                 this.count+=gd.count;
+                this.element=gd.element;
             }
             else if(gd.isspecial) {
                 spcrt=special_manager.GetComponent<special>().init(this);

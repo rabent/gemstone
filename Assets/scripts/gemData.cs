@@ -13,6 +13,7 @@ public class gemData : ScriptableObject
     public int color;
     public int id;
     public float damage;
+    public int element;
     public int count;
     public int speed;
     public Sprite spr;
