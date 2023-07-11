@@ -77,10 +77,12 @@ public class Enemy : MonoBehaviour
         if(collision.CompareTag("Bullet")) {
             health -= collision.GetComponent<projectile>().damage;
             StartCoroutine(KonckBack());
+            audiomanager.instance.PlaySfx(audiomanager.Sfx.Range);
         }
         else if(collision.CompareTag("melee")) {
             health -= collision.GetComponent<melee>().damage;
             StartCoroutine(KonckBack());
+            audiomanager.instance.PlaySfx(audiomanager.Sfx.Melee);
         }
         else if(collision.CompareTag("magic")) {
             health -= collision.GetComponent<magic>().damage;
@@ -90,6 +92,7 @@ public class Enemy : MonoBehaviour
         if(health > 0){
             //??????????????? Hit
             anim.SetTrigger("Hit");
+            audiomanager.instance.PlaySfx(audiomanager.Sfx.Hit);
         }
         else {
             //ав╬Н?????????
@@ -98,6 +101,7 @@ public class Enemy : MonoBehaviour
             rigid.simulated = false;
             spriter.sortingOrder = 1;
             anim.SetBool("Dead", true);
+            audiomanager.instance.PlaySfx(audiomanager.Sfx.Dead);
         }
     }
 
