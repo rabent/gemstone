@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
         spwanPoint = GetComponentsInChildren<Transform>();    
     }
 
-    void Update() //½Ã°£¿¡ µû¶ó ·¹º§ º¯°æ
+    void Update() //ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         timer += Time.deltaTime;
         level = Mathf.Min(Mathf.FloorToInt(gamemanager.instance.gameTime / 10f), spawnData.Length);
@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
             Spawn();
         }
     }
-    void Spawn() //Àû ¿ÀºêÁ§Æ® Ç®¸µ
+    void Spawn() //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ç®ï¿½ï¿½
     {
         GameObject Enemy = gamemanager.instance.pool.pulling(2);
         Enemy.transform.position = spwanPoint[Random.Range(1, spwanPoint.Length)].position;
@@ -40,4 +40,7 @@ public class SpawnData
     public int spriteType;
     public int health;
     public float speed;
+    public float fireres;
+    public float iceres;
+    public float lightres;
 }

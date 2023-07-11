@@ -7,6 +7,9 @@ public class Enemy : MonoBehaviour
     public float speed;
     public float health;
     public float maxHealth;
+    public float fireres;
+    public float iceres;
+    public float lightres;
     public RuntimeAnimatorController[] animCon;
     public Rigidbody2D target;
     int spriteType;
@@ -64,6 +67,9 @@ public class Enemy : MonoBehaviour
         speed = data.speed;
         maxHealth = data.health;
         health = data.health;
+        fireres=data.fireres;
+        iceres=data.iceres;
+        lightres=data.lightres;
         if(spriteType == 3){
             transform.localScale = new Vector3(2, 2 ,1);
         }
@@ -75,15 +81,27 @@ public class Enemy : MonoBehaviour
             return;
 
         if(collision.CompareTag("Bullet")) {
-            health -= collision.GetComponent<projectile>().damage;
+            float dam=collision.GetComponent<projectile>().damage;
+            if(collision.GetComponent<projectile>().fire) dam-=dam*(this.fireres-collision.GetComponent<projectile>().anti_fireres);
+            else if(collision.GetComponent<projectile>().ice) dam-=dam*(this.iceres-collision.GetComponent<projectile>().anti_iceres);
+            else if(collision.GetComponent<projectile>().lightn) dam-=dam*(this.lightres-collision.GetComponent<projectile>().anti_lightres);
+            health -= dam;
             StartCoroutine(KonckBack());
         }
         else if(collision.CompareTag("melee")) {
-            health -= collision.GetComponent<melee>().damage;
+            float dam=collision.GetComponent<melee>().damage;
+            if(collision.GetComponent<melee>().fire) dam-=dam*(this.fireres-collision.GetComponent<melee>().anti_fireres);
+            else if(collision.GetComponent<melee>().ice) dam-=dam*(this.iceres-collision.GetComponent<melee>().anti_iceres);
+            else if(collision.GetComponent<melee>().lightn) dam-=dam*(this.lightres-collision.GetComponent<melee>().anti_lightres);
+            health -= dam;
             StartCoroutine(KonckBack());
         }
         else if(collision.CompareTag("magic")) {
-            health -= collision.GetComponent<magic>().damage;
+            float dam=collision.GetComponent<magic>().damage;
+            if(collision.GetComponent<magic>().fire) dam-=dam*(this.fireres-collision.GetComponent<magic>().anti_fireres);
+            else if(collision.GetComponent<magic>().ice) dam-=dam*(this.iceres-collision.GetComponent<magic>().anti_iceres);
+            else if(collision.GetComponent<magic>().lightn) dam-=dam*(this.lightres-collision.GetComponent<magic>().anti_lightres);
+            health -= dam;
             StartCoroutine(KonckBack());
         }
 
@@ -92,7 +110,7 @@ public class Enemy : MonoBehaviour
             anim.SetTrigger("Hit");
         }
         else {
-            //ав╬Н?????????
+            //О©╫в╬О©╫?????????
             isLive = false;
             coll.enabled = false;
             rigid.simulated = false;

@@ -10,6 +10,7 @@ public class gemData : ScriptableObject
     public bool isactive;
     public bool ispassive;
     public bool isspecial;
+    public int curse;
     public int color;
     public int id;
     public float damage;
