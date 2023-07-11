@@ -87,6 +87,7 @@ public class Enemy : MonoBehaviour
             else if(collision.GetComponent<projectile>().lightn) dam-=dam*(this.lightres-collision.GetComponent<projectile>().anti_lightres);
             health -= dam;
             StartCoroutine(KonckBack());
+            audiomanager.instance.PlaySfx(audiomanager.Sfx.Range);
         }
         else if(collision.CompareTag("melee")) {
             float dam=collision.GetComponent<melee>().damage;
@@ -95,6 +96,7 @@ public class Enemy : MonoBehaviour
             else if(collision.GetComponent<melee>().lightn) dam-=dam*(this.lightres-collision.GetComponent<melee>().anti_lightres);
             health -= dam;
             StartCoroutine(KonckBack());
+            audiomanager.instance.PlaySfx(audiomanager.Sfx.Melee);
         }
         else if(collision.CompareTag("magic")) {
             float dam=collision.GetComponent<magic>().damage;
@@ -108,6 +110,7 @@ public class Enemy : MonoBehaviour
         if(health > 0){
             //??????????????? Hit
             anim.SetTrigger("Hit");
+            audiomanager.instance.PlaySfx(audiomanager.Sfx.Hit);
         }
         else {
             //�׾�?????????
@@ -116,6 +119,7 @@ public class Enemy : MonoBehaviour
             rigid.simulated = false;
             spriter.sortingOrder = 1;
             anim.SetBool("Dead", true);
+            audiomanager.instance.PlaySfx(audiomanager.Sfx.Dead);
         }
     }
 
