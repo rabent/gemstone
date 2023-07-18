@@ -36,6 +36,8 @@ public class audiomanager : MonoBehaviour
         bgmPlayer.volume = bgmVolume;
         bgmPlayer.clip = bgmClip;
 
+        audiomanager.instance.PlayBgm(true);
+
         //효과음 플레이어 초기화, 채널 개수만큼 여러개
         GameObject sfxObject = new GameObject("BgmPlayer");
         sfxObject.transform.parent = transform;
@@ -46,6 +48,18 @@ public class audiomanager : MonoBehaviour
             sfxPlayers[index] = sfxObject.AddComponent<AudioSource>();
             sfxPlayers[index].playOnAwake = false;
             sfxPlayers[index].volume = sfxVolume;
+        }
+    }
+
+    public void PlayBgm(bool isPlay) //배경음악 재생
+    {
+        if (isPlay)
+        {
+            bgmPlayer.Play();
+        }
+        else
+        {
+            bgmPlayer.Stop();
         }
     }
 
