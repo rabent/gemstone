@@ -5662,7 +5662,7 @@ PrefabInstance:
     - target: {fileID: 4463747378773342522, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
       propertyPath: gemData
       value: 
-      objectReference: {fileID: 11400000, guid: 2687690ba464e53438774bbaaade7c48, type: 2}
+      objectReference: {fileID: 11400000, guid: 9222eec8b67e9ec4da2f622080714ec6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
 --- !u!1 &230152439
@@ -8207,6 +8207,8 @@ MonoBehaviour:
   - {fileID: 4688736586774204612, guid: 970e1b72984fdf747a3f311cb301eaa8, type: 3}
   - {fileID: 6778504008183675539, guid: 28d8d1d62b783bf46a2dda532506c5b7, type: 3}
   - {fileID: 7587236521815183070, guid: 4e6d21ba119591b40b607a98266383b4, type: 3}
+  - {fileID: 2109000674328330931, guid: 540f8a018f7f56a4b8d884e1ad22e3e3, type: 3}
+  - {fileID: 3427605844610940694, guid: d84427f7d18d0cc40a62b9e548ca51ac, type: 3}
 --- !u!1 &965621067
 GameObject:
   m_ObjectHideFlags: 0

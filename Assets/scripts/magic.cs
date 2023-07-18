@@ -46,13 +46,29 @@ public class magic : MonoBehaviour
                     this.gameObject.SetActive(false);
                 });
                 break;
+            case 6:
+                anim=null;
+                this.transform.position=player.transform.position;
+                this.transform.localScale=new Vector3(rad, rad, rad);
+                x=Random.Range(-1.5f,1.5f);
+                y=Random.Range(-30, 30);
+                Vector3 dir=new Vector3(x,y,0);
+                dir=dir.normalized;
+                this.transform.rotation=Quaternion.FromToRotation(Vector3.up,dir);
+                Rigidbody2D rigid=this.GetComponent<Rigidbody2D>();
+                rigid.velocity=Vector2.zero;
+                rigid.velocity=dir*5;
+                break;
+            case 7:
+                this.transform.localScale=new Vector3(rad, rad, rad);
+                break;
 
         }
        
     }   
 
     private void Update() {
-        if(this.id==1){
+        if(this.id==1 || this.id==7){
         if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f) this.gameObject.SetActive(false);
         }
         else if(this.id==5) {
@@ -64,6 +80,12 @@ public class magic : MonoBehaviour
         if(collision.gameObject.tag == "Enemy") {
             foreach(int i in curse) {
                 curse_use(i, collision);
+            }
+            if(id==6) {
+                GameObject exp=gamemanager.instance.poolmng.pulling(7);
+                exp.transform.position=this.transform.position;
+                exp.GetComponent<magic>().init(7,this.damage*0.3f,this.damage*0.125f, 0, player.transform);
+                this.gameObject.SetActive(false);
             }
         }
     }
