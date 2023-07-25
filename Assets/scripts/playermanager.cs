@@ -17,17 +17,17 @@ public class playermanager : MonoBehaviour
         anim = GetComponent<Animator>();
     }
     
-    void Update() { //ÇÃ·¹ÀÌ¾î ÀÌµ¿
+    void Update() { //ìºë¦­í„° ì´ë™
         inputvec.x=Input.GetAxis("Horizontal")*0.1f;
         inputvec.y=Input.GetAxis("Vertical")*0.1f;
     }
 
-    private void FixedUpdate() { //ÇÃ·¹ÀÌ¾î À§Ä¡ °»½Å
+    private void FixedUpdate() { //areaì™€ í•¨ê»˜ ì´ë™ì‹œì¼œì¤Œ
         rigid.MovePosition(rigid.position + inputvec);
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision) { //Áª È¹µæ
+    private void OnTriggerEnter2D(Collider2D collision) { //ì ¬ê³¼ ì¶©ëŒì‹œ ì¸ë²¤ì˜ ì ¬ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
         if(collision.gameObject.tag == "gem") {
             Debug.Log("gem");
             gemData gd = collision.gameObject.GetComponent<gem>().GemData;
@@ -35,7 +35,7 @@ public class playermanager : MonoBehaviour
             collision.gameObject.SetActive(false);
         }
     }
-    void LateUpdate(){ //ÀÌµ¿ ¾Ö´Ï¸ŞÀÌ¼Ç
+    void LateUpdate(){ //ê±·ëŠ” ì• ë‹ˆë©”ì´ì…˜ ì¬ìƒ
         anim.SetFloat("Speed", inputvec.magnitude);
 
         if (inputvec.x != 0) {

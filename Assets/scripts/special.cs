@@ -5,11 +5,12 @@ using UnityEngine;
 public class special : MonoBehaviour
 {
     public Coroutine init(weaponmanager wmng) {
+       
        Coroutine crt=StartCoroutine(make_shadow(wmng));
        return crt;
     }
 
-    IEnumerator make_shadow(weaponmanager wmng) { //±×¸²ÀÚ »ı¼º ÈÄ weaponmanager ÆÄ¶ó¹ÌÅÍ ³Ñ°ÜÁÜ
+    IEnumerator make_shadow(weaponmanager wmng) { //ë„˜ê²¨ë°›ì€ weaponmanagerì˜ ìŠ¤í‚¬ì„ ê·¸ëŒ€ë¡œ ì‚¬ìš©í•˜ëŠ” ê·¸ë¦¼ìë¥¼ ìƒì„±
         while(true) {
         GameObject shadow = gamemanager.instance.poolmng.pulling(3);
         shadow.transform.position = wmng.player.transform.position;

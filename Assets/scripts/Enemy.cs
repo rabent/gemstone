@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
     WaitForFixedUpdate wait;
 
 
-    void Awake()
+    void Awake() //변수 할당
     {
         rigid = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
 
     }
     void FixedUpdate()
-    {
+    { //몬스터 이동
         if(!isLive || anim.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
             return;
         Vector2 dirVec = target.position - rigid.position;
@@ -60,7 +60,7 @@ public class Enemy : MonoBehaviour
     }
 
     public void Init(SpawnData data)
-    {
+    { //몬스터 스탯 초기화
         Debug.Log(data.spriteType);
         spriteType = data.spriteType;
         anim.runtimeAnimatorController = animCon[data.spriteType];
@@ -76,7 +76,7 @@ public class Enemy : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision) 
-    {
+    { //공격을 받으면 저항을 계산하여 데미지를 입음
         if (!collision.CompareTag("Bullet") && !collision.CompareTag("melee") && !collision.CompareTag("magic"))
             return;
 
@@ -108,12 +108,12 @@ public class Enemy : MonoBehaviour
         }
 
         if(health > 0){
-            //??????????????? Hit
+            //체력이 남아있을시 hit
             anim.SetTrigger("Hit");
             audiomanager.instance.PlaySfx(audiomanager.Sfx.Hit);
         }
         else {
-            //�׾�?????????
+            //사망 과정 진행
             isLive = false;
             coll.enabled = false;
             rigid.simulated = false;
@@ -125,7 +125,7 @@ public class Enemy : MonoBehaviour
 
     IEnumerator KonckBack()
     {
-        yield return wait; //????????? ?????????
+        yield return wait; //애니메이션 중첩을 막기위해 유예를 줌
         Vector3 playerPos = gamemanager.instance.player.transform.position;
         Vector3 dirVec = transform.position - playerPos;
         rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);

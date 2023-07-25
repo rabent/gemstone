@@ -12,7 +12,7 @@ public class Reposition : MonoBehaviour
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if(!collision.CompareTag("Area")) //¸Ê Àç»ı¼º
+        if(!collision.CompareTag("Area")) //areaì™€ ì¶©ëŒì‹œ ë§µì„ ì´ë™ì‹œí‚´
             return;
 
         Vector3 playerPos = gamemanager.instance.player.transform.position;
@@ -25,7 +25,7 @@ public class Reposition : MonoBehaviour
         float dirY = playerDir.y < 0 ? -1 : 1;
 
         switch(transform.tag) {
-            case "Ground": //¸Ê ¸®Æ÷Áö¼Ç
+            case "Ground": //ë§µì„ ì´ë™
                 if (diffX > diffY){
                     transform.Translate(Vector3.right * dirX * 40);
                 }
@@ -33,7 +33,7 @@ public class Reposition : MonoBehaviour
                     transform.Translate(Vector3.up * dirY * 40);
                 }
                 break;
-            case "Enemy": //Àû pulling
+            case "Enemy": //ë§µë°–ì˜ ëª¬ìŠ¤í„°ë¥¼ ë§µê³¼ í•¨ê»˜ ê·¼ì²˜ë¡œ ì´ë™
                 if (coll.enabled){
                     transform.Translate(playerDir * 20 + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0f));
                 }

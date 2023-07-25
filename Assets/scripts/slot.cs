@@ -6,14 +6,13 @@ using UnityEngine.EventSystems;
 
 public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
 {
-    // Start is called before the first frame update
     [SerializeField]
    private gemData pgem;
    public Image slot_img;
    public bool isfull=false;
    public bool begin_mono=false;
    public int slot_index;
-   public gemData g { //½½·Ô¿¡ Áªµ¥ÀÌÅÍ input
+   public gemData g { //ì ¬ ë°ì´í„°ê°€ ìˆë‹¤ë©´ íˆ¬ëª…í™”ë¥¼ í•´ì œ
     get {return pgem;}
     set {
         pgem=value;
@@ -31,7 +30,7 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
    }
 
     public void OnBeginDrag(PointerEventData eventData)
-    { //µå·¡±× ½ÃÀÛ ½Ã draggedslot¿¡ µ¥ÀÌÅÍ ÀúÀå
+    { //ìŠ¬ë¡¯ì— ì ¬ì´ ìˆì„ì‹œ ìŠ¬ë¡¯ì„ í´ë¦­í•˜ë©´ draggedslotì— ê·¸ ìŠ¬ë¡¯ì˜ ë°ì´í„°ë¥¼ ë³µì‚¬í•´ì„œ ë„˜ê²¨ì¤Œ
         if(isfull) {
             if(this.gameObject.tag=="monoslot") begin_mono=true;
             draggedslot.instance.dragslot=this;
@@ -41,15 +40,15 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     }
 
     public void OnDrag(PointerEventData eventData)
-    { //µå·¡±× µµÁß draggedslot À§Ä¡ ¸¶¿ì½ºÆ÷ÀÎÅÍ·Î º¯°æ
+    { //ë§ˆìš°ìŠ¤ ì´ë™ì— ë”°ë¼ draggedslotì´ ì´ë™
         if(isfull) {
             draggedslot.instance.transform.position=eventData.position;
         }
     }
 
     public void OnEndDrag(PointerEventData eventData)
-    { //µå·¡±×°¡ ³¡³¯ ½Ã begindragÇÑ ½½·Ô¿¡¼­ ¹ßµ¿
-    //¼®ÆÇ¿¡ µå¶øÇß´ÂÁö ÀÎº¥Åä¸®¿¡ µå¶øÇß´ÂÁö¿¡ µû¶ó Ã³¸® ÁøÇà
+    { //ë“œë˜ê·¸ê°€ ëë‚¬ì„ ì‹œ ì²˜ìŒì— í´ë¦­í–ˆë˜ ìŠ¬ë¡¯ì—ì„œ ë°œë™í•˜ëŠ” í•¨ìˆ˜
+    //ë“œë˜ê·¸ì˜ ì¢…ì°©ì ì´ monolithì¸ì§€, ë‹¤ë¥¸ ìŠ¬ë¡¯ì¸ì§€ì— ë”°ë¼ì„œ í•„ìš”í•œ ì ˆì°¨ë¥¼ ì§„í–‰
         if(draggedslot.instance.is_monolith==true && draggedslot.instance.is_change==false) {
             this.g=null;
             invenmanager.inventory.gemlist[slot_index]=null;
@@ -83,9 +82,9 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     }
 
     public void OnDrop(PointerEventData eventData)
-    {//enddragº¸´Ù ¸ÕÀú ¹ßµ¿, dropÇÑ ½½·Ô¿¡¼­ ¹ßµ¿
-    //¼®ÆÇ¿¡ drop½Ã µ¥ÀÌÅÍ ³Ñ°ÜÁÖ°í ¼®ÆÇÀ» refresh
-    //ÀÎº¥Åä¸®¿¡ drop½Ã ¼­·Î µ¥ÀÌÅÍ¸¦ ±³È¯
+    { //enddragë³´ë‹¤ ë¨¼ì € ë°œë™í•˜ëŠ” í•¨ìˆ˜ë¡œ ë“œë˜ê·¸ê°€ ëë‚œ ìœ„ì¹˜ì— ìˆëŠ” ìŠ¬ë¡¯ì—ì„œ ë°œë™
+    //ë“œë˜ê·¸ê°€ ëë‚œ ìœ„ì¹˜ê°€ monolithë¼ë©´ ì ¬ë°ì´í„°ë¥¼ monolithë¡œ ë„˜ê²¨ì£¼ê³  refresh
+    //ë“œë˜ê·¸ê°€ ëë‚œ ìœ„ì¹˜ê°€ ë‹¤ë¥¸ ìŠ¬ë¡¯ì´ë¼ë©´ ê·¸ ìŠ¬ë¡¯ì— draggedslotì˜ ë°ì´í„°ë¥¼ ë„˜ê¸°ê³  ìŠ¬ë¡¯ì˜ ë°ì´í„°ë¥¼ ë°›ì•„ì˜´
         if(draggedslot.instance.dragslot!=null && this.gameObject.tag=="monoslot") {
             if(this.g!=null) {
                 draggedslot.instance.change_idx=this.slot_index;

@@ -15,9 +15,9 @@ public class gamemanager : MonoBehaviour
     public int char_num;
     public float gameTime;
     public bool inv_active=false;
-    public float maxGameTime = 2 * 10f; // 20�? / 5 * 60f >> 5�?
+    public float maxGameTime = 2 * 10f; // 20�? / 5 * 60f >> 5�?
 
-    void Awake() //�̱��� ���
+    void Awake() //게임 초기화
     {
         if(instance==null) {
             instance=this;
@@ -39,14 +39,14 @@ public class gamemanager : MonoBehaviour
             gameTime = maxGameTime;
         }
 
-        if(Input.GetKeyDown(KeyCode.I)) { //�κ��丮 Ȱ��ȭ
+        if(Input.GetKeyDown(KeyCode.I)) { //인벤토리 오픈 및 초기화
             inventory.SetActive(true);
             invenmanager.slot_refresh();
             Time.timeScale=0;
             inv_active=true;
         }
 
-        if(inv_active==true && Input.GetKeyDown(KeyCode.Escape)) {//�κ��丮 ��Ȱ��ȭ
+        if(inv_active==true && Input.GetKeyDown(KeyCode.Escape)) {//인벤토리 켜져있을시 닫고 인벤이 꺼져있으면 설정창을 on
             GameObject[] monoliths=invenmanager.monoliths;
             foreach(GameObject mono in monoliths) {
                 mono.GetComponent<weaponmanager>().monolith_active();

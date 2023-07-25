@@ -22,6 +22,7 @@ public class magic : MonoBehaviour
         anim=this.GetComponent<Animator>();
     }
     public void init(int id, float dam, float rad, int elem, Transform player) {
+        //투사체의 변수를 할당하고 id에 따라 다른 마법을 발동시킴
         this.damage=dam;
         this.radius=rad;
         this.id=id;
@@ -68,6 +69,7 @@ public class magic : MonoBehaviour
     }   
 
     private void Update() {
+        //애니메이션이 있는 마법의 경우 애니메이션이 끝나면 inactive해줌
         if(this.id==1 || this.id==7){
         if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f) this.gameObject.SetActive(false);
         }
@@ -77,6 +79,7 @@ public class magic : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
+        //적과 충돌시 가지고있는 저주를 발동시키고 파이어볼은 충돌시 폭발 생성
         if(collision.gameObject.tag == "Enemy") {
             foreach(int i in curse) {
                 curse_use(i, collision);

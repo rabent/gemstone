@@ -16,7 +16,7 @@ public class invenmanager : MonoBehaviour
     }
 
     
-    public void slot_refresh() { // �κ��丮 Ȱ��ȭ�� ���� ���ΰ�ħ
+    public void slot_refresh() { // 인벤토리 슬롯을 리스트와 동기화시켜줌
         for(int i=0; i<slots.Length; i++) {
             if(gemlist[i]!=null){
                 slots[i].GetComponent<slot>().g=gemlist[i];
@@ -28,7 +28,7 @@ public class invenmanager : MonoBehaviour
         //}
     }
 
-    public void gemlist_refresh() {
+    public void gemlist_refresh() { //인벤토리 내 젬의 위치변경 등이 있을때 리스트에도 반영해줌
         gemcount=0;
         for(int i=0; i<slots.Length; i++) {
             gemlist[i]=slots[i].GetComponent<slot>().g;

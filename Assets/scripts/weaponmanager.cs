@@ -26,7 +26,8 @@ public class weaponmanager : MonoBehaviour
     }
 
 
-    IEnumerator magicuse(float delay) {//????????? ?????? ??????? count??? ???
+    IEnumerator magicuse(float delay) {//count만큼 마법을 pulling하여 발동시킴
+    //wave 마법의 경우 중첩되면 밸런스가 무너지므로 count를 1로 고정
         while(true) {
             for(int i=0; i<count; i++) {
                 GameObject mag=gamemanager.instance.poolmng.pulling(prefabid);
@@ -38,7 +39,7 @@ public class weaponmanager : MonoBehaviour
         }
     }
     IEnumerator projectile(float delay)
-    { //delay???? count??? fire??? ???
+    { //delay마다 count만큼 fire 함수를 발동
         while(true)
         {
             for(int i=0; i<count; i++) {
@@ -49,7 +50,7 @@ public class weaponmanager : MonoBehaviour
     }
 
     IEnumerator fire() {
-        //??????? ???? ?? ???? 180???? ???????? ???
+        //캐릭터 전방 180도 범위중 랜덤으로 투사체를 발사하는 함수
         GameObject dagger = gamemanager.instance.poolmng.pulling(prefabid);
         dagger.transform.position = player.transform.position;
         dagger.GetComponent<projectile>().init(damage, penet,element, curse);
@@ -71,7 +72,7 @@ public class weaponmanager : MonoBehaviour
     }
 
     IEnumerator swing(float delay) {
-        //????????? pivot?? ??????? ???? ?? ???? 180???? ?????
+        //캐릭터 전방 180도만큼 근접무기를 휘두르는 함수
         while(true) {
         GameObject melee=gamemanager.instance.poolmng.pulling(prefabid);
         melee.transform.parent=pivot.transform;
@@ -92,7 +93,7 @@ public class weaponmanager : MonoBehaviour
         melee.SetActive(false);
     }
 
-    public void skill_use() { //????? gem color???? ???
+    public void skill_use() { //gem color에 따라 종류에 맞는 함수를 발동시킴
         if(gem_color==1) {
             crt=StartCoroutine(projectile(2f));
         }
@@ -104,8 +105,8 @@ public class weaponmanager : MonoBehaviour
         }
     }
 
-    public void monolith_reset() { //???????? ???? ????? ?? ??????
-    //?????? ????????? monolith empty?? ??????
+    public void monolith_reset() { //인벤토리에서 monolith에 젬을 장착시켰을 때
+    //슬롯의 젬 데이터를 monolith로 가져오는 함수
         Debug.Log("gem set");
         for(int i=0; i<3; i++) {
             gems[i]=mono_slots[i].g;
@@ -127,7 +128,7 @@ public class weaponmanager : MonoBehaviour
     }
     public void monolith_active() {
         monolith_clear();
-        //?????? ???????? ???, ????????? ?????? ?????? ??????? ?????? ????? ???
+        //인벤토리를 끌 때 monolith가 가진 젬들을 계산하여 weaponmanager가 최종적으로 스킬을 발동함
         foreach(gemData gd in gems) {
             if(gd==null) continue;
             if(gd.isactive) {

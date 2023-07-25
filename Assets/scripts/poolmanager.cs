@@ -7,14 +7,14 @@ public class poolmanager : MonoBehaviour
 {
     public GameObject[] prefabs;
     public List<GameObject>[] pools; 
-    private void Awake() { //ÇÁ¸®ÆÕ ¸®½ºÆ® ¹Ş¾Æ¿À±â
+    private void Awake() { //ë¦¬ìŠ¤íŠ¸ì— ë‹´ê¸´ í”„ë¦¬íŒ¹ë“¤ì„ ê°€ì ¸ì˜´
         pools=new List<GameObject>[prefabs.Length];
         for(int i=0; i<prefabs.Length; i++) {
             pools[i]=new List<GameObject>();
         }
     }
 
-    public GameObject pulling(int num) { //¾øÀ¸¸é »ı¼º, ÀÖÀ¸¸é Àç»ı¼º
+    public GameObject pulling(int num) { //í’€ì— ë‹´ê¸´ ì›í•˜ëŠ” ì˜¤ë¸Œì íŠ¸ë¥¼ ìƒì„±í•˜ê³  inactiveì¸ ì˜¤ë¸Œì íŠ¸ê°€ ìˆìœ¼ë©´ activeí•˜ì—¬ ì¬í™œìš©í•¨
         GameObject prefab=null;
         foreach(GameObject obj in pools[num]) {
             if(!obj.activeSelf) {

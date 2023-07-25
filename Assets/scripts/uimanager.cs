@@ -74,6 +74,7 @@ public class uimanager : MonoBehaviour
 
    private void Update() {
     if(in_game==true && gamemanager.instance!=null) {
+        //인벤토리가 꺼져있을때 esc를 누르면 인게임 옵션 패널을 띄워줌
         if(pause==true && Input.GetKeyDown(KeyCode.Escape)) {
             ingame_option.SetActive(false);
             pause=false;

@@ -14,7 +14,7 @@ public class Spawner : MonoBehaviour
         spwanPoint = GetComponentsInChildren<Transform>();    
     }
 
-    void Update() //�ð��� ���� ���� ����
+    void Update() //게임 진행 시간에 따라 게임의 스테이지 레벨이 증가
     {
         timer += Time.deltaTime;
         level = Mathf.Min(Mathf.FloorToInt(gamemanager.instance.gameTime / 10f), spawnData.Length);
@@ -25,7 +25,7 @@ public class Spawner : MonoBehaviour
             Spawn();
         }
     }
-    void Spawn() //�� ������Ʈ Ǯ��
+    void Spawn() //풀에서 몬스터를 정해진 스폰포인트에서 랜덤하게 pulling
     {
         GameObject Enemy = gamemanager.instance.pool.pulling(2);
         Enemy.transform.position = spwanPoint[Random.Range(1, spwanPoint.Length)].position;
