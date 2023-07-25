@@ -5,6 +5,7 @@ using UnityEngine;
 public class projectile : MonoBehaviour
 {
     public float damage;
+    public float force;
     public int penet;
     public List<int> curse;
     public bool fire=false;
@@ -14,11 +15,12 @@ public class projectile : MonoBehaviour
     public float anti_iceres=0;
     public float anti_lightres=0;
 
-    public void init(float dam, int pen, int elem, List<int> curse) {
+    public void init(float dam, int pen, int elem, List<int> curse, float force) {
         //투사체의 변수를 할당하고 속성이 있다면 부여
         this.damage=dam;
         this.penet=pen;
         this.curse=curse;
+        this.force=force;
         if(elem==1) this.fire=true;
         else if (elem==2) this.ice=true;
         else if (elem==3) this.lightn=true;

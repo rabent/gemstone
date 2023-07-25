@@ -5,6 +5,7 @@ using UnityEngine;
 public class melee : MonoBehaviour
 {
     public float damage;
+    public float force;
     public int penet;
     public float radius;
     public List<int> curse;
@@ -14,10 +15,11 @@ public class melee : MonoBehaviour
     public float anti_fireres=0;
     public float anti_iceres=0;
     public float anti_lightres=0;
-    public void init(float dam, int pen, int elem, float rad) {
+    public void init(float dam, int pen, int elem, float rad, float force) {
         this.damage=dam;
         this.penet=pen;
         this.radius=rad;
+        this.force=force;
         if(elem==1) this.fire=true;
         else if (elem==2) this.ice=true;
         else if (elem==3) this.lightn=true;

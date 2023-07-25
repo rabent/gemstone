@@ -86,7 +86,8 @@ public class Enemy : MonoBehaviour
             else if(collision.GetComponent<projectile>().ice) dam-=dam*(this.iceres-collision.GetComponent<projectile>().anti_iceres);
             else if(collision.GetComponent<projectile>().lightn) dam-=dam*(this.lightres-collision.GetComponent<projectile>().anti_lightres);
             health -= dam;
-            StartCoroutine(KonckBack());
+            float force=collision.GetComponent<projectile>().force;
+            StartCoroutine(KonckBack(force));
             audiomanager.instance.PlaySfx(audiomanager.Sfx.Range);
         }
         else if(collision.CompareTag("melee")) {
@@ -95,7 +96,8 @@ public class Enemy : MonoBehaviour
             else if(collision.GetComponent<melee>().ice) dam-=dam*(this.iceres-collision.GetComponent<melee>().anti_iceres);
             else if(collision.GetComponent<melee>().lightn) dam-=dam*(this.lightres-collision.GetComponent<melee>().anti_lightres);
             health -= dam;
-            StartCoroutine(KonckBack());
+            float force=collision.GetComponent<melee>().force;
+            StartCoroutine(KonckBack(force));
             audiomanager.instance.PlaySfx(audiomanager.Sfx.Melee);
         }
         else if(collision.CompareTag("magic")) {
@@ -123,12 +125,12 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    IEnumerator KonckBack()
+    IEnumerator KonckBack(float knockforce=3)
     {
         yield return wait; //애니메이션 중첩을 막기위해 유예를 줌
         Vector3 playerPos = gamemanager.instance.player.transform.position;
         Vector3 dirVec = transform.position - playerPos;
-        rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
+        rigid.AddForce(dirVec.normalized * knockforce, ForceMode2D.Impulse);
     }
 
     void Dead(){

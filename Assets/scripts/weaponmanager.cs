@@ -8,6 +8,7 @@ public class weaponmanager : MonoBehaviour
     public int prefabid;
     public float damage;
     public int element=0;
+    public float force=3;
     public int count;
     public int penet;
     public float radius;
@@ -53,7 +54,7 @@ public class weaponmanager : MonoBehaviour
         //캐릭터 전방 180도 범위중 랜덤으로 투사체를 발사하는 함수
         GameObject dagger = gamemanager.instance.poolmng.pulling(prefabid);
         dagger.transform.position = player.transform.position;
-        dagger.GetComponent<projectile>().init(damage, penet,element, curse);
+        dagger.GetComponent<projectile>().init(damage, penet,element, curse, force);
         float x=Random.Range(0, 30);
         float y=Random.Range(-30,30);
         Vector3 dir=new Vector3(x,y,0);
@@ -77,7 +78,7 @@ public class weaponmanager : MonoBehaviour
         GameObject melee=gamemanager.instance.poolmng.pulling(prefabid);
         melee.transform.parent=pivot.transform;
         melee.transform.position=pivot.transform.position+new Vector3(0,1,0);
-        melee.GetComponent<melee>().init(damage, penet, element, radius);
+        melee.GetComponent<melee>().init(damage, penet, element, radius, force);
         pivot.transform.DORotate(new Vector3(0,0,180f),0.75f)
         .SetEase(Ease.OutQuart)
         .OnComplete(()=> {
@@ -122,6 +123,7 @@ public class weaponmanager : MonoBehaviour
         this.radius=0;
         this.penet=0;
         this.element=0;
+        this.force=3;
         curse.Clear();
         if(crt!=null) StopCoroutine(crt);
         if(spcrt!=null) special_manager.GetComponent<special>().StopCoroutine(spcrt);
@@ -140,6 +142,7 @@ public class weaponmanager : MonoBehaviour
                 this.radius=gd.radius;
                 this.penet=gd.penet;
                 this.element=gd.element;
+                this.force=gd.force;
                 skill_use();
             }
             else if(gd.ispassive) {
@@ -150,6 +153,7 @@ public class weaponmanager : MonoBehaviour
                 this.penet+=gd.penet;
                 this.count+=gd.count;
                 this.element=gd.element;
+                this.force=gd.force;
             }
             else if(gd.isspecial) {
                 spcrt=special_manager.GetComponent<special>().init(this);
