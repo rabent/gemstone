@@ -27,7 +27,7 @@ public class Spawner : MonoBehaviour
     }
     void Spawn() //풀에서 몬스터를 정해진 스폰포인트에서 랜덤하게 pulling
     {
-        GameObject Enemy = gamemanager.instance.pool.pulling(2);
+        GameObject Enemy = gamemanager.instance.poolmng.pulling(2);
         Enemy.transform.position = spwanPoint[Random.Range(1, spwanPoint.Length)].position;
         Enemy.GetComponent<Enemy>().Init(spawnData[level]);
     }

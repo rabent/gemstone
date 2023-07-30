@@ -5,7 +5,6 @@ using UnityEngine;
 public class gamemanager : MonoBehaviour
 {
     public static gamemanager instance=null;
-    public poolmanager pool;
     public poolmanager poolmng;
     public GameObject inventory;
     public invenmanager invenmanager;
@@ -57,7 +56,14 @@ public class gamemanager : MonoBehaviour
         }
     }
 
-
+    public void merchant_phase() {
+        foreach(List<GameObject> pool in poolmng.pools) {
+            foreach(GameObject obj in pool) {
+                Destroy(obj);
+            }
+        }
+        ui.merchant_on();
+    }
 
 
 }
