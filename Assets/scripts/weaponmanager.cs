@@ -28,6 +28,14 @@ public class weaponmanager : MonoBehaviour
     void Start() {
     }
 
+    public void slot_expand() {
+        if(slot_index<3) {
+            expand_slots[slot_index].slot_active();
+            slot_index++;
+        }
+        else Debug.Log("all slot expanded");
+    }
+
 
     IEnumerator magicuse(float delay) {//count만큼 마법을 pulling하여 발동시킴
     //wave 마법의 경우 중첩되면 밸런스가 무너지므로 count를 1로 고정

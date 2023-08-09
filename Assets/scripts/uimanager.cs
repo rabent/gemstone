@@ -77,13 +77,6 @@ public class uimanager : MonoBehaviour
     merchant_pannel=GameObject.Find("Canvas").transform.Find("merchant pannel").gameObject;
     merchant_pannel.SetActive(true);
     Time.timeScale=0;
-    Button btn=GameObject.Find("merchant close button").GetComponent<Button>();
-    btn.onClick.AddListener(merchant_off);
-   }
-
-   public void merchant_off() {
-    merchant_pannel.SetActive(false);
-    Time.timeScale=1;
    }
 
    private void Update() {

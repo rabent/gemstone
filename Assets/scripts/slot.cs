@@ -9,6 +9,7 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     [SerializeField]
    private gemData pgem;
    public Image slot_img;
+   public bool islock=false;
    public bool isfull=false;
    public bool begin_mono=false;
    public int slot_index;
@@ -31,7 +32,7 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     public void OnBeginDrag(PointerEventData eventData)
     { //슬롯에 젬이 있을시 슬롯을 클릭하면 draggedslot에 그 슬롯의 데이터를 복사해서 넘겨줌
-        if(isfull) {
+        if(isfull && !islock) {
             if(this.gameObject.tag=="monoslot") begin_mono=true;
             draggedslot.instance.dragslot=this;
             draggedslot.instance.dragset(slot_img);
@@ -41,7 +42,7 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
     public void OnDrag(PointerEventData eventData)
     { //마우스 이동에 따라 draggedslot이 이동
-        if(isfull) {
+        if(isfull && !islock) {
             draggedslot.instance.transform.position=eventData.position;
         }
     }
@@ -49,12 +50,12 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     public void OnEndDrag(PointerEventData eventData)
     { //드래그가 끝났을 시 처음에 클릭했던 슬롯에서 발동하는 함수
     //드래그의 종착점이 monolith인지, 다른 슬롯인지에 따라서 필요한 절차를 진행
-        if(draggedslot.instance.is_monolith==true && draggedslot.instance.is_change==false) {
+        if(draggedslot.instance.is_monolith==true && draggedslot.instance.is_change==false && !islock) {
             this.g=null;
             invenmanager.inventory.gemlist[slot_index]=null;
             draggedslot.instance.is_monolith=false;
         }
-        else if(draggedslot.instance.is_change==true) {
+        else if(draggedslot.instance.is_change==true && !islock) {
             Debug.Log(draggedslot.instance.change_gd);
             this.g=draggedslot.instance.change_gd;
             int idx=draggedslot.instance.change_idx;
@@ -70,7 +71,7 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             draggedslot.instance.change_idx=-1;
             draggedslot.instance.is_change=false;
         }
-        if(begin_mono) {
+        if(begin_mono && !islock) {
              foreach(GameObject mono in invenmanager.inventory.monoliths) {
                 mono.GetComponent<weaponmanager>().monolith_reset();
             }
@@ -85,7 +86,7 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     { //enddrag보다 먼저 발동하는 함수로 드래그가 끝난 위치에 있는 슬롯에서 발동
     //드래그가 끝난 위치가 monolith라면 젬데이터를 monolith로 넘겨주고 refresh
     //드래그가 끝난 위치가 다른 슬롯이라면 그 슬롯에 draggedslot의 데이터를 넘기고 슬롯의 데이터를 받아옴
-        if(draggedslot.instance.dragslot!=null && this.gameObject.tag=="monoslot") {
+        if(draggedslot.instance.dragslot!=null && this.gameObject.tag=="monoslot" && !islock) {
             if(this.g!=null) {
                 draggedslot.instance.change_idx=this.slot_index;
                 draggedslot.instance.change_gd=this.g;
@@ -97,7 +98,7 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
             }
             draggedslot.instance.is_monolith=true;
         }
-        else if(draggedslot.instance.dragslot!=null && this.gameObject.tag=="slot") {
+        else if(draggedslot.instance.dragslot!=null && this.gameObject.tag=="slot" && !islock) {
             draggedslot.instance.change_idx=this.slot_index;
             draggedslot.instance.change_gd=this.g;
             this.g=draggedslot.instance.dragslot.g;
