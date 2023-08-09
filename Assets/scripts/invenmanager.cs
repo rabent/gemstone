@@ -6,6 +6,7 @@ public class invenmanager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static invenmanager inventory;
+    public GameObject inv_pannel;
     public gemData[] gemlist;
     public GameObject[] monoliths;
     public GameObject[] slots;
@@ -13,6 +14,11 @@ public class invenmanager : MonoBehaviour
 
     void Start() {
         inventory=this;
+    }
+
+    public void merchant_open() {
+        inv_pannel.SetActive(true);
+        this.slot_refresh();
     }
 
     

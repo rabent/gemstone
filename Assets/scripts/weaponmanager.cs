@@ -18,6 +18,8 @@ public class weaponmanager : MonoBehaviour
     public GameObject player;
     public GameObject pivot;
     public gemData[] gems;
+    public int slot_index=0;
+    public slotback[] expand_slots;
     public slot[] mono_slots;
     public GameObject special_manager;
     Coroutine crt;
@@ -109,8 +111,10 @@ public class weaponmanager : MonoBehaviour
     public void monolith_reset() { //인벤토리에서 monolith에 젬을 장착시켰을 때
     //슬롯의 젬 데이터를 monolith로 가져오는 함수
         Debug.Log("gem set");
-        for(int i=0; i<3; i++) {
-            gems[i]=mono_slots[i].g;
+        for(int i=0; i<6; i++) {
+            if(mono_slots[i].gameObject.activeSelf==true) {
+                gems[i]=mono_slots[i].g;
+            }
         }
     }
 
