@@ -6440,10 +6440,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inv: {fileID: 2894252799332834239}
-  merchant_pannel: {fileID: 0}
-  slot_button: {fileID: 0}
-  link_button: {fileID: 0}
-  monolith_arrows: []
+  merchant_pannel: {fileID: 1784323075}
+  slot_button: {fileID: 1058110009}
+  link_button: {fileID: 1068931664}
+  monolith_arrows:
+  - {fileID: 1556345468}
+  - {fileID: 1096201035}
+  - {fileID: 1131301080}
+  - {fileID: 1353357679}
 --- !u!1 &381187223
 GameObject:
   m_ObjectHideFlags: 0
@@ -9471,7 +9475,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  slot_index: 3
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  slot_index: 0
   expand_slots:
   - {fileID: 748903822}
   - {fileID: 455237737}
@@ -16932,7 +16939,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  slot_index: 3
+  slot_index: 0
   expand_slots: []
   mono_slots:
   - {fileID: 1107121507}
@@ -17540,7 +17547,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  slot_index: 3
+  slot_index: 0
   expand_slots: []
   mono_slots:
   - {fileID: 527651567}
@@ -27000,7 +27007,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  slot_index: 3
+  slot_index: 0
   expand_slots: []
   mono_slots:
   - {fileID: 1282088921}
@@ -27145,7 +27152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b8d5c2d83f43143b669a2974e29e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inv_pannel: {fileID: 0}
+  inv_pannel: {fileID: 2894252800434684510}
   gemlist:
   - {fileID: 0}
   - {fileID: 0}
