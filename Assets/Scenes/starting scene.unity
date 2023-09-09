@@ -279,6 +279,7 @@ MonoBehaviour:
   charremindpannel: {fileID: 382178631}
   quitremindpannel: {fileID: 965309144}
   ingame_option: {fileID: 0}
+  merchant_pannel: {fileID: 0}
   pause: 0
   char_num: 0
 --- !u!4 &140185763
@@ -354,7 +355,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uADF8\uB808\uC774\uBE0C\uC988"
+  m_text: "\uCE90\uB9AD\uD130 3"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
   m_sharedMaterial: {fileID: -126103988065851406, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
@@ -1784,7 +1785,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uADF8\uB808\uC774\uBE0C\uC988"
+  m_text: "\uCE90\uB9AD\uD130 4"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
   m_sharedMaterial: {fileID: -126103988065851406, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
@@ -3007,7 +3008,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "~~~ \uB2A5\uB825 ~~~ \uC2DC\uC791\uC82C"
+  m_text: "~~~ \uB2A5\uB825\uC774 \uC788\uC2B5\uB2C8\uB2E4.\n~~~ \uC82C\uC744 \uAC00\uC9C0\uACE0
+    \uC2DC\uC791\uD569\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
   m_sharedMaterial: {fileID: -126103988065851406, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
@@ -3411,7 +3413,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uADF8\uB808\uC774\uBE0C\uC988"
+  m_text: "\uCE90\uB9AD\uD130 2"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
   m_sharedMaterial: {fileID: -126103988065851406, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
@@ -3816,7 +3818,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uADF8\uB808\uC774\uBE0C\uC988"
+  m_text: "\uCE90\uB9AD\uD130 1"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
   m_sharedMaterial: {fileID: -126103988065851406, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
@@ -4468,7 +4470,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 728, y: -304}
-  m_SizeDelta: {x: 460, y: 150}
+  m_SizeDelta: {x: 480, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1657721719
 MonoBehaviour:
@@ -4490,7 +4492,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "~~~ \uB2A5\uB825 ~~~ \uC2DC\uC791\uC82C"
+  m_text: "~~~ \uB2A5\uB825\uC774 \uC788\uC2B5\uB2C8\uB2E4.\n~~~ \uC82C\uC744 \uAC00\uC9C0\uACE0
+    \uC2DC\uC791\uD569\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
   m_sharedMaterial: {fileID: -126103988065851406, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
@@ -5414,7 +5417,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 248, y: -304}
-  m_SizeDelta: {x: 460, y: 150}
+  m_SizeDelta: {x: 480, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1821574371
 MonoBehaviour:
@@ -5436,7 +5439,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "~~~ \uB2A5\uB825 ~~~ \uC2DC\uC791\uC82C"
+  m_text: "~~~ \uB2A5\uB825\uC774 \uC788\uC2B5\uB2C8\uB2E4.\n~~~ \uC82C\uC744 \uAC00\uC9C0\uACE0
+    \uC2DC\uC791\uD569\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
   m_sharedMaterial: {fileID: -126103988065851406, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
@@ -5499,7 +5503,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -1.5548096, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -5839,7 +5843,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "~~~ \uB2A5\uB825 ~~~ \uC2DC\uC791\uC82C"
+  m_text: "~~~ \uB2A5\uB825\uC774 \uC788\uC2B5\uB2C8\uB2E4.\n~~~ \uC82C\uC744 \uAC00\uC9C0\uACE0
+    \uC2DC\uC791\uD569\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: df646c36dd2736d408728a4f25e8168e, type: 2}
   m_sharedMaterial: {fileID: -126103988065851406, guid: df646c36dd2736d408728a4f25e8168e, type: 2}

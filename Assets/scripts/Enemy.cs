@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D target;
     int spriteType;
 
+    public gemspawner gemspawner;
+
 
     bool isLive = true;
 
@@ -31,7 +33,7 @@ public class Enemy : MonoBehaviour
         spriter = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         wait = new WaitForFixedUpdate();
-
+        gemspawner=gamemanager.instance.GetComponent<gemspawner>();
     }
     void FixedUpdate()
     { //몬스터 이동
@@ -134,6 +136,11 @@ public class Enemy : MonoBehaviour
     }
 
     void Dead(){
+        int i=Random.Range(0,0);
+        if(i==0) {
+        var gem=gemspawner.gem_spawn();
+        gem.transform.position=this.transform.position;
+        }
         gameObject.SetActive(false);
     }
 }

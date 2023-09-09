@@ -119,7 +119,7 @@ public class weaponmanager : MonoBehaviour
     public void monolith_reset() { //인벤토리에서 monolith에 젬을 장착시켰을 때
     //슬롯의 젬 데이터를 monolith로 가져오는 함수
         Debug.Log("gem set");
-        for(int i=0; i<6; i++) {
+        for(int i=0; i<3; i++) { //향후 3을 열린 슬롯 개수로 수정
             if(mono_slots[i].gameObject.activeSelf==true) {
                 gems[i]=mono_slots[i].g;
             }
