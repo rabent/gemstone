@@ -53,6 +53,7 @@ public class shopmanager : MonoBehaviour
       slot_button.gameObject.SetActive(false);
       link_button.gameObject.SetActive(false);
       inv.inv_pannel.SetActive(true);
+      inv.slot_refresh();
       slot_lock();
       foreach(Button btn in monolith_arrows) {
          btn.gameObject.SetActive(true);
@@ -88,13 +89,14 @@ public class shopmanager : MonoBehaviour
          slot_button.gameObject.SetActive(true);
          link_button.gameObject.SetActive(true);
          slot_unlock();
-         inv.inv_pannel.SetActive(true);
+         inv.inv_pannel.SetActive(false);
       }
       else if(in_link==true) {
 
       }
       else {
          Time.timeScale=1;
+         Debug.Log("merchant close");
          merchant_pannel.SetActive(false);
       }
    }

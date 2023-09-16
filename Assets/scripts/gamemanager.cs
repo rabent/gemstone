@@ -27,6 +27,7 @@ public class gamemanager : MonoBehaviour
         uimng=GameObject.Find("UImanager");
         ui=uimng.GetComponent<uimanager>();
         char_num=ui.char_num;
+        StartCoroutine(merchant_phase());
     }
     
 
@@ -56,12 +57,15 @@ public class gamemanager : MonoBehaviour
         }
     }
 
-    public void merchant_phase() {
+    IEnumerator merchant_phase() {
+        yield return new WaitForSeconds(5f);
         foreach(List<GameObject> pool in poolmng.pools) {
             foreach(GameObject obj in pool) {
                 Destroy(obj);
             }
+            pool.Clear();
         }
+        Time.timeScale=0;
         ui.merchant_on();
     }
 
