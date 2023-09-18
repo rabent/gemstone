@@ -15,11 +15,16 @@ MonoBehaviour:
   isactive: 0
   ispassive: 0
   isspecial: 1
+  curse: 0
   color: 0
   id: 3
   damage: 0
+  force: 0
+  element: 0
   count: 0
   speed: 0
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 0
   penet: 0
+  tags:
+  - "\uC2A4\uD398\uC15C"

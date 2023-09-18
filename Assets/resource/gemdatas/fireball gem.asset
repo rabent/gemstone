@@ -19,9 +19,16 @@ MonoBehaviour:
   color: 2
   id: 6
   damage: 8
+  force: 0
   element: 1
   count: 2
   speed: 5
   spr: {fileID: -1997803578, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 0.4
   penet: 0
+  tags:
+  - "\uC561\uD2F0\uBE0C"
+  - "\uB9C8\uBC95"
+  - "\uD654\uC5FC"
+  - "\uBC1C\uC0AC\uCCB4"
+  - "\uBC18\uACBD"

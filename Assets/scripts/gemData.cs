@@ -21,4 +21,6 @@ public class gemData : ScriptableObject
     public Sprite spr;
     public float radius;
     public int penet;
+
+    public string[] tags;
 }
