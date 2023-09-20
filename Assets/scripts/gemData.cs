@@ -22,5 +22,7 @@ public class gemData : ScriptableObject
     public float radius; //공격의 반경이 어떤지
     public int penet; //몇번 관통하는지
 
+    public string gem_name;
+    public string gem_explain;
     public string[] tags;
 }

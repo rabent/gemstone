@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
+using TMPro;
 
-public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
+public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField]
    private gemData pgem;
@@ -13,6 +15,11 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
    public bool isfull=false;
    public bool begin_mono=false;
    public int slot_index;
+   public GameObject pannel;
+   public TMP_Text title;
+   public TMP_Text explain;
+   public TMP_Text tags;
+
    public gemData g { //젬 데이터가 있다면 투명화를 해제
     get {return pgem;}
     set {
@@ -30,8 +37,28 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     }
    }
 
+   public void OnPointerEnter(PointerEventData eventData) {
+        pannel.SetActive(true);
+        title.text=g.gem_name;
+        explain.text=g.gem_explain;
+        string str="";
+        foreach(string s in g.tags) {
+            str=s + ",";
+        }
+        str=str.Remove(str.Length - 1, 1);
+        this.tags.text=str;
+        Debug.Log("mouse enter");
+   }
+
+    public void OnPointerExit(PointerEventData eventData) {
+        pannel.SetActive(false);
+        Debug.Log("mouse exit");
+    }
+
+   
     public void OnBeginDrag(PointerEventData eventData)
     { //슬롯에 젬이 있을시 슬롯을 클릭하면 draggedslot에 그 슬롯의 데이터를 복사해서 넘겨줌
+        pannel.SetActive(false);
         if(isfull && !islock) {
             if(this.gameObject.tag=="monoslot") begin_mono=true;
             draggedslot.instance.dragslot=this;
