@@ -21,7 +21,7 @@ public class poolmanager : MonoBehaviour
                 prefab=obj; obj.SetActive(true); break;
             }
         }
-        if(prefab==null) {
+        if(prefab==null) { 
             prefab=Instantiate(prefabs[num],new Vector3(0,0,0),Quaternion.identity);
             pools[num].Add(prefab);
         }

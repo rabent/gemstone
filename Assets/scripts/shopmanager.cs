@@ -18,7 +18,7 @@ public class shopmanager : MonoBehaviour
       this.monoliths=inv.monoliths;
    }
 
-   public void slot_lock() {
+   public void slot_lock() { //상점페이즈 내에서 인벤토리와 석판의 슬롯에 락을 걸어줌
       foreach(GameObject obj in inv.slots) {
          slot s=obj.GetComponent<slot>();
          s.islock=true;
@@ -33,7 +33,7 @@ public class shopmanager : MonoBehaviour
       }
    }
 
-   public void slot_unlock() {
+   public void slot_unlock() { //상점페이즈에서 나갈때 걸려있던 락을 모두 풀어줌
       foreach(GameObject obj in inv.slots) {
          slot s=obj.GetComponent<slot>();
          s.islock=false;
@@ -48,7 +48,7 @@ public class shopmanager : MonoBehaviour
       }
    }
 
-   public void slot_open() {
+   public void slot_open() { //슬롯 개방 메뉴에 들어갈 시 필요한 패널과 버튼을 띄워줌
       in_slot=true;
       slot_button.gameObject.SetActive(false);
       link_button.gameObject.SetActive(false);
@@ -60,7 +60,7 @@ public class shopmanager : MonoBehaviour
       }
    }
 
-   public void open_monolith0() {
+   public void open_monolith0() { //각 석판의 개방 함수
       weaponmanager wpn=monoliths[0].GetComponent<weaponmanager>();
       wpn.slot_expand();
    }
@@ -80,7 +80,7 @@ public class shopmanager : MonoBehaviour
       wpn.slot_expand();
    }
 
-   public void return_button() {
+   public void return_button() { //슬롯개방 화면일땐 원래 상점으로, 상점 메인화면에선 스테이지로 돌아감
       if(in_slot==true) {
          in_slot=false;
          foreach(Button btn in monolith_arrows) {

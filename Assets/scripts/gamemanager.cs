@@ -16,7 +16,7 @@ public class gamemanager : MonoBehaviour
     public bool inv_active=false;
     public float maxGameTime = 2 * 10f; // 20�? / 5 * 60f >> 5�?
 
-    void Awake() //게임 초기화
+    void Awake() //게임 초기화 및 ui매니저 데이터 인계받음
     {
         if(instance==null) {
             instance=this;
@@ -57,7 +57,8 @@ public class gamemanager : MonoBehaviour
         }
     }
 
-    IEnumerator merchant_phase() {
+    IEnumerator merchant_phase() { //게임 시작 후 일정시간이 지나면 상점 페이즈를 오픈, 시간을 정지함
+    //그와 동시에 현재 스테이지에 있던 모든 오브젝트를 비활성화함으로써 초기화
         yield return new WaitForSeconds(5f);
         foreach(List<GameObject> pool in poolmng.pools) {
             foreach(GameObject obj in pool) {

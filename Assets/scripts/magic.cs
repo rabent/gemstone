@@ -5,18 +5,18 @@ using DG.Tweening;
 
 public class magic : MonoBehaviour
 {
-    public float damage;
-    public float radius;
-    public int id;
-    public List<int> curse;
-    public Transform player;
-    public Animator anim;
-    public bool fire=false;
-    public bool ice=false;
-    public bool lightn=false;
-    public float anti_fireres=0;
-    public float anti_iceres=0;
-    public float anti_lightres=0;
+    public float damage; //피해
+    public float radius; //반경
+    public int id; //id번호
+    public List<int> curse; //발동되는 저주 목록 
+    public Transform player; //플레이어 위치
+    public Animator anim; //마법의 애니메이션
+    public bool fire=false; //화염 속성인가?
+    public bool ice=false; //얼음 속성인가?
+    public bool lightn=false; //번개 속성인가?
+    public float anti_fireres=0; //화염저항 무시 수치
+    public float anti_iceres=0; //얼음저항 무시 수치
+    public float anti_lightres=0; //번개저항 무시 수치
 
     private void Start() {
         anim=this.GetComponent<Animator>();
@@ -31,13 +31,13 @@ public class magic : MonoBehaviour
         else if (elem==2) this.ice=true;
         else if (elem==3) this.lightn=true;
         switch(id) {
-            case 1:
+            case 1: //spark 젬
                 float x=Random.Range(player.position.x-4,player.transform.position.x+4);
                 float y=Random.Range(player.position.y-4, player.position.y+4);
                 this.transform.localScale=new Vector3(rad, rad, rad);
                 this.transform.position=new Vector3(x,y,0);
                 break;
-            case 5:
+            case 5: //wave 젬
                 anim=null;
                 this.transform.position=player.transform.position;
                 this.transform.DOScale(new Vector3(radius,radius*0.8f,radius),1f)
@@ -47,7 +47,7 @@ public class magic : MonoBehaviour
                     this.gameObject.SetActive(false);
                 });
                 break;
-            case 6:
+            case 6: //fireball 젬
                 anim=null;
                 this.transform.position=player.transform.position;
                 this.transform.localScale=new Vector3(rad, rad, rad);
@@ -60,7 +60,7 @@ public class magic : MonoBehaviour
                 rigid.velocity=Vector2.zero;
                 rigid.velocity=dir*5;
                 break;
-            case 7:
+            case 7: //폭발 효과
                 this.transform.localScale=new Vector3(rad, rad, rad);
                 break;
 

@@ -15,23 +15,14 @@ public class invenmanager : MonoBehaviour
     void Start() {
         inventory=this;
     }
-
-    public void merchant_open() {
-        inv_pannel.SetActive(true);
-        this.slot_refresh();
-    }
-
     
-    public void slot_refresh() { // 인벤토리 슬롯을 리스트와 동기화시켜줌
+    public void slot_refresh() { // 인벤토리 슬롯을 젬 리스트와 동기화시켜줌
         for(int i=0; i<slots.Length; i++) {
             if(gemlist[i]!=null){
                 slots[i].GetComponent<slot>().g=gemlist[i];
             }
             Debug.Log("slot refresh");  
         }
-        //for(int i=gemcount; i<slots.Length; i++) {
-           // slots[i].GetComponent<slot>().g=null;
-        //}
     }
 
     public void gemlist_refresh() { //인벤토리 내 젬의 위치변경 등이 있을때 리스트에도 반영해줌
@@ -43,7 +34,7 @@ public class invenmanager : MonoBehaviour
         Debug.Log("gemlist refresh");  
     }
 
-    public void add_gem(gemData gd) {
+    public void add_gem(gemData gd) { //슬롯에 여유가 있다면 젬리스트에 젬 데이터를 넣어줌
         if(gemcount<slots.Length) {
             for(int i=0; i<slots.Length; i++) {
                 if(gemlist[i]==null) {

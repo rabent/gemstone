@@ -7,18 +7,18 @@ public class gemData : ScriptableObject
 {
    
     // Start is called before the first frame update
-    public bool isactive;
-    public bool ispassive;
-    public bool isspecial;
-    public int curse;
-    public int color;
-    public int id;
-    public float damage;
-    public float force;
-    public int element;
-    public int count;
-    public int speed;
-    public Sprite spr;
-    public float radius;
-    public int penet;
+    public bool isactive; //액티브 젬인지
+    public bool ispassive; //패시브 젬인지
+    public bool isspecial; //스페셜 젬인지
+    public int curse; //저주 효과가 있는지
+    public int color; //색깔이 어떤지
+    public int id; //id 번호가 몇번인지
+    public float damage; //액티브라면 피해가 몇인지
+    public float force; //넉백 강도가 몇인지
+    public int element; //원소 속성이 어떤 것인지
+    public int count; //한번에 몇번 발동되는지
+    public int speed; //탄속이 어느정도인지
+    public Sprite spr; //젬의 이미지가 어떤지
+    public float radius; //공격의 반경이 어떤지
+    public int penet; //몇번 관통하는지
 }

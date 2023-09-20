@@ -135,7 +135,7 @@ public class Enemy : MonoBehaviour
         rigid.AddForce(dirVec.normalized * knockforce, ForceMode2D.Impulse);
     }
 
-    void Dead(){
+    void Dead(){ //몬스터 사망 시 현재 위치에 젬을 떨어뜨리고 active false
         int i=Random.Range(0,0);
         if(i==0) {
         var gem=gemspawner.gem_spawn();

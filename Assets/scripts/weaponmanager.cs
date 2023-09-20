@@ -5,22 +5,22 @@ using DG.Tweening;
 
 public class weaponmanager : MonoBehaviour
 {
-    public int prefabid;
-    public float damage;
-    public int element=0;
-    public float force=3;
-    public int count;
-    public int penet;
-    public float radius;
-    public float speed;
-    public int gem_color;
-    public List<int> curse;
-    public GameObject player;
-    public GameObject pivot;
-    public gemData[] gems;
-    public int slot_index=0;
-    public slotback[] expand_slots;
-    public slot[] mono_slots;
+    public int prefabid; //할당된 액티브 젬의 id
+    public float damage; //피해
+    public int element=0; //속성
+    public float force=3; //넉백 강도
+    public int count; //발사 수
+    public int penet; //관통
+    public float radius; //반경
+    public float speed; //탄속
+    public int gem_color; //젬 색깔
+    public List<int> curse; //저주 목록
+    public GameObject player; //플레이어 위치
+    public GameObject pivot; //플레이어의 회전축
+    public gemData[] gems; //석판의 젬 목록
+    public int slot_index=0; //새로 개방된 슬롯 숫자
+    public slotback[] expand_slots; //아직 열리지 않은 슬롯 목록
+    public slot[] mono_slots; //석판의 슬롯 목록
     public GameObject special_manager;
     Coroutine crt;
     Coroutine spcrt=null;
@@ -28,7 +28,7 @@ public class weaponmanager : MonoBehaviour
     void Start() {
     }
 
-    public void slot_expand() {
+    public void slot_expand() { //새로 열린 슬롯 개수가 3이 될때까지 개방 가능
         if(slot_index<3) {
             expand_slots[slot_index].slot_active();
             slot_index++;
@@ -126,7 +126,7 @@ public class weaponmanager : MonoBehaviour
         }
     }
 
-    public void monolith_clear() {
+    public void monolith_clear() { //공격의 중복발동을 방지하기 위해 공격 발동 전에 초기화해주는 함수
         this.damage=0;
         this.count=0;
         this.prefabid=0;
