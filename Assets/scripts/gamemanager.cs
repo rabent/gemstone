@@ -62,9 +62,8 @@ public class gamemanager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         foreach(List<GameObject> pool in poolmng.pools) {
             foreach(GameObject obj in pool) {
-                Destroy(obj);
+                obj.SetActive(false);
             }
-            pool.Clear();
         }
         Time.timeScale=0;
         ui.merchant_on();

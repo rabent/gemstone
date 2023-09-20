@@ -19,9 +19,13 @@ MonoBehaviour:
   color: 0
   id: 0
   damage: 0
+  force: 0
   element: 0
   count: 0
   speed: 0
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 0
   penet: 0
+  tags:
+  - "\uD328\uC2DC\uBE0C"
+  - "\uC5BC\uC74C"

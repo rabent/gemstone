@@ -15,11 +15,18 @@ MonoBehaviour:
   isactive: 1
   ispassive: 0
   isspecial: 0
+  curse: 0
   color: 1
   id: 0
   damage: 5
+  force: 0
+  element: 0
   count: 3
   speed: 10
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 1
   penet: 3
+  tags:
+  - "\uC561\uD2F0\uBE0C"
+  - "\uD22C\uC0AC\uCCB4"
+  - "\uBB3C\uB9AC"

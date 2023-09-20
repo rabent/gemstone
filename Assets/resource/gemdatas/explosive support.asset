@@ -26,3 +26,6 @@ MonoBehaviour:
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 0
   penet: 0
+  tags:
+  - "\uD328\uC2DC\uBE0C"
+  - "\uD22C\uC0AC\uCCB4"

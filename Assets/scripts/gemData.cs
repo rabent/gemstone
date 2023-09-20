@@ -6,7 +6,7 @@ using UnityEngine;
 public class gemData : ScriptableObject
 {
    
-    // Start is called before the first frame update
+
     public bool isactive; //액티브 젬인지
     public bool ispassive; //패시브 젬인지
     public bool isspecial; //스페셜 젬인지
@@ -21,4 +21,6 @@ public class gemData : ScriptableObject
     public Sprite spr; //젬의 이미지가 어떤지
     public float radius; //공격의 반경이 어떤지
     public int penet; //몇번 관통하는지
+
+    public string[] tags;
 }
