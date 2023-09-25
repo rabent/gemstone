@@ -26,6 +26,9 @@ MonoBehaviour:
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 0
   penet: 0
+  gem_name: "\uD22C\uC0AC\uCCB4 \uC99D\uAC00 \uBCF4\uC870"
+  gem_explain: "\uD0DC\uADF8\uC5D0 '\uD22C\uC0AC\uCCB4'\uAC00 \uB2EC\uB9B0 \uC82C\uB4E4\uC758
+    \uD22C\uC0AC\uCCB4 \uC218\uAC00 3 \uB9CC\uD07C \uC99D\uAC00\uD569\uB2C8\uB2E4."
   tags:
   - "\uD328\uC2DC\uBE0C"
   - "\uD22C\uC0AC\uCCB4"

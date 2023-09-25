@@ -26,6 +26,9 @@ MonoBehaviour:
   spr: {fileID: 362616440, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 2
   penet: 0
+  gem_name: "\uD718\uB450\uB974\uAE30"
+  gem_explain: "\uCE90\uB9AD\uD130\uC758 \uC804\uBC29\uC5D0 \uAC80\uC744 \uD06C\uAC8C
+    \uD55C\uBC88 \uD718\uB450\uB985\uB2C8\uB2E4."
   tags:
   - "\uC561\uD2F0\uBE0C"
   - "\uADFC\uC811"
