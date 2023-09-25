@@ -16,7 +16,8 @@ public class Enemy : MonoBehaviour
 
     public gemspawner gemspawner;
 
-
+    public GameObject gem_effect;
+    Animator gem_anim;
     bool isLive = true;
 
     Rigidbody2D rigid;
@@ -140,6 +141,9 @@ public class Enemy : MonoBehaviour
         if(i==0) {
         var gem=gemspawner.gem_spawn();
         gem.transform.position=this.transform.position;
+        var vfx=Instantiate(gem_effect);
+        gem_anim=vfx.GetComponent<Animator>();
+        vfx.transform.position=this.transform.position;
         }
         gameObject.SetActive(false);
     }

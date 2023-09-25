@@ -38,21 +38,25 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
    }
 
    public void OnPointerEnter(PointerEventData eventData) {
-        pannel.SetActive(true);
-        title.text=g.gem_name;
-        explain.text=g.gem_explain;
-        string str="";
-        foreach(string s in g.tags) {
-            str=s + ",";
+        if(this.isfull) {
+            pannel.SetActive(true);
+            title.text=g.gem_name;
+            explain.text=g.gem_explain;
+            string str="";
+            foreach(string s in g.tags) {
+                str=s + ",";
+            }
+            str=str.Remove(str.Length - 1, 1);
+            this.tags.text=str;
+            Debug.Log("mouse enter");
         }
-        str=str.Remove(str.Length - 1, 1);
-        this.tags.text=str;
-        Debug.Log("mouse enter");
    }
 
     public void OnPointerExit(PointerEventData eventData) {
-        pannel.SetActive(false);
-        Debug.Log("mouse exit");
+        if(pannel.activeSelf==true) {
+            pannel.SetActive(false);
+            Debug.Log("mouse exit");
+        }
     }
 
    

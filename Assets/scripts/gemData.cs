@@ -23,6 +23,7 @@ public class gemData : ScriptableObject
     public int penet; //몇번 관통하는지
 
     public string gem_name;
+    [TextArea]
     public string gem_explain;
     public string[] tags;
 }
