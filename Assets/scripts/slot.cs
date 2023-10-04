@@ -38,13 +38,19 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
    }
 
    public void OnPointerEnter(PointerEventData eventData) {
+    //마우스 올리면 젬의 정보 패널을 띄움
         if(this.isfull) {
             pannel.SetActive(true);
             title.text=g.gem_name;
             explain.text=g.gem_explain;
             string str="";
             foreach(string s in g.tags) {
-                str=s + ",";
+                str+=s + ",";
+            }
+            if(g.ispassive) {
+                foreach(string s in g.required_tag) {
+                    str+="<color=#800000ff><b>" + s + "</b></color>" + ",";
+                }
             }
             str=str.Remove(str.Length - 1, 1);
             this.tags.text=str;
@@ -53,6 +59,7 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
    }
 
     public void OnPointerExit(PointerEventData eventData) {
+        //마우스 뗐을 때 창 사라짐
         if(pannel.activeSelf==true) {
             pannel.SetActive(false);
             Debug.Log("mouse exit");

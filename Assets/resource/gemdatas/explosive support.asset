@@ -22,14 +22,15 @@ MonoBehaviour:
   force: 0
   element: 0
   count: 0
-  speed: 0
+  speed: 1
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  radius: 0
+  radius: 1
   penet: 0
   gem_name: "\uD22C\uC0AC\uCCB4 \uD3ED\uBC1C \uBCF4\uC870"
-  gem_explain: "\uD22C\uC0AC\uCCB4\uC5D0 \uCDA9\uB3CC \uC2DC \uD22C\uC0AC\uCCB4\uC758
-    \uD53C\uD574\uC5D0 \uBE44\uB840\uD558\uB294 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A4\uB294
-    \uD6A8\uACFC\uB97C \uCD94\uAC00\uD569\uB2C8\uB2E4."
+  gem_explain: "\uD0DC\uADF8\uC5D0 \"\uD22C\uC0AC\uCCB4\"\uAC00 \uB2EC\uB9B0 \uC82C\uC5D0
+    \uD22C\uC0AC\uCCB4\uC758 \uD53C\uD574\uC5D0 \uBE44\uB840\uD558\uB294 \uD3ED\uBC1C\uC744
+    \uC77C\uC73C\uD0A4\uB294 \uD6A8\uACFC\uB97C \uCD94\uAC00\uD569\uB2C8\uB2E4."
   tags:
   - "\uD328\uC2DC\uBE0C"
+  required_tag:
   - "\uD22C\uC0AC\uCCB4"

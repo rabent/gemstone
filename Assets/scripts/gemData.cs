@@ -17,13 +17,14 @@ public class gemData : ScriptableObject
     public float force; //넉백 강도가 몇인지
     public int element; //원소 속성이 어떤 것인지
     public int count; //한번에 몇번 발동되는지
-    public int speed; //탄속이 어느정도인지
+    public float speed=1; //탄속이 어느정도인지
     public Sprite spr; //젬의 이미지가 어떤지
-    public float radius; //공격의 반경이 어떤지
+    public float radius=1; //공격의 반경이 어떤지
     public int penet; //몇번 관통하는지
 
     public string gem_name;
     [TextArea]
     public string gem_explain;
-    public string[] tags;
+    public List<string> tags;
+    public List<string> required_tag;
 }

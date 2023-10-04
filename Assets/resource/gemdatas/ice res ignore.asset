@@ -22,9 +22,9 @@ MonoBehaviour:
   force: 0
   element: 0
   count: 0
-  speed: 0
+  speed: 1
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  radius: 0
+  radius: 1
   penet: 0
   gem_name: "\uC5BC\uC74C \uC800\uD56D \uBB34\uC2DC \uBCF4\uC870"
   gem_explain: "\uC5BC\uC74C \uD53C\uD574\uB97C \uC785\uD788\uB294 \uACF5\uACA9\uC774
@@ -32,4 +32,5 @@ MonoBehaviour:
     \uBB34\uC2DC\uD569\uB2C8\uB2E4."
   tags:
   - "\uD328\uC2DC\uBE0C"
+  required_tag:
   - "\uC5BC\uC74C"

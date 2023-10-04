@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-
+ 
 public class weaponmanager : MonoBehaviour
 {
     public int prefabid; //할당된 액티브 젬의 id
@@ -143,6 +143,15 @@ public class weaponmanager : MonoBehaviour
     public void monolith_active() {
         monolith_clear();
         //인벤토리를 끌 때 monolith가 가진 젬들을 계산하여 weaponmanager가 최종적으로 스킬을 발동함
+        for(int i=0; i<gems.Length; i++) {
+            if(gems[i]!=null) {
+                if(gems[i].isactive && i!=0) {
+                    gemData tmp=gems[0];
+                    gems[0]=gems[i];
+                    gems[i]=tmp;
+                } 
+            }
+        }
         foreach(gemData gd in gems) {
             if(gd==null) continue;
             if(gd.isactive) {
@@ -158,14 +167,21 @@ public class weaponmanager : MonoBehaviour
                 skill_use();
             }
             else if(gd.ispassive) {
-                if(gd.curse!=0) curse.Add(gd.curse);
-                this.damage+=gd.damage;
-                this.speed+=gd.speed;
-                this.radius+=gd.radius;
-                this.penet+=gd.penet;
-                this.count+=gd.count;
-                this.element=gd.element;
-                this.force=gd.force;
+                bool flag=true;
+                foreach(string s in gd.required_tag) {
+                    if(!gems[0].tags.Contains(s)) flag=false;
+                }
+                if(gd.required_tag.Contains("범용")) flag=true;
+                if(flag) {
+                    if(gd.curse!=0) curse.Add(gd.curse);
+                    this.damage+=gd.damage;
+                    this.speed*=gd.speed;
+                    this.radius*=gd.radius;
+                    this.penet+=gd.penet;
+                    this.count+=gd.count;
+                    this.element=gd.element;
+                    this.force+=gd.force;
+                }
             }
             else if(gd.isspecial) {
                 spcrt=special_manager.GetComponent<special>().init(this);

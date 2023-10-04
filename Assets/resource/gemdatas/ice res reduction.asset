@@ -22,14 +22,16 @@ MonoBehaviour:
   force: 0
   element: 0
   count: 0
-  speed: 0
+  speed: 1
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  radius: 0
+  radius: 1
   penet: 0
   gem_name: "\uC5BC\uC74C \uC800\uD56D \uAC10\uC18C \uBCF4\uC870"
   gem_explain: "\uACF5\uACA9\uC5D0 \uC801\uC911\uD55C \uC801\uC758 \uC5BC\uC74C \uC800\uD56D\uC744
     \uC77C\uC815 \uC218\uC900 \uAC10\uC18C\uC2DC\uD0B5\uB2C8\uB2E4."
   tags:
   - "\uD328\uC2DC\uBE0C"
-  - "\uC5BC\uC74C"
   - "\uC800\uC8FC"
+  - "\uC5BC\uC74C"
+  required_tag:
+  - "\uBC94\uC6A9"

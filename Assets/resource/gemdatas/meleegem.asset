@@ -19,7 +19,7 @@ MonoBehaviour:
   color: 3
   id: 4
   damage: 8
-  force: 0
+  force: 5
   element: 0
   count: 1
   speed: 0
@@ -34,3 +34,4 @@ MonoBehaviour:
   - "\uADFC\uC811"
   - "\uBB3C\uB9AC"
   - "\uBC18\uACBD"
+  required_tag: []
