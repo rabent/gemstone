@@ -43,4 +43,5 @@ public class SpawnData
     public float fireres;
     public float iceres;
     public float lightres;
+    public int gold;
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class gamemanager : MonoBehaviour
@@ -14,6 +15,10 @@ public class gamemanager : MonoBehaviour
     public int char_num;
     public float gameTime;
     public bool inv_active=false;
+    public TMP_Text min_text;
+    public TMP_Text sec_text; 
+    public TMP_Text gold_text;
+    public int gold=0;
     public float maxGameTime = 2 * 10f; // 20�? / 5 * 60f >> 5�?
 
     void Awake() //게임 초기화 및 ui매니저 데이터 인계받음
@@ -23,7 +28,9 @@ public class gamemanager : MonoBehaviour
             DontDestroyOnLoad(this.gameObject);
         }
         else Destroy(this.gameObject);
-
+        min_text.text="00";
+        sec_text.text="00";
+        gold_text.text="000";
         uimng=GameObject.Find("UImanager");
         ui=uimng.GetComponent<uimanager>();
         char_num=ui.char_num;
@@ -38,6 +45,22 @@ public class gamemanager : MonoBehaviour
         if(gameTime > maxGameTime){
             gameTime = maxGameTime;
         }
+
+        int min=(int)gameTime / 60;
+        int sec=(int)gameTime - (min*60) % 60;
+
+        if(sec>=60) {
+            sec-=60;
+        }
+        if(min<10) min_text.text="0"+min.ToString();
+        else min_text.text=min.ToString();
+
+        if(sec<10) sec_text.text="0"+sec.ToString();
+        else sec_text.text=sec.ToString();
+
+        if(gold<10) gold_text.text="00"+gold.ToString();
+        else if(gold<100) gold_text.text="0"+gold.ToString();
+        else gold_text.text=gold.ToString();
 
         if(Input.GetKeyDown(KeyCode.I)) { //인벤토리 오픈 및 초기화
             inventory.SetActive(true);

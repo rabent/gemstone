@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public float fireres;
     public float iceres;
     public float lightres;
+    public int gold;
     public RuntimeAnimatorController[] animCon;
     public Rigidbody2D target;
     int spriteType;
@@ -73,6 +74,7 @@ public class Enemy : MonoBehaviour
         fireres=data.fireres;
         iceres=data.iceres;
         lightres=data.lightres;
+        gold=data.gold;
         if(spriteType == 3){
             transform.localScale = new Vector3(2, 2 ,1);
         }
@@ -145,6 +147,7 @@ public class Enemy : MonoBehaviour
         gem_anim=vfx.GetComponent<Animator>();
         vfx.transform.position=this.transform.position;
         }
+        gamemanager.instance.gold+=this.gold;
         gameObject.SetActive(false);
     }
 }
