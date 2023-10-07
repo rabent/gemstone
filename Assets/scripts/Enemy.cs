@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public float iceres;
     public float lightres;
     public int gold;
+    public bool is_boss=false;
     public RuntimeAnimatorController[] animCon;
     public Rigidbody2D target;
     int spriteType;
@@ -76,6 +77,7 @@ public class Enemy : MonoBehaviour
         lightres=data.lightres;
         gold=data.gold;
         if(spriteType == 3){
+            this.is_boss=true;
             transform.localScale = new Vector3(2, 2 ,1);
         }
     }
@@ -125,6 +127,10 @@ public class Enemy : MonoBehaviour
             coll.enabled = false;
             rigid.simulated = false;
             spriter.sortingOrder = 1;
+            if(this.is_boss) {
+            Debug.Log("boss dead");
+            StartCoroutine(open_merchant());
+            }
             anim.SetBool("Dead", true);
             audiomanager.instance.PlaySfx(audiomanager.Sfx.Dead);
         }
@@ -139,7 +145,7 @@ public class Enemy : MonoBehaviour
     }
 
     void Dead(){ //몬스터 사망 시 현재 위치에 젬을 떨어뜨리고 active false
-        int i=Random.Range(0,0);
+        int i=Random.Range(0,10);
         if(i==0) {
         var gem=gemspawner.gem_spawn();
         gem.transform.position=this.transform.position;
@@ -149,5 +155,10 @@ public class Enemy : MonoBehaviour
         }
         gamemanager.instance.gold+=this.gold;
         gameObject.SetActive(false);
+    }
+
+    IEnumerator open_merchant() {
+        yield return new WaitForSeconds(5f);
+        gamemanager.instance.merchant_phase();
     }
 }

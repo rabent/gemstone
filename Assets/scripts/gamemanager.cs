@@ -34,7 +34,6 @@ public class gamemanager : MonoBehaviour
         uimng=GameObject.Find("UImanager");
         ui=uimng.GetComponent<uimanager>();
         char_num=ui.char_num;
-        StartCoroutine(merchant_phase());
     }
     
 
@@ -42,12 +41,12 @@ public class gamemanager : MonoBehaviour
     {
         gameTime += Time.deltaTime;
 
-        if(gameTime > maxGameTime){
-            gameTime = maxGameTime;
-        }
+        //if(gameTime > maxGameTime){
+           // gameTime = maxGameTime;
+        //}
 
         int min=(int)gameTime / 60;
-        int sec=(int)gameTime - (min*60) % 60;
+        int sec=((int)gameTime - min*60) % 60;
 
         if(sec>=60) {
             sec-=60;
@@ -80,9 +79,8 @@ public class gamemanager : MonoBehaviour
         }
     }
 
-    IEnumerator merchant_phase() { //게임 시작 후 일정시간이 지나면 상점 페이즈를 오픈, 시간을 정지함
+    public void merchant_phase() { //게임 시작 후 일정시간이 지나면 상점 페이즈를 오픈, 시간을 정지함
     //그와 동시에 현재 스테이지에 있던 모든 오브젝트를 비활성화함으로써 초기화
-        yield return new WaitForSeconds(5f);
         foreach(List<GameObject> pool in poolmng.pools) {
             foreach(GameObject obj in pool) {
                 obj.SetActive(false);

@@ -23551,6 +23551,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9f345c2025e1bd9498efc31dd3997fc1, type: 2}
   - {fileID: 11400000, guid: bf5466298acf26148badd477f50a85b9, type: 2}
   - {fileID: 11400000, guid: cea729ba0774e7243a2aa72446300e4c, type: 2}
+  - {fileID: 11400000, guid: a26ec0e06b84749489bb1820e7dc2b0c, type: 2}
+  - {fileID: 11400000, guid: 886bf7f6dc2db7443899cb6c97c2b695, type: 2}
+  - {fileID: 11400000, guid: 09de8c22c9e1c3946a7f26e7b273c5ce, type: 2}
+  - {fileID: 11400000, guid: 9c4a536af4c51a849a06aa8bcd14bc4e, type: 2}
+  - {fileID: 11400000, guid: 66ec5648befff3c4b9c6ce342a0133fc, type: 2}
 --- !u!1 &1729621162
 GameObject:
   m_ObjectHideFlags: 0
@@ -34645,9 +34650,9 @@ MonoBehaviour:
     iceres: 0.1
     lightres: 0.1
     gold: 10
-  - spawnTime: 8
+  - spawnTime: 19
     spriteType: 3
-    health: 150
+    health: 100
     speed: 1
     fireres: 0.1
     iceres: 0.1
