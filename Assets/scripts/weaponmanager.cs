@@ -169,7 +169,7 @@ public class weaponmanager : MonoBehaviour
             else if(gd.ispassive) {
                 bool flag=true;
                 foreach(string s in gd.required_tag) {
-                    if(!gems[0].tags.Contains(s)) flag=false;
+                    if(gems[0]!=null && !gems[0].tags.Contains(s)) flag=false;
                 }
                 if(gd.required_tag.Contains("범용")) flag=true;
                 if(flag) {

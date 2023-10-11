@@ -10,6 +10,7 @@ public class shopmanager : MonoBehaviour
    public Button slot_button;
    public Button link_button;
    public Button[] monolith_arrows;
+   public GameObject goldless_pannel;
    GameObject[] monoliths;
    bool in_slot=false;
    bool in_link=false;
@@ -62,7 +63,11 @@ public class shopmanager : MonoBehaviour
 
    public void open_monolith0() { //각 석판의 개방 함수
       weaponmanager wpn=monoliths[0].GetComponent<weaponmanager>();
-      wpn.slot_expand();
+      if(gamemanager.instance.gold>=50) {
+         wpn.slot_expand();
+         gamemanager.instance.gold-=50;
+      }
+      else StartCoroutine(no_gold());
    }
 
    public void open_monolith1() {
@@ -78,6 +83,12 @@ public class shopmanager : MonoBehaviour
    public void open_monolith3() {
       weaponmanager wpn=monoliths[3].GetComponent<weaponmanager>();
       wpn.slot_expand();
+   }
+
+   IEnumerator no_gold() {
+      goldless_pannel.SetActive(true);
+      yield return new WaitForSecondsRealtime(2f);
+      goldless_pannel.SetActive(false);
    }
 
    public void return_button() { //슬롯개방 화면일땐 원래 상점으로, 상점 메인화면에선 스테이지로 돌아감
