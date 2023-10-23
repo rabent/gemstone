@@ -41,13 +41,22 @@ public class projectile : MonoBehaviour
     void curse_use(int index, Collider2D collision) {
         switch(index) {
             case 1: //화염 저항
-                collision.GetComponent<Enemy>().fireres-=0.3f;
+                if(!collision.GetComponent<Enemy>().cursed[index]){
+                    collision.GetComponent<Enemy>().fireres-=0.3f;
+                    collision.GetComponent<Enemy>().cursed[index]=true;
+                }
                 break;
             case 2: //빙결 저항 감소
-                collision.GetComponent<Enemy>().iceres-=0.3f;
+                if(!collision.GetComponent<Enemy>().cursed[index]){
+                    collision.GetComponent<Enemy>().iceres-=0.3f;
+                    collision.GetComponent<Enemy>().cursed[index]=true;
+                }
                 break;
             case 3: //번개 저항 감소
-                collision.GetComponent<Enemy>().lightres-=0.3f;
+                if(!collision.GetComponent<Enemy>().cursed[index]){
+                    collision.GetComponent<Enemy>().lightres-=0.3f;
+                    collision.GetComponent<Enemy>().cursed[index]=true;
+                }
                 break;
             case 4: //화염 저항 무시
                 this.anti_fireres=0.2f;
@@ -64,6 +73,12 @@ public class projectile : MonoBehaviour
                 exp.transform.position=this.transform.position;
                 exp.GetComponent<magic>().init(7,this.damage*0.3f,this.damage*0.125f, 0, transform);
                 this.gameObject.SetActive(false);
+                break;
+            case 8:
+                if(!collision.GetComponent<Enemy>().cursed[index]){
+                    collision.GetComponent<Enemy>().speed*=0.85f;
+                    collision.GetComponent<Enemy>().cursed[index]=true;
+                }
                 break;
         }
     }

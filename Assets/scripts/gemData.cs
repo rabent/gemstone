@@ -21,6 +21,7 @@ public class gemData : ScriptableObject
     public Sprite spr; //젬의 이미지가 어떤지
     public float radius=1; //공격의 반경이 어떤지
     public int penet; //몇번 관통하는지
+    public float delay_reduct=1;
 
     public string gem_name;
     [TextArea]

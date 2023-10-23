@@ -7,6 +7,7 @@ public class weaponmanager : MonoBehaviour
 {
     public int prefabid; //할당된 액티브 젬의 id
     public float damage; //피해
+    public float delay_percent=1;
     public int element=0; //속성
     public float force=3; //넉백 강도
     public int count; //발사 수
@@ -60,6 +61,21 @@ public class weaponmanager : MonoBehaviour
         }
     }
 
+    IEnumerator shotgun_fire(float delay) {
+        while(true)
+        {
+            float dam=damage*2/10;
+            float x=1.73f;
+            StartCoroutine(shotgun(x, 1.3f, dam));
+            StartCoroutine(shotgun(x,-1.3f,dam));
+            for(int i=0; i<count-2; i++) {
+                float y=Random.Range(-1.3f,1.3f);
+                StartCoroutine(shotgun(x,y,dam));
+            }
+            yield return new WaitForSeconds(delay);
+        }
+    }
+
     IEnumerator fire() {
         //캐릭터 전방 180도 범위중 랜덤으로 투사체를 발사하는 함수
         GameObject dagger = gamemanager.instance.poolmng.pulling(prefabid);
@@ -68,6 +84,22 @@ public class weaponmanager : MonoBehaviour
         float x=Random.Range(0, 30);
         float y=Random.Range(-30,30);
         Vector3 dir=new Vector3(x,y,0);
+        dir=dir.normalized;
+        dagger.transform.rotation=Quaternion.FromToRotation(Vector3.up,dir);
+        Rigidbody2D rigid=dagger.GetComponent<Rigidbody2D>();
+        rigid.velocity=Vector2.zero;
+        rigid.velocity=dir*speed;
+        yield return null;
+        StartCoroutine(daggerfalse(dagger));
+    }
+
+    IEnumerator shotgun(float a, float b, float dam) {
+        //캐릭터 전방 180도 범위중 랜덤으로 투사체를 발사하는 함수
+        GameObject dagger = gamemanager.instance.poolmng.pulling(prefabid);
+        dagger.transform.position = player.transform.position;
+        dagger.GetComponent<projectile>().init(dam, penet,element, curse, force);
+        dagger.transform.localScale=new Vector3(0.35f,0.35f,0.35f);
+        Vector3 dir=new Vector3(a,b,0);
         dir=dir.normalized;
         dagger.transform.rotation=Quaternion.FromToRotation(Vector3.up,dir);
         Rigidbody2D rigid=dagger.GetComponent<Rigidbody2D>();
@@ -106,13 +138,18 @@ public class weaponmanager : MonoBehaviour
 
     public void skill_use() { //gem color에 따라 종류에 맞는 함수를 발동시킴
         if(gem_color==1) {
-            crt=StartCoroutine(projectile(2f));
+            if(this.prefabid==8) {
+                crt=StartCoroutine(shotgun_fire(2f*delay_percent));
+            }
+            else {
+                crt=StartCoroutine(projectile(2f*delay_percent));
+            }
         }
         else if(gem_color==2) {
-            crt=StartCoroutine(magicuse(2f));
+            crt=StartCoroutine(magicuse(2f*delay_percent));
         }
         else if(gem_color==3) {
-            crt=StartCoroutine(swing(3f));
+            crt=StartCoroutine(swing(3f*delay_percent));
         }
     }
 
@@ -181,6 +218,7 @@ public class weaponmanager : MonoBehaviour
                     this.count+=gd.count;
                     this.element=gd.element;
                     this.force+=gd.force;
+                    this.delay_percent*=gd.delay_reduct;
                 }
             }
             else if(gd.isspecial) {

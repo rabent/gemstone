@@ -13050,6 +13050,7 @@ MonoBehaviour:
   - {fileID: 7587236521815183070, guid: 4e6d21ba119591b40b607a98266383b4, type: 3}
   - {fileID: 2109000674328330931, guid: 540f8a018f7f56a4b8d884e1ad22e3e3, type: 3}
   - {fileID: 3427605844610940694, guid: d84427f7d18d0cc40a62b9e548ca51ac, type: 3}
+  - {fileID: 3303337532907680103, guid: 54c85180f84abcb4da3730e6c49b96bf, type: 3}
 --- !u!1 &915084250
 GameObject:
   m_ObjectHideFlags: 0
@@ -15076,7 +15077,7 @@ PrefabInstance:
     - target: {fileID: 4463747378773342522, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
       propertyPath: gemData
       value: 
-      objectReference: {fileID: 11400000, guid: 9f345c2025e1bd9498efc31dd3997fc1, type: 2}
+      objectReference: {fileID: 11400000, guid: 1d78a76346f14f64790472909d554c3a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
 --- !u!1 &1131301078

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random=UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Enemy : MonoBehaviour
     public float fireres;
     public float iceres;
     public float lightres;
+    public bool[] cursed=new bool[9];
     public int gold;
     public bool is_boss=false;
     public RuntimeAnimatorController[] animCon;
@@ -37,6 +40,7 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         wait = new WaitForFixedUpdate();
         gemspawner=gamemanager.instance.GetComponent<gemspawner>();
+        Array.Fill(cursed,false);
     }
     void FixedUpdate()
     { //몬스터 이동
