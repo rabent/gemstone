@@ -82,6 +82,7 @@ public class weaponmanager : MonoBehaviour
         dagger.transform.position = player.transform.position;
         dagger.GetComponent<projectile>().init(damage, penet,element, curse, force);
         float x=Random.Range(0, 30);
+        if(this.prefabid==10) x=Random.Range(-30,0);
         float y=Random.Range(-30,30);
         Vector3 dir=new Vector3(x,y,0);
         dir=dir.normalized;
