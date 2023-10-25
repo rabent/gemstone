@@ -18,14 +18,15 @@ MonoBehaviour:
   curse: 0
   color: 2
   id: 6
-  damage: 8
+  damage: 12
   force: 0
   element: 1
-  count: 2
+  count: 1
   speed: 5
   spr: {fileID: -1997803578, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 0.4
   penet: 0
+  delay_reduct: 1
   gem_name: "\uD654\uC5FC\uAD6C"
   gem_explain: "\uCE90\uB9AD\uD130\uC758 \uC8FC\uBCC0\uC744 \uD5A5\uD574 \uB79C\uB364\uC73C\uB85C
     \uD654\uC5FC\uAD6C\uB97C \uBC1C\uC0AC\uD569\uB2C8\uB2E4.\n\uD654\uC5FC\uAD6C\uB294
@@ -37,3 +38,4 @@ MonoBehaviour:
   - "\uD654\uC5FC"
   - "\uBC1C\uC0AC\uCCB4"
   - "\uBC18\uACBD"
+  required_tag: []

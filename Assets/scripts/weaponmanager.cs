@@ -146,7 +146,7 @@ public class weaponmanager : MonoBehaviour
             }
         }
         else if(gem_color==2) {
-            crt=StartCoroutine(magicuse(2f*delay_percent));
+            crt=StartCoroutine(magicuse(4f*delay_percent));
         }
         else if(gem_color==3) {
             crt=StartCoroutine(swing(3f*delay_percent));

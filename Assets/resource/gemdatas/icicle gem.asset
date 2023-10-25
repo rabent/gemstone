@@ -10,29 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5057fd548eda22428412b202873ee3a, type: 3}
-  m_Name: meleegem
+  m_Name: icicle gem
   m_EditorClassIdentifier: 
   isactive: 1
   ispassive: 0
   isspecial: 0
   curse: 0
-  color: 3
-  id: 4
-  damage: 8
-  force: 7
-  element: 0
+  color: 2
+  id: 9
+  damage: 15
+  force: 3
+  element: 2
   count: 1
-  speed: 0
-  spr: {fileID: 362616440, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  radius: 2
+  speed: 1
+  spr: {fileID: -1997803578, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  radius: 0.5
   penet: 0
   delay_reduct: 1
-  gem_name: "\uD718\uB450\uB974\uAE30"
-  gem_explain: "\uCE90\uB9AD\uD130\uC758 \uC804\uBC29\uC5D0 \uAC80\uC744 \uD06C\uAC8C
-    \uD55C\uBC88 \uD718\uB450\uB985\uB2C8\uB2E4."
+  gem_name: "\uACE0\uB4DC\uB984"
+  gem_explain: "\uC801\uB4E4\uC744 \uAD00\uD1B5\uD558\uB294 \uC5BC\uC74C \uC18D\uC131
+    \uACE0\uB4DC\uB984\uC744 \uBC1C\uC0AC\uD569\uB2C8\uB2E4."
   tags:
   - "\uC561\uD2F0\uBE0C"
-  - "\uADFC\uC811"
-  - "\uBB3C\uB9AC"
+  - "\uB9C8\uBC95"
+  - "\uC5BC\uC74C"
+  - "\uBC1C\uC0AC\uCCB4"
   - "\uBC18\uACBD"
   required_tag: []

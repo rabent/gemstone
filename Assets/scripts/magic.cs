@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEngine.UIElements;
 
 public class magic : MonoBehaviour
 {
@@ -51,22 +52,41 @@ public class magic : MonoBehaviour
                 anim=null;
                 this.transform.position=player.transform.position;
                 this.transform.localScale=new Vector3(rad, rad, rad);
-                x=Random.Range(-1.5f,1.5f);
-                y=Random.Range(-30, 30);
+                x=Random.Range(-1f,1f);
+                y=Random.Range(-2f, 2f);
                 Vector3 dir=new Vector3(x,y,0);
                 dir=dir.normalized;
                 this.transform.rotation=Quaternion.FromToRotation(Vector3.up,dir);
                 Rigidbody2D rigid=this.GetComponent<Rigidbody2D>();
                 rigid.velocity=Vector2.zero;
                 rigid.velocity=dir*5;
+                StartCoroutine(inactive());
                 break;
             case 7: //폭발 효과
                 this.transform.localScale=new Vector3(rad, rad, rad);
                 break;
-
+            case 9: //icicle 젬
+                anim=null;
+                this.transform.position=player.transform.position;
+                this.transform.localScale=new Vector3(rad, rad, rad);
+                x=Random.Range(-1.5f,-0.1f);
+                y=Random.Range(-1f, 1f);
+                dir=new Vector3(x,y,0);
+                dir=dir.normalized;
+                this.transform.rotation=Quaternion.FromToRotation(Vector3.up,dir);
+                rigid=this.GetComponent<Rigidbody2D>();
+                rigid.velocity=Vector2.zero;
+                rigid.velocity=dir*12;
+                StartCoroutine(inactive());
+                break;
         }
        
-    }   
+    } 
+
+    IEnumerator inactive()  {
+        yield return new WaitForSeconds(5f);
+        this.gameObject.SetActive(false);
+    }
 
     private void Update() {
         //애니메이션이 있는 마법의 경우 애니메이션이 끝나면 inactive해줌
