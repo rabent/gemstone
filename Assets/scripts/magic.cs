@@ -41,12 +41,8 @@ public class magic : MonoBehaviour
             case 5: //wave 젬
                 anim=null;
                 this.transform.position=player.transform.position;
-                this.transform.DOScale(new Vector3(radius,radius*0.8f,radius),1f)
-                .SetEase(Ease.InQuad)
-                .OnComplete(()=> {
-                    this.transform.localScale=new Vector3(0.6f, 0.5f,1);
-                    this.gameObject.SetActive(false);
-                });
+                this.transform.localScale=new Vector3(radius,radius*0.8f,radius);
+                StartCoroutine(inactive(0.3f));
                 break;
             case 6: //fireball 젬
                 anim=null;
@@ -60,7 +56,7 @@ public class magic : MonoBehaviour
                 Rigidbody2D rigid=this.GetComponent<Rigidbody2D>();
                 rigid.velocity=Vector2.zero;
                 rigid.velocity=dir*5;
-                StartCoroutine(inactive());
+                StartCoroutine(inactive(5f));
                 break;
             case 7: //폭발 효과
                 this.transform.localScale=new Vector3(rad, rad, rad);
@@ -77,20 +73,37 @@ public class magic : MonoBehaviour
                 rigid=this.GetComponent<Rigidbody2D>();
                 rigid.velocity=Vector2.zero;
                 rigid.velocity=dir*12;
-                StartCoroutine(inactive());
+                StartCoroutine(inactive(5f));
+                break;
+            case 11:
+                anim=null;
+                this.transform.position=player.transform.position;
+                StartCoroutine(fire_totem());
+                StartCoroutine(inactive(7f));
+                break;
+            case 12:
+                this.transform.localScale=new Vector3(rad,rad,rad);
                 break;
         }
        
     } 
 
-    IEnumerator inactive()  {
-        yield return new WaitForSeconds(5f);
+    IEnumerator fire_totem() {
+        GameObject exp=gamemanager.instance.poolmng.pulling(12);
+        exp.transform.position=this.transform.position;
+        exp.GetComponent<magic>().init(12, this.damage, this.radius, 1, player);
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(fire_totem());
+    }
+
+    IEnumerator inactive(float tm)  {
+        yield return new WaitForSeconds(tm);
         this.gameObject.SetActive(false);
     }
 
     private void Update() {
         //애니메이션이 있는 마법의 경우 애니메이션이 끝나면 inactive해줌
-        if(this.id==1 || this.id==7){
+        if(this.id==1 || this.id==7 || this.id==12){
         if(anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f) this.gameObject.SetActive(false);
         }
         else if(this.id==5) {

@@ -10,28 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5057fd548eda22428412b202873ee3a, type: 3}
-  m_Name: wavegem
+  m_Name: fire totem gem
   m_EditorClassIdentifier: 
   isactive: 1
   ispassive: 0
   isspecial: 0
   curse: 0
   color: 2
-  id: 5
-  damage: 3
-  force: 1
-  element: 0
+  id: 11
+  damage: 5
+  force: 0
+  element: 1
   count: 1
-  speed: 0
+  speed: 1
   spr: {fileID: -1997803578, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  radius: 3
+  radius: 6
   penet: 0
   delay_reduct: 1
-  gem_name: "\uC544\uCF00\uC778 \uC6E8\uC774\uBE0C"
-  gem_explain: "\uCE90\uB9AD\uD130\uC758 \uBC1C \uBC11\uC5D0 \uB9C8\uBC95\uC801\uC778
-    \uD30C\uB3D9\uC744 \uC77C\uC73C\uCF1C \uC8FC\uBCC0\uC5D0 \uD53C\uD574\uB97C \uC785\uD799\uB2C8\uB2E4."
+  gem_name: "\uD654\uC5FC \uD1A0\uD15C"
+  gem_explain: "\uCE90\uB9AD\uD130\uC758 \uC704\uCE58\uC5D0 \uC77C\uC815 \uC2DC\uAC04\uB9C8\uB2E4
+    \uC8FC\uBCC0\uC5D0 \uBD88\uC744 \uBFDC\uC5B4 \uD654\uC5FC \uD53C\uD574\uB97C
+    \uC785\uD788\uB294 \uD654\uC5FC \uD1A0\uD15C\uC744 \uC0DD\uC131\uD569\uB2C8\uB2E4."
   tags:
   - "\uC561\uD2F0\uBE0C"
   - "\uB9C8\uBC95"
+  - "\uD654\uC5FC"
   - "\uBC18\uACBD"
   required_tag: []

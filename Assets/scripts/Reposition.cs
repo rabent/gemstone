@@ -35,7 +35,7 @@ public class Reposition : MonoBehaviour
                 break;
             case "Enemy": //맵밖의 몬스터를 맵과 함께 근처로 이동
                 if (coll.enabled){
-                    transform.Translate(playerDir * 20 + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0f));
+                    transform.Translate(playerDir * 40 + new Vector3(Random.Range(-3f, 3f), Random.Range(-3f, 3f), 0f));
                 }
                 break;
         }
