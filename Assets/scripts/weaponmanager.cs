@@ -19,10 +19,12 @@ public class weaponmanager : MonoBehaviour
     public GameObject player; //플레이어 위치
     public GameObject pivot; //플레이어의 회전축
     public gemData[] gems; //석판의 젬 목록
+    public bool active_on=false;
     public int slot_index=0; //새로 개방된 슬롯 숫자
     public slotback[] expand_slots; //아직 열리지 않은 슬롯 목록
     public slot[] mono_slots; //석판의 슬롯 목록
     public GameObject special_manager;
+    Tween tween;
     Coroutine crt;
     Coroutine spcrt=null;
 
@@ -132,6 +134,22 @@ public class weaponmanager : MonoBehaviour
         }
     }
 
+    IEnumerator whirlwind() {
+        GameObject melee=gamemanager.instance.poolmng.pulling(prefabid);
+        melee.transform.parent=pivot.transform;
+        melee.transform.position=pivot.transform.position+new Vector3(0,2,0);
+        melee.GetComponent<melee>().init(damage, penet, element, radius, force);
+        tween=pivot.transform.DORotate(new Vector3(0,0,360),2f, RotateMode.FastBeyond360)
+        .SetEase(Ease.Linear)
+        .SetLoops(-1)
+        .OnKill(()=> {
+            pivot.transform.localEulerAngles=new Vector3(0,0,0);
+            melee.SetActive(false);
+        });
+        yield return null;
+
+    }
+
     IEnumerator swing_false(GameObject melee) {
         yield return new WaitForSeconds(0.75f);
         melee.SetActive(false);
@@ -150,7 +168,8 @@ public class weaponmanager : MonoBehaviour
             crt=StartCoroutine(magicuse(4f*delay_percent));
         }
         else if(gem_color==3) {
-            crt=StartCoroutine(swing(3f*delay_percent));
+            if(this.prefabid==4) crt=StartCoroutine(swing(3f*delay_percent));
+            else crt=StartCoroutine(whirlwind());
         }
     }
 
@@ -174,7 +193,9 @@ public class weaponmanager : MonoBehaviour
         this.penet=0;
         this.element=0;
         this.force=3;
+        active_on=false;
         curse.Clear();
+        tween.Kill();
         if(crt!=null) StopCoroutine(crt);
         if(spcrt!=null) special_manager.GetComponent<special>().StopCoroutine(spcrt);
     }
@@ -192,7 +213,7 @@ public class weaponmanager : MonoBehaviour
         }
         foreach(gemData gd in gems) {
             if(gd==null) continue;
-            if(gd.isactive) {
+            if(gd.isactive && !active_on) {
                 this.damage=gd.damage;
                 this.count=gd.count;
                 this.prefabid=gd.id;
@@ -202,6 +223,7 @@ public class weaponmanager : MonoBehaviour
                 this.penet=gd.penet;
                 this.element=gd.element;
                 this.force=gd.force;
+                active_on=true;
                 skill_use();
             }
             else if(gd.ispassive) {

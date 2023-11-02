@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1334226048753483255}
   - component: {fileID: 7218425689503119104}
   - component: {fileID: 2459922812628737121}
+  - component: {fileID: 8744367551135901532}
   m_Layer: 0
   m_Name: shovel
   m_TagString: melee
@@ -115,5 +116,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
+  force: 0
   penet: 0
   radius: 0
+  curse: 
+  fire: 0
+  ice: 0
+  lightn: 0
+  anti_fireres: 0
+  anti_iceres: 0
+  anti_lightres: 0
+--- !u!50 &8744367551135901532
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6778504008183675539}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

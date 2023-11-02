@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5057fd548eda22428412b202873ee3a, type: 3}
+  m_Name: whirlwind gem
+  m_EditorClassIdentifier: 
+  isactive: 1
+  ispassive: 0
+  isspecial: 0
+  curse: 0
+  color: 3
+  id: 13
+  damage: 3
+  force: 5
+  element: 0
+  count: 0
+  speed: 1
+  spr: {fileID: 362616440, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  radius: 2
+  penet: 0
+  delay_reduct: 1
+  gem_name: "\uD6E8\uC708\uB4DC"
+  gem_explain: "\uCE90\uB9AD\uD130 \uC8FC\uC704\uB97C \uB3C4\uB294 \uBB34\uAE30\uB97C
+    \uC0DD\uC131\uD569\uB2C8\uB2E4."
+  tags:
+  - "\uC561\uD2F0\uBE0C"
+  - "\uADFC\uC811"
+  - "\uBB3C\uB9AC"
+  - "\uBC18\uACBD"
+  required_tag: []

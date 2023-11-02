@@ -15993,6 +15993,7 @@ MonoBehaviour:
   - {fileID: 2526081194221043723, guid: 3947e14ab1a9ff243935a21bd2c7e5ff, type: 3}
   - {fileID: 1771286113420390686, guid: 8f0a951dc2bf92348aad03637101768e, type: 3}
   - {fileID: 8139734966898605162, guid: 0a53d36f675d45c42a20db46a8ce1e9b, type: 3}
+  - {fileID: 6778504008183675539, guid: 28d8d1d62b783bf46a2dda532506c5b7, type: 3}
 --- !u!1 &915084250
 GameObject:
   m_ObjectHideFlags: 0
@@ -16610,6 +16611,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 973462681}
+  - component: {fileID: 973462682}
   m_Layer: 0
   m_Name: pivot
   m_TagString: Untagged
@@ -16632,6 +16634,27 @@ Transform:
   m_Father: {fileID: 268939865}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &973462682
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973462680}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &973850307
 GameObject:
   m_ObjectHideFlags: 0
@@ -17141,6 +17164,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  active_on: 0
   slot_index: 0
   expand_slots:
   - {fileID: 748903822}
@@ -22544,7 +22568,7 @@ PrefabInstance:
     - target: {fileID: 4463747378773342522, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
       propertyPath: gemData
       value: 
-      objectReference: {fileID: 11400000, guid: 2687690ba464e53438774bbaaade7c48, type: 2}
+      objectReference: {fileID: 11400000, guid: e4d26aa58cbd26644969e7381f41071c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
 --- !u!1 &1532998795
@@ -29077,6 +29101,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  active_on: 0
   slot_index: 0
   expand_slots:
   - {fileID: 1024401244}
@@ -30057,6 +30082,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  active_on: 0
   slot_index: 0
   expand_slots:
   - {fileID: 2055489988}
@@ -41437,6 +41463,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  active_on: 0
   slot_index: 0
   expand_slots:
   - {fileID: 62115674}
