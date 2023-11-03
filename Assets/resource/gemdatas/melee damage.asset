@@ -10,28 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5057fd548eda22428412b202873ee3a, type: 3}
-  m_Name: bulletgem
+  m_Name: melee damage
   m_EditorClassIdentifier: 
-  isactive: 1
-  ispassive: 0
+  isactive: 0
+  ispassive: 1
   isspecial: 0
   curse: 0
-  color: 1
+  color: 3
   id: 0
   damage: 5
-  force: 3
+  force: 0
   element: 0
-  count: 5
-  speed: 10
-  spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+  count: 0
+  speed: 1
+  spr: {fileID: 362616440, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 1
   penet: 0
   delay_reduct: 1
-  gem_name: "\uD0C4\uD658 \uC0AC\uACA9"
-  gem_explain: "\uCE90\uB9AD\uD130\uC758 \uC804\uBC29 \uB79C\uB364\uD55C \uC704\uCE58\uC5D0
-    \uD0C4\uD658\uC744 \uBC1C\uC0AC\uD569\uB2C8\uB2E4."
+  gem_name: "\uADFC\uC811 \uD53C\uD574 \uBCF4\uC870"
+  gem_explain: "\uD0DC\uADF8\uC5D0 \"\uADFC\uC811\"\uC774 \uBD99\uC740 \uC82C\uB4E4\uC774
+    \uAC00\uD558\uB294 \uD53C\uD574\uAC00 5 \uC99D\uAC00\uD569\uB2C8\uB2E4."
   tags:
-  - "\uC561\uD2F0\uBE0C"
-  - "\uD22C\uC0AC\uCCB4"
-  - "\uBB3C\uB9AC"
-  required_tag: []
+  - "\uD328\uC2DC\uBE0C"
+  - "\uD53C\uD574"
+  required_tag:
+  - "\uADFC\uC811"

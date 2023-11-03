@@ -31,6 +31,7 @@ MonoBehaviour:
   gem_explain: "\uD0DC\uADF8\uC5D0 \"\uBB3C\uB9AC\"\uAC00 \uBD99\uC740 \uC82C\uB4E4\uC758
     \uD53C\uD574\uB97C 3\uB9CC\uD07C \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
   tags:
+  - "\uD328\uC2DC\uBE0C"
   - "\uD53C\uD574"
   required_tag:
   - "\uBB3C\uB9AC"

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class uimanager : MonoBehaviour
 {
+    public static uimanager ui_instance=null;
     public GameObject startpannnel;
     public GameObject characterpannel;
     public GameObject charremindpannel;
@@ -16,16 +17,36 @@ public class uimanager : MonoBehaviour
     public bool pause=false;
     Button fsbtn;
     Button wsbtn;
+    Button backbtn;
     public int char_num;
    
    private void Awake() {
-    DontDestroyOnLoad(this.gameObject);
+    if(ui_instance==null) {
+            ui_instance=this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+    else {
+        Destroy(ui_instance.gameObject);
+        ui_instance=this;
+        DontDestroyOnLoad(this.gameObject);
+    }
    }
    public void startbutton() {
     startpannnel.SetActive(false);
     characterpannel.SetActive(true);
    }
-   public void characterselect() {
+   public void characterselect1() {
+    char_num=1;
+    charremindpannel.SetActive(true);
+   }
+
+   public void characterselect2() {
+    char_num=2;
+    charremindpannel.SetActive(true);
+   }
+
+   public void characterselect3() {
+    char_num=3;
     charremindpannel.SetActive(true);
    }
 
@@ -39,7 +60,13 @@ public class uimanager : MonoBehaviour
     in_game=true;
    }
 
+   public void back_to_main() {
+    Time.timeScale=1;
+    SceneManager.LoadScene("starting scene");
+   }
+
    public void characterno() {
+    char_num=0;
     charremindpannel.SetActive(false);
    }
 
@@ -96,6 +123,8 @@ public class uimanager : MonoBehaviour
             fsbtn.onClick.AddListener(full_screen);
             wsbtn=GameObject.Find("window screen button").GetComponent<Button>();
             wsbtn.onClick.AddListener(window_screen);
+            backbtn=GameObject.Find("back button").GetComponent<Button>();
+            backbtn.onClick.AddListener(back_to_main);
         }
         
     }

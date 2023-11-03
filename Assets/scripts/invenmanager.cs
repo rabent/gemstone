@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,16 +14,14 @@ public class invenmanager : MonoBehaviour
     public int gemcount=0;
 
 
-    void Awake() //게임 초기화 및 ui매니저 데이터 인계받음
+    void Awake()
     {
         if(inventory==null) {
             inventory=this;
-            DontDestroyOnLoad(this.gameObject);
         }
         else Destroy(this.gameObject);
     }
    
-    
     public void slot_refresh() { // 인벤토리 슬롯을 젬 리스트와 동기화시켜줌
         for(int i=0; i<slots.Length; i++) {
             if(gemlist[i]!=null){

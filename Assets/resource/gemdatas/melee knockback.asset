@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5057fd548eda22428412b202873ee3a, type: 3}
-  m_Name: phys knockback
+  m_Name: melee knockback
   m_EditorClassIdentifier: 
   isactive: 0
   ispassive: 1
   isspecial: 0
   curse: 0
-  color: 0
+  color: 3
   id: 0
   damage: 0
-  force: 2
+  force: 5
   element: 0
   count: 0
   speed: 1
@@ -27,11 +27,11 @@ MonoBehaviour:
   radius: 1
   penet: 0
   delay_reduct: 1
-  gem_name: "\uBB3C\uB9AC \uB109\uBC31 \uC99D\uAC00 \uBCF4\uC870"
-  gem_explain: "\uD0DC\uADF8\uC5D0 \"\uBB3C\uB9AC\"\uAC00 \uBD99\uC740 \uC82C\uC758
-    \uB109\uBC31\uC744 2 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+  gem_name: "\uADFC\uC811 \uB109\uBC31 \uBCF4\uC870"
+  gem_explain: "\uD0DC\uADF8\uC5D0 \"\uADFC\uC811\"\uC774 \uB2EC\uB9B0 \uC82C\uB4E4\uC758
+    \uBC00\uC5B4\uB0B4\uB294 \uD798\uC774 5 \uC99D\uAC00\uD569\uB2C8\uB2E4."
   tags:
   - "\uD328\uC2DC\uBE0C"
   - "\uB109\uBC31"
   required_tag:
-  - "\uBB3C\uB9AC"
+  - "\uADFC\uC811"

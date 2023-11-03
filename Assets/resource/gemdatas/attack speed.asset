@@ -30,6 +30,7 @@ MonoBehaviour:
   gem_name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00 \uBCF4\uC870"
   gem_explain: "\uC82C\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C \uC57D\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
   tags:
+  - "\uD328\uC2DC\uBE0C"
   - "\uC18D\uB3C4"
   required_tag:
   - "\uBC94\uC6A9"

@@ -19,21 +19,49 @@ public class gamemanager : MonoBehaviour
     public TMP_Text sec_text; 
     public TMP_Text gold_text;
     public int gold=0;
+    public gemData char1;
+    public gemData char2;
+    public gemData char3;
     public float maxGameTime = 2 * 10f; // 20�? / 5 * 60f >> 5�?
 
     void Awake() //게임 초기화 및 ui매니저 데이터 인계받음
     {
         if(instance==null) {
             instance=this;
-            DontDestroyOnLoad(this.gameObject);
         }
-        else Destroy(this.gameObject);
+        else {
+            Destroy(this);
+        }
         min_text.text="00";
         sec_text.text="00";
         gold_text.text="000";
         uimng=GameObject.Find("UImanager");
         ui=uimng.GetComponent<uimanager>();
         char_num=ui.char_num;
+    }
+
+    private void Start() {
+        if(char_num==1) {
+            GameObject mn=invenmanager.monoliths[0];
+            weaponmanager wpmn=mn.GetComponent<weaponmanager>();
+            wpmn.gems[0]=char1;
+            wpmn.mono_slots[0].g=char1;
+            wpmn.monolith_active();
+        }
+        else if(char_num==2) {
+            GameObject mn=invenmanager.monoliths[0];
+            weaponmanager wpmn=mn.GetComponent<weaponmanager>();
+            wpmn.gems[0]=char2;
+            wpmn.mono_slots[0].g=char2;
+            wpmn.monolith_active();
+        }
+        else if(char_num==3) {
+            GameObject mn=invenmanager.monoliths[0];
+            weaponmanager wpmn=mn.GetComponent<weaponmanager>();
+            wpmn.gems[0]=char3;
+            wpmn.mono_slots[0].g=char3;
+            wpmn.monolith_active();
+        }
     }
     
 

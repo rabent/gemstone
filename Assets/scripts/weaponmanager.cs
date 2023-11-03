@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
- 
+using System;
+using Random=UnityEngine.Random;
+
 public class weaponmanager : MonoBehaviour
 {
     public int prefabid; //할당된 액티브 젬의 id
@@ -43,29 +45,30 @@ public class weaponmanager : MonoBehaviour
     IEnumerator magicuse(float delay) {//count만큼 마법을 pulling하여 발동시킴
     //wave 마법의 경우 중첩되면 밸런스가 무너지므로 count를 1로 고정
         while(true) {
+            yield return new WaitForSeconds(delay);
             for(int i=0; i<count; i++) {
                 GameObject mag=gamemanager.instance.poolmng.pulling(prefabid);
                 if(prefabid==5) count=1;
                 mag.transform.position=this.transform.position;
                 mag.GetComponent<magic>().init(this.prefabid,this.damage,this.radius, this.element, player.transform);
             }
-            yield return new WaitForSeconds(delay);
         }
     }
     IEnumerator projectile(float delay)
     { //delay마다 count만큼 fire 함수를 발동
         while(true)
         {
+            yield return new WaitForSeconds(delay);
             for(int i=0; i<count; i++) {
                 StartCoroutine(fire());
             }
-            yield return new WaitForSeconds(delay);
         }
     }
 
     IEnumerator shotgun_fire(float delay) {
         while(true)
         {
+            yield return new WaitForSeconds(delay);
             float dam=damage*2/10;
             float x=1.73f;
             StartCoroutine(shotgun(x, 1.3f, dam));
@@ -74,7 +77,6 @@ public class weaponmanager : MonoBehaviour
                 float y=Random.Range(-1.3f,1.3f);
                 StartCoroutine(shotgun(x,y,dam));
             }
-            yield return new WaitForSeconds(delay);
         }
     }
 
@@ -120,17 +122,21 @@ public class weaponmanager : MonoBehaviour
     IEnumerator swing(float delay) {
         //캐릭터 전방 180도만큼 근접무기를 휘두르는 함수
         while(true) {
+        yield return new WaitForSeconds(delay);
         GameObject melee=gamemanager.instance.poolmng.pulling(prefabid);
         melee.transform.parent=pivot.transform;
         melee.transform.position=pivot.transform.position+new Vector3(0,1,0);
         melee.GetComponent<melee>().init(damage, penet, element, radius, force);
-        pivot.transform.DORotate(new Vector3(0,0,180f),0.75f)
+        tween=pivot.transform.DORotate(new Vector3(0,0,180f),0.75f)
         .SetEase(Ease.OutQuart)
+        .OnKill(()=> {
+            pivot.transform.localEulerAngles=new Vector3(0,0,0);
+            melee.SetActive(false);
+        })
         .OnComplete(()=> {
             pivot.transform.localEulerAngles=new Vector3(0,0,0);
         });
         StartCoroutine(swing_false(melee));
-        yield return new WaitForSeconds(delay);
         }
     }
 
@@ -151,7 +157,7 @@ public class weaponmanager : MonoBehaviour
     }
 
     IEnumerator swing_false(GameObject melee) {
-        yield return new WaitForSeconds(0.75f);
+        yield return new WaitForSeconds(0.65f);
         melee.SetActive(false);
     }
 
@@ -176,7 +182,7 @@ public class weaponmanager : MonoBehaviour
     public void monolith_reset() { //인벤토리에서 monolith에 젬을 장착시켰을 때
     //슬롯의 젬 데이터를 monolith로 가져오는 함수
         Debug.Log("gem set");
-        for(int i=0; i<3; i++) { //향후 3을 열린 슬롯 개수로 수정
+        for(int i=0; i<3+slot_index; i++) { //향후 3을 열린 슬롯 개수로 수정
             if(mono_slots[i].gameObject.activeSelf==true) {
                 gems[i]=mono_slots[i].g;
             }
