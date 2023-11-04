@@ -166,6 +166,7 @@ MonoBehaviour:
   fireres: 0
   iceres: 0
   lightres: 0
+  cursed: 000000000000000000
   gold: 0
   is_boss: 0
   animCon:
@@ -174,6 +175,8 @@ MonoBehaviour:
   - {fileID: 22100000, guid: 8d1d920724ffb8a409ce0e458dc4b7a9, type: 2}
   - {fileID: 22100000, guid: 25f7a818644b68042bb0c0c2a28d1550, type: 2}
   - {fileID: 22100000, guid: fca0bf4b77957e14782a41ad3770fd17, type: 2}
+  - {fileID: 22100000, guid: dfe5271494ed6284e910552c36174885, type: 2}
+  - {fileID: 22100000, guid: 6c51b83a2527c844d8e9a116273f993c, type: 2}
   target: {fileID: 0}
   gemspawner: {fileID: 0}
   gem_effect: {fileID: 1967835574231978638, guid: 3e196c9e632c76841a71cb6e2dc6d010, type: 3}
