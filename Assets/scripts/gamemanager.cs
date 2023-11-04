@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class gamemanager : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class gamemanager : MonoBehaviour
     public gemData char1;
     public gemData char2;
     public gemData char3;
+    public GameObject game_over_screen;
     public float maxGameTime = 2 * 10f; // 20�? / 5 * 60f >> 5�?
 
     void Awake() //게임 초기화 및 ui매니저 데이터 인계받음
@@ -118,5 +120,14 @@ public class gamemanager : MonoBehaviour
         ui.merchant_on();
     }
 
+    public void game_over() {
+        game_over_screen.SetActive(true);
+        StartCoroutine(game_over_back());
+    }
+
+    IEnumerator game_over_back() {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("starting scene");
+    }
 
 }

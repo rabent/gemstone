@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 using Unity.VisualScripting;
 using TMPro;
 
-public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField]
    private gemData pgem;
@@ -36,6 +36,16 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
         
     }
    }
+
+    public void OnPointerClick(PointerEventData eventData) {
+        if(eventData.button==PointerEventData.InputButton.Right) {
+            if(this.g!=null) {
+                g=null;
+                gamemanager.instance.gold+=10;
+                invenmanager.inventory.gemlist_refresh();
+            }
+        }
+    }
 
    public void OnPointerEnter(PointerEventData eventData) {
     //마우스 올리면 젬의 정보 패널을 띄움

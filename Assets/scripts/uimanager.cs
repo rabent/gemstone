@@ -13,6 +13,7 @@ public class uimanager : MonoBehaviour
     public GameObject quitremindpannel;
     public GameObject ingame_option;
     public GameObject merchant_pannel;
+    public GameObject tuto_pannel;
     bool in_game=false;
     public bool pause=false;
     Button fsbtn;
@@ -34,6 +35,13 @@ public class uimanager : MonoBehaviour
    public void startbutton() {
     startpannnel.SetActive(false);
     characterpannel.SetActive(true);
+   }
+
+   public void tuto_button() {
+    tuto_pannel.SetActive(true);
+   }
+   public void tuto_back_button() {
+    tuto_pannel.SetActive(false);
    }
    public void characterselect1() {
     char_num=1;
