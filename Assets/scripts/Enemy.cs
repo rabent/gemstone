@@ -80,10 +80,7 @@ public class Enemy : MonoBehaviour
         iceres=data.iceres;
         lightres=data.lightres;
         gold=data.gold;
-        if(spriteType == 3){
-            this.is_boss=true;
-            transform.localScale = new Vector3(2, 2 ,1);
-        }
+        is_boss=data.is_boss;
     }
 
     void OnTriggerEnter2D(Collider2D collision) 

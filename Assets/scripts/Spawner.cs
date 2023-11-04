@@ -44,4 +44,5 @@ public class SpawnData
     public float iceres;
     public float lightres;
     public int gold;
+    public bool is_boss=false;
 }

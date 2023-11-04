@@ -22,6 +22,13 @@ public class invenmanager : MonoBehaviour
         else Destroy(this.gameObject);
     }
    
+    public void inven_dead() {
+        foreach(GameObject obj in monoliths) {
+            weaponmanager wpmn=obj.GetComponent<weaponmanager>();
+            wpmn.monolith_clear();
+        }
+    }
+
     public void slot_refresh() { // 인벤토리 슬롯을 젬 리스트와 동기화시켜줌
         for(int i=0; i<slots.Length; i++) {
             if(gemlist[i]!=null){

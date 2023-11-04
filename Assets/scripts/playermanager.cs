@@ -10,6 +10,7 @@ public class playermanager : MonoBehaviour
     public GameObject pivot;
     SpriteRenderer spriter;
     Animator anim;
+    float char_speed=0.1f;
 
     private void Awake() {
         rigid = GetComponent<Rigidbody2D>();
@@ -18,8 +19,14 @@ public class playermanager : MonoBehaviour
     }
     
     void Update() { //캐릭터 이동
-        inputvec.x=Input.GetAxis("Horizontal")*0.1f;
-        inputvec.y=Input.GetAxis("Vertical")*0.1f;
+        inputvec.x=Input.GetAxis("Horizontal")*char_speed;
+        inputvec.y=Input.GetAxis("Vertical")*char_speed;
+    }
+
+    public void player_dead() {
+        char_speed=0;
+        gamemanager.instance.game_over();
+        invenmanager.inventory.inven_dead();
     }
 
     private void FixedUpdate() { //area와 함께 이동시켜줌
