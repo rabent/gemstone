@@ -42477,7 +42477,7 @@ MonoBehaviour:
     lightres: 0.1
     gold: 5
     is_boss: 0
-  - spawnTime: 2
+  - spawnTime: 1.5
     spriteType: 2
     health: 40
     speed: 1.5
@@ -42494,6 +42494,7 @@ MonoBehaviour:
     iceres: 0.1
     lightres: 0.1
     gold: 30
+    is_boss: 1
   - spawnTime: 1
     spriteType: 0
     health: 45
@@ -42502,6 +42503,7 @@ MonoBehaviour:
     iceres: 0.1
     lightres: 0.1
     gold: 3
+    is_boss: 0
   - spawnTime: 1.5
     spriteType: 1
     health: 60
@@ -42510,6 +42512,7 @@ MonoBehaviour:
     iceres: 0.1
     lightres: 0.1
     gold: 7
+    is_boss: 0
   - spawnTime: 25
     spriteType: 6
     health: 250
@@ -42527,6 +42530,7 @@ MonoBehaviour:
     iceres: 0.1
     lightres: 0.1
     gold: 50
+    is_boss: 0
   - spawnTime: 1.5
     spriteType: 1
     health: 100
@@ -42535,6 +42539,7 @@ MonoBehaviour:
     iceres: 0.1
     lightres: 0.1
     gold: 50
+    is_boss: 0
   - spawnTime: 3
     spriteType: 2
     health: 120
@@ -42543,6 +42548,7 @@ MonoBehaviour:
     iceres: 0.1
     lightres: 0.1
     gold: 50
+    is_boss: 0
   - spawnTime: 25
     spriteType: 5
     health: 400
@@ -42551,6 +42557,7 @@ MonoBehaviour:
     iceres: 0.1
     lightres: 0.1
     gold: 50
+    is_boss: 0
   - spawnTime: 1
     spriteType: 0
     health: 120
@@ -42559,6 +42566,7 @@ MonoBehaviour:
     iceres: 0.1
     lightres: 0.1
     gold: 50
+    is_boss: 0
   - spawnTime: 1.5
     spriteType: 1
     health: 150
@@ -42567,6 +42575,7 @@ MonoBehaviour:
     iceres: 0.1
     lightres: 0.1
     gold: 50
+    is_boss: 0
   - spawnTime: 3
     spriteType: 2
     health: 200
@@ -42575,6 +42584,7 @@ MonoBehaviour:
     iceres: 0.1
     lightres: 0.1
     gold: 50
+    is_boss: 0
   - spawnTime: 25
     spriteType: 4
     health: 800
@@ -42583,6 +42593,7 @@ MonoBehaviour:
     iceres: 0.1
     lightres: 0.1
     gold: 50
+    is_boss: 0
   level: 0
 --- !u!212 &2054964725
 SpriteRenderer:
