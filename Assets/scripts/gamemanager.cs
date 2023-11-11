@@ -11,6 +11,7 @@ public class gamemanager : MonoBehaviour
     public GameObject inventory;
     public invenmanager invenmanager;
     public playermanager player;
+    public Spawner spawner;
     public GameObject uimng;
     public uimanager ui;
     public int char_num;
@@ -119,6 +120,7 @@ public class gamemanager : MonoBehaviour
                 obj.SetActive(false);
             }
         }
+        spawner.stage++;
         Time.timeScale=0;
         ui.merchant_on();
     }
