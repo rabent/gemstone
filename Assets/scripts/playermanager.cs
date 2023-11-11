@@ -51,5 +51,20 @@ public class playermanager : MonoBehaviour
 
         }
     }
-    
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!gamemanager.instance.isLive)
+            return;
+
+
+        if(gamemanager.instance.health < 0)
+        {
+            for(int index=2; index < transform.childCount; index++)
+            {
+                transform.GetChild(index).gameObject.SetActive(false);
+            }
+
+            anim.SetTrigger("Dead");
+        }
+    }
 }
