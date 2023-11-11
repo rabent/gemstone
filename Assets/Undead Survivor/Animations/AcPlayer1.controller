@@ -1,13 +1,13 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1102 &-7653710756756677046
+--- !u!1102 &-6817123919343655733
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Dead_ghostwarrior
+  m_Name: Dead_Player2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d825f4ffd3d6a8d40a410fb396370b09, type: 2}
+  m_Motion: {fileID: 7400000, guid: 62494c7f509baa142b98e1449c9a503d, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -72,10 +72,10 @@ AnimatorStateMachine:
     m_State: {fileID: 2224569098147797624}
     m_Position: {x: 30, y: 60, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 4741204013082261281}
+    m_State: {fileID: -6817123919343655733}
     m_Position: {x: 65, y: 125, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: -7653710756756677046}
+    m_State: {fileID: 5688593928459466438}
     m_Position: {x: 100, y: 190, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
@@ -200,14 +200,14 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
---- !u!1102 &4741204013082261281
+--- !u!1102 &5688593928459466438
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Hit_ghostwarrior
+  m_Name: Run_Player2
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -220,7 +220,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 8ec69c98a999c2e42a0a2a3b2e97d556, type: 2}
+  m_Motion: {fileID: 7400000, guid: 43e9391960cb42e43ab3e9282a45890e, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -30211,6 +30211,7 @@ MonoBehaviour:
   inventory: {fileID: 2894252800434684510}
   invenmanager: {fileID: 2894252799332834239}
   player: {fileID: 268939861}
+  spawner: {fileID: 0}
   uimng: {fileID: 0}
   ui: {fileID: 0}
   char_num: 0
@@ -30225,6 +30226,9 @@ MonoBehaviour:
   char3: {fileID: 11400000, guid: cd6e8dfe26dea88459ca4597cedb7b7a, type: 2}
   game_over_screen: {fileID: 0}
   maxGameTime: 100
+  health: 0
+  maxhealth: 1000
+  isLive: 1
 --- !u!4 &1728032340
 Transform:
   m_ObjectHideFlags: 0
