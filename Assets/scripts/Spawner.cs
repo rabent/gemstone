@@ -81,6 +81,7 @@ public class SpawnData
     public int spriteType;
     public int health;
     public float speed;
+    public float damage;
     public float fireres;
     public float iceres;
     public float lightres;

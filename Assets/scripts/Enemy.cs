@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public float fireres;
     public float iceres;
     public float lightres;
+    public float damage;
     public bool[] cursed=new bool[9];
     public int gold;
     public bool is_boss=false;
@@ -76,6 +77,7 @@ public class Enemy : MonoBehaviour
         speed = data.speed;
         maxHealth = data.health;
         health = data.health;
+        damage=data.damage;
         fireres=data.fireres;
         iceres=data.iceres;
         lightres=data.lightres;
