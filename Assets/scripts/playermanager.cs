@@ -56,8 +56,12 @@ public class playermanager : MonoBehaviour
         if (!gamemanager.instance.isLive)
             return;
 
-
-        if(gamemanager.instance.health < 0)
+        if(gamemanager.instance.health >=0) {
+            Enemy enemy=collision.gameObject.GetComponent<Enemy>();
+            gamemanager.instance.health-=enemy.damage;
+            Debug.Log(enemy.damage);
+        }
+        else if(gamemanager.instance.health < 0)
         {
             for(int index=2; index < transform.childCount; index++)
             {

@@ -30226,8 +30226,7 @@ MonoBehaviour:
   char3: {fileID: 11400000, guid: cd6e8dfe26dea88459ca4597cedb7b7a, type: 2}
   game_over_screen: {fileID: 0}
   maxGameTime: 100
-  health: 0
-  maxhealth: 1000
+  health: 1000
   isLive: 1
 --- !u!4 &1728032340
 Transform:
@@ -42467,6 +42466,7 @@ MonoBehaviour:
     spriteType: 0
     health: 25
     speed: 1
+    damage: 10
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42476,6 +42476,7 @@ MonoBehaviour:
     spriteType: 1
     health: 15
     speed: 2.4
+    damage: 15
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42485,6 +42486,7 @@ MonoBehaviour:
     spriteType: 2
     health: 40
     speed: 1.5
+    damage: 20
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42494,6 +42496,7 @@ MonoBehaviour:
     spriteType: 3
     health: 120
     speed: 1
+    damage: 30
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42503,6 +42506,7 @@ MonoBehaviour:
     spriteType: 0
     health: 45
     speed: 1
+    damage: 0
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42512,6 +42516,7 @@ MonoBehaviour:
     spriteType: 1
     health: 60
     speed: 1.5
+    damage: 0
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42521,6 +42526,7 @@ MonoBehaviour:
     spriteType: 6
     health: 250
     speed: 1.2
+    damage: 0
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42530,6 +42536,7 @@ MonoBehaviour:
     spriteType: 0
     health: 80
     speed: 1
+    damage: 0
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42539,6 +42546,7 @@ MonoBehaviour:
     spriteType: 1
     health: 100
     speed: 1.5
+    damage: 0
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42548,6 +42556,7 @@ MonoBehaviour:
     spriteType: 2
     health: 120
     speed: 1.2
+    damage: 0
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42557,6 +42566,7 @@ MonoBehaviour:
     spriteType: 5
     health: 400
     speed: 1.5
+    damage: 0
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42566,6 +42576,7 @@ MonoBehaviour:
     spriteType: 0
     health: 120
     speed: 1
+    damage: 0
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42575,6 +42586,7 @@ MonoBehaviour:
     spriteType: 1
     health: 150
     speed: 1.5
+    damage: 0
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42584,6 +42596,7 @@ MonoBehaviour:
     spriteType: 2
     health: 200
     speed: 1.2
+    damage: 0
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1
@@ -42593,6 +42606,7 @@ MonoBehaviour:
     spriteType: 4
     health: 800
     speed: 1.2
+    damage: 0
     fireres: 0.1
     iceres: 0.1
     lightres: 0.1

@@ -27,7 +27,6 @@ public class gamemanager : MonoBehaviour
     public GameObject game_over_screen;
     public float maxGameTime = 2 * 10f; // 20�? / 5 * 60f >> 5�?
     public float health;
-    public float maxhealth = 1000;
     public bool isLive = true;
 
     void Awake() //게임 초기화 및 ui매니저 데이터 인계받음
