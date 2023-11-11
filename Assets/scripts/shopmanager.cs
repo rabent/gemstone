@@ -72,17 +72,29 @@ public class shopmanager : MonoBehaviour
 
    public void open_monolith1() {
       weaponmanager wpn=monoliths[1].GetComponent<weaponmanager>();
-      wpn.slot_expand();
+      if(gamemanager.instance.gold>=50) {
+         wpn.slot_expand();
+         gamemanager.instance.gold-=50;
+      }
+      else StartCoroutine(no_gold());
    }
 
    public void open_monolith2() {
       weaponmanager wpn=monoliths[2].GetComponent<weaponmanager>();
-      wpn.slot_expand();
+      if(gamemanager.instance.gold>=50) {
+         wpn.slot_expand();
+         gamemanager.instance.gold-=50;
+      }
+      else StartCoroutine(no_gold());
    }
 
    public void open_monolith3() {
       weaponmanager wpn=monoliths[3].GetComponent<weaponmanager>();
-      wpn.slot_expand();
+      if(gamemanager.instance.gold>=50) {
+         wpn.slot_expand();
+         gamemanager.instance.gold-=50;
+      }
+      else StartCoroutine(no_gold());
    }
 
    IEnumerator no_gold() {

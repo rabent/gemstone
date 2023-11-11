@@ -7354,7 +7354,7 @@ PrefabInstance:
     - target: {fileID: 4463747378773342522, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
       propertyPath: gemData
       value: 
-      objectReference: {fileID: 11400000, guid: 9222eec8b67e9ec4da2f622080714ec6, type: 2}
+      objectReference: {fileID: 11400000, guid: 1d78a76346f14f64790472909d554c3a, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
 --- !u!1 &230152439
@@ -42594,6 +42594,7 @@ MonoBehaviour:
     lightres: 0.1
     gold: 50
     is_boss: 0
+  stage: 1
   level: 0
 --- !u!212 &2054964725
 SpriteRenderer:
