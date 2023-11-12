@@ -18,6 +18,12 @@ public class playermanager : MonoBehaviour
         anim = GetComponent<Animator>();
     }
     
+    public void char_select2() {
+        anim.runtimeAnimatorController=(RuntimeAnimatorController)Resources.Load("AcPlayer2");
+    }
+    public void char_select3() {
+        anim.runtimeAnimatorController=(RuntimeAnimatorController)Resources.Load("AcPlayer3");
+    }
     void Update() { //캐릭터 이동
         inputvec.x=Input.GetAxis("Horizontal")*char_speed;
         inputvec.y=Input.GetAxis("Vertical")*char_speed;
@@ -67,7 +73,7 @@ public class playermanager : MonoBehaviour
             {
                 transform.GetChild(index).gameObject.SetActive(false);
             }
-
+            player_dead();
             anim.SetTrigger("Dead");
         }
     }

@@ -59,6 +59,7 @@ public class gamemanager : MonoBehaviour
             wpmn.gems[0]=char2;
             wpmn.mono_slots[0].g=char2;
             wpmn.monolith_active();
+            player.char_select2();
         }
         else if(char_num==3) {
             GameObject mn=invenmanager.monoliths[0];
@@ -66,6 +67,7 @@ public class gamemanager : MonoBehaviour
             wpmn.gems[0]=char3;
             wpmn.mono_slots[0].g=char3;
             wpmn.monolith_active();
+            player.char_select3();
         }
     }
     
@@ -130,7 +132,7 @@ public class gamemanager : MonoBehaviour
     }
 
     IEnumerator game_over_back() {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene("starting scene");
     }
 
