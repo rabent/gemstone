@@ -20,6 +20,7 @@ public class weaponmanager : MonoBehaviour
     public List<int> curse; //저주 목록
     public GameObject player; //플레이어 위치
     public GameObject pivot; //플레이어의 회전축
+    public GameObject pivot1;
     public gemData[] gems; //석판의 젬 목록
     public bool active_on=false;
     public int slot_index=0; //새로 개방된 슬롯 숫자
@@ -142,14 +143,14 @@ public class weaponmanager : MonoBehaviour
 
     IEnumerator whirlwind() {
         GameObject melee=gamemanager.instance.poolmng.pulling(prefabid);
-        melee.transform.parent=pivot.transform;
-        melee.transform.position=pivot.transform.position+new Vector3(0,2,0);
+        melee.transform.parent=pivot1.transform;
+        melee.transform.position=pivot1.transform.position+new Vector3(0,2,0);
         melee.GetComponent<melee>().init(damage, penet, element, radius, force);
-        tween=pivot.transform.DORotate(new Vector3(0,0,360),2f, RotateMode.FastBeyond360)
+        tween=pivot1.transform.DORotate(new Vector3(0,0,360),2f, RotateMode.FastBeyond360)
         .SetEase(Ease.Linear)
         .SetLoops(-1)
         .OnKill(()=> {
-            pivot.transform.localEulerAngles=new Vector3(0,0,0);
+            pivot1.transform.localEulerAngles=new Vector3(0,0,0);
             melee.SetActive(false);
         });
         yield return null;
