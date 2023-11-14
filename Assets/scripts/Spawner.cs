@@ -28,12 +28,12 @@ public class Spawner : MonoBehaviour
         dic.Add(new Tuple<int, int>(2,0),new int[]{0});
         dic.Add(new Tuple<int, int>(2,1),new int[]{0,1});
         dic.Add(new Tuple<int, int>(2,2),new int[]{0,1,6});
-        dic.Add(new Tuple<int, int>(3,0),new int[]{0,1});
-        dic.Add(new Tuple<int, int>(3,1),new int[]{0,1,2});
-        dic.Add(new Tuple<int, int>(3,2),new int[]{0,1,2,5});
-        dic.Add(new Tuple<int, int>(4,0),new int[]{0,1});
-        dic.Add(new Tuple<int, int>(4,1),new int[]{0,1,2});
-        dic.Add(new Tuple<int, int>(4,2),new int[]{0,1,2,4});
+        dic.Add(new Tuple<int, int>(3,0),new int[]{7,8});
+        dic.Add(new Tuple<int, int>(3,1),new int[]{7,8,9});
+        dic.Add(new Tuple<int, int>(3,2),new int[]{7,8,9,5});
+        dic.Add(new Tuple<int, int>(4,0),new int[]{10,11});
+        dic.Add(new Tuple<int, int>(4,1),new int[]{10,11,12});
+        dic.Add(new Tuple<int, int>(4,2),new int[]{10,11,12,4});
     }
 
     void Update() //게임 진행 시간에 따라 게임의 스테이지 레벨이 증가

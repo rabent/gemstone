@@ -122,6 +122,7 @@ public class gamemanager : MonoBehaviour
             }
         }
         spawner.stage++;
+        gameTime=0;
         Time.timeScale=0;
         ui.merchant_on();
     }
