@@ -122,6 +122,7 @@ public class gamemanager : MonoBehaviour
             }
         }
         spawner.stage++;
+        spawner.boss_spawned=false;
         gameTime=0;
         Time.timeScale=0;
         ui.merchant_on();

@@ -10,7 +10,7 @@ public class Spawner : MonoBehaviour
     public SpawnData[] spawnData;
     public int stage=1;
     public int level;
-    bool boss_spawned=false;
+    public bool boss_spawned=false;
     public Dictionary<Tuple<int,int>,int[]> dic;
     float timer;
 
