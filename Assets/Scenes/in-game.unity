@@ -42872,8 +42872,8 @@ MonoBehaviour:
     gold: 30
     is_boss: 1
   - spawnTime: 1
-    spriteType: 0
-    health: 150
+    spriteType: 5
+    health: 500
     speed: 1
     damage: 30
     fireres: 0.1
@@ -42882,8 +42882,8 @@ MonoBehaviour:
     gold: 50
     is_boss: 1
   - spawnTime: 1.5
-    spriteType: 1
-    health: 200
+    spriteType: 6
+    health: 300
     speed: 1.5
     damage: 30
     fireres: 0.1
@@ -42892,8 +42892,8 @@ MonoBehaviour:
     gold: 70
     is_boss: 1
   - spawnTime: 25
-    spriteType: 6
-    health: 250
+    spriteType: 7
+    health: 200
     speed: 1.2
     damage: 30
     fireres: 0.1
