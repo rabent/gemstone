@@ -37,6 +37,10 @@ public class slot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
     }
    }
 
+   void OnDisable() {
+    pannel.SetActive(false);
+   }
+
     public void OnPointerClick(PointerEventData eventData) {
         if(eventData.button==PointerEventData.InputButton.Right) {
             if(this.g!=null) {
