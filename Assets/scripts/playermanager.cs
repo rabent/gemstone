@@ -65,6 +65,7 @@ public class playermanager : MonoBehaviour
         if(gamemanager.instance.health >=0) {
             Enemy enemy=collision.gameObject.GetComponent<Enemy>();
             gamemanager.instance.health-=enemy.damage;
+            gamemanager.instance.hp_refresh();
             Debug.Log(enemy.damage);
         }
         else if(gamemanager.instance.health < 0)

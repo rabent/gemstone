@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class gamemanager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class gamemanager : MonoBehaviour
     public invenmanager invenmanager;
     public playermanager player;
     public Spawner spawner;
+    public Slider hpbar;
+    public GameObject hp_red;
     public GameObject uimng;
     public uimanager ui;
     public int char_num;
@@ -27,6 +30,7 @@ public class gamemanager : MonoBehaviour
     public GameObject game_over_screen;
     public float maxGameTime = 2 * 10f; // 20�? / 5 * 60f >> 5�?
     public float health;
+    public float maxhealth=1000;
     public bool isLive = true;
 
     void Awake() //게임 초기화 및 ui매니저 데이터 인계받음
@@ -43,6 +47,7 @@ public class gamemanager : MonoBehaviour
         uimng=GameObject.Find("UImanager");
         ui=uimng.GetComponent<uimanager>();
         char_num=ui.char_num;
+        hp_refresh();
     }
 
     private void Start() {
@@ -69,6 +74,11 @@ public class gamemanager : MonoBehaviour
             wpmn.monolith_active();
             player.char_select3();
         }
+    }
+
+    public void hp_refresh() {
+        hpbar.value=health/maxhealth;
+        if(hpbar.value==0) hp_red.SetActive(false);
     }
     
 

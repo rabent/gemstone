@@ -148,7 +148,7 @@ public class Enemy : MonoBehaviour
     }
 
     void Dead(){ //몬스터 사망 시 현재 위치에 젬을 떨어뜨리고 active false
-        int i=Random.Range(0,10);
+        int i=Random.Range(0,12);
         if(i==0) {
         var gem=gemspawner.gem_spawn();
         gem.transform.position=this.transform.position;
