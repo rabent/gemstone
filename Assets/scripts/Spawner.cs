@@ -26,7 +26,7 @@ public class Spawner : MonoBehaviour
         dic.Add(new Tuple<int, int>(1,1),new int[]{0,1});
         dic.Add(new Tuple<int, int>(1,2),new int[]{0,1,3});
         dic.Add(new Tuple<int, int>(2,0),new int[]{0});
-        dic.Add(new Tuple<int, int>(2,1),new int[]{0,1});
+        dic.Add(new Tuple<int, int>(2,1),new int[]{7,1});
         dic.Add(new Tuple<int, int>(2,2),new int[]{0,1,6});
         dic.Add(new Tuple<int, int>(3,0),new int[]{7,8});
         dic.Add(new Tuple<int, int>(3,1),new int[]{7,8,9});

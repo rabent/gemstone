@@ -166,7 +166,8 @@ MonoBehaviour:
   fireres: 0
   iceres: 0
   lightres: 0
-  cursed: 000000000000000000
+  damage: 0
+  cursed: 0000000000000000000000
   gold: 0
   is_boss: 0
   animCon:

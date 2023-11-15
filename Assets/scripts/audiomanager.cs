@@ -1,17 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class audiomanager : MonoBehaviour
 {
     public static audiomanager instance;
-
-    [Header("#BGM")] //BGMÅÂ±×
+    public AudioMixer mixer;
+    [Header("#BGM")] //BGMï¿½Â±ï¿½
     public AudioClip bgmClip;
     public float bgmVolume;
     AudioSource bgmPlayer;
 
-    [Header("#SFX")] //SFXÅÂ±×
+    [Header("#SFX")] //SFXï¿½Â±ï¿½
     public AudioClip[] sfxClips;
     public float sfxVolume;
     public int channels;
@@ -27,7 +28,7 @@ public class audiomanager : MonoBehaviour
     }
     void Init()
     {
-        //¹è°æÀ½ ÇÃ·¹ÀÌ¾î ÃÊ±âÈ­, ÇÏ³ª
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ê±ï¿½È­, ï¿½Ï³ï¿½
         GameObject bgmObject = new GameObject("BgmPlayer");
         bgmObject.transform.parent = transform;
         bgmPlayer = bgmObject.AddComponent<AudioSource>();
@@ -35,10 +36,12 @@ public class audiomanager : MonoBehaviour
         bgmPlayer.loop = true;
         bgmPlayer.volume = bgmVolume;
         bgmPlayer.clip = bgmClip;
+        AudioMixerGroup[] audiomix=mixer.FindMatchingGroups("BGM");
+        bgmPlayer.outputAudioMixerGroup=audiomix[0];
 
         audiomanager.instance.PlayBgm(true);
 
-        //È¿°úÀ½ ÇÃ·¹ÀÌ¾î ÃÊ±âÈ­, Ã¤³Î °³¼ö¸¸Å­ ¿©·¯°³
+        //È¿ï¿½ï¿½ï¿½ï¿½ ï¿½Ã·ï¿½ï¿½Ì¾ï¿½ ï¿½Ê±ï¿½È­, Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         GameObject sfxObject = new GameObject("BgmPlayer");
         sfxObject.transform.parent = transform;
         sfxPlayers = new AudioSource[channels];
@@ -48,10 +51,23 @@ public class audiomanager : MonoBehaviour
             sfxPlayers[index] = sfxObject.AddComponent<AudioSource>();
             sfxPlayers[index].playOnAwake = false;
             sfxPlayers[index].volume = sfxVolume;
+            AudioMixerGroup[] mix=mixer.FindMatchingGroups("SFX");
+            sfxPlayers[index].outputAudioMixerGroup=mix[0];
+
         }
     }
 
-    public void PlayBgm(bool isPlay) //¹è°æÀ½¾Ç Àç»ý
+    public void setmaster(float sliderval) {
+        mixer.SetFloat("MASTER", Mathf.Log10(sliderval)*20);
+    }
+    public void setbgm(float sliderval) {
+        mixer.SetFloat("BGM", Mathf.Log10(sliderval)*20);
+    }
+    public void setsfx(float sliderval) {
+        mixer.SetFloat("SFX", Mathf.Log10(sliderval)*20);
+    }
+
+    public void PlayBgm(bool isPlay) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
     {
         if (isPlay)
         {
@@ -65,13 +81,13 @@ public class audiomanager : MonoBehaviour
 
     public void PlaySfx(Sfx sfx)
     {
-        //Ã¤³Î °³¼ö¸¸Å­ ¼øÈ¸ ÇÏ¸é¼­ Ã£±â
+        //Ã¤ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å­ ï¿½ï¿½È¸ ï¿½Ï¸é¼­ Ã£ï¿½ï¿½
         for (int index=0; index < sfxPlayers.Length; index++)
         {
             int loopIndex = (index + channelIndex) % sfxPlayers.Length;
 
             if (sfxPlayers[loopIndex].isPlaying)
-                continue; //ÀÌ¹Ì ÇÃ·¹À×ÁßÀÌ¶ó¸é °Ç³Ê¶Ù±â
+                continue; //ï¿½Ì¹ï¿½ ï¿½Ã·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½Ç³Ê¶Ù±ï¿½
 
             int ranIndex = 0;
             if(sfx == Sfx.Hit || sfx == Sfx.Melee)

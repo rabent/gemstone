@@ -296,8 +296,8 @@ RectTransform:
   m_Father: {fileID: 659560096}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1665,6 +1665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e41177d848379040b7034fadd92b049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mixer: {fileID: 24100000, guid: fc6c09be36c58c343b6e59dd368f9be9, type: 2}
   bgmClip: {fileID: 8300000, guid: 9a5b1e3f09fc9164ba081711c6badd2a, type: 3}
   bgmVolume: 0.2
   sfxClips:
@@ -14205,8 +14206,8 @@ RectTransform:
   m_Father: {fileID: 806016651}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -15169,7 +15170,7 @@ RectTransform:
   - {fileID: 1524253184}
   - {fileID: 1446750047}
   m_Father: {fileID: 2894252799603436936}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -17580,7 +17581,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -18339,13 +18340,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 2096034335}
   m_HandleRect: {fileID: 696030685}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 106504534}
+        m_TargetAssemblyTypeName: audiomanager, Assembly-CSharp
+        m_MethodName: setmaster
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1081712522
 GameObject:
   m_ObjectHideFlags: 0
@@ -19190,7 +19203,7 @@ PrefabInstance:
     - target: {fileID: 4463747378773342522, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
       propertyPath: gemData
       value: 
-      objectReference: {fileID: 11400000, guid: 9ea5bee99d7ff2042b7efed6014b80cb, type: 2}
+      objectReference: {fileID: 11400000, guid: 99c1f90f0732d7d4f89185e1097e78cf, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
 --- !u!1 &1122305684
@@ -19568,13 +19581,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1030357965}
   m_HandleRect: {fileID: 1627126577}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 106504534}
+        m_TargetAssemblyTypeName: audiomanager, Assembly-CSharp
+        m_MethodName: setbgm
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1161127194
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20809,7 +20834,7 @@ RectTransform:
   m_Children:
   - {fileID: 1107080746}
   m_Father: {fileID: 2894252799603436936}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -24971,8 +24996,8 @@ RectTransform:
   m_Father: {fileID: 801677129}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -25174,13 +25199,25 @@ MonoBehaviour:
   m_FillRect: {fileID: 1824374739}
   m_HandleRect: {fileID: 5159880}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: 0.0001
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 106504534}
+        m_TargetAssemblyTypeName: audiomanager, Assembly-CSharp
+        m_MethodName: setsfx
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1644275076
 GameObject:
   m_ObjectHideFlags: 0
@@ -31805,7 +31842,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -42838,9 +42875,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spwanPoint: []
   spawnData:
-  - spawnTime: 1.5
+  - spawnTime: 2
     spriteType: 0
-    health: 15
+    health: 10
     speed: 1
     damage: 10
     fireres: 0.1
@@ -42848,9 +42885,9 @@ MonoBehaviour:
     lightres: 0.1
     gold: 3
     is_boss: 0
-  - spawnTime: 1.2
+  - spawnTime: 1.5
     spriteType: 1
-    health: 10
+    health: 8
     speed: 2
     damage: 12
     fireres: 0.1
@@ -42870,7 +42907,7 @@ MonoBehaviour:
     is_boss: 0
   - spawnTime: 25
     spriteType: 3
-    health: 100
+    health: 90
     speed: 1
     damage: 30
     fireres: 0.1
@@ -43301,7 +43338,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -44361,8 +44398,8 @@ RectTransform:
   - {fileID: 571092147}
   - {fileID: 2042559201}
   - {fileID: 966283343}
-  - {fileID: 1315975042}
   - {fileID: 773199589}
+  - {fileID: 1315975042}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
