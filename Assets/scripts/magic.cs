@@ -161,6 +161,19 @@ public class magic : MonoBehaviour
                     collision.GetComponent<Enemy>().cursed[index]=true;
                 }
                 break;
+            case 9:
+                if(!collision.GetComponent<Enemy>().cursed[index]){
+                    collision.GetComponent<Enemy>().damage*=0.8f;
+                    collision.GetComponent<Enemy>().cursed[index]=true;
+                }
+                break;
+            case 10:
+                if(!collision.GetComponent<Enemy>().cursed[index]){
+                    collision.GetComponent<Enemy>().gold=(int)(collision.GetComponent<Enemy>().gold*1.2f);
+                    collision.GetComponent<Enemy>().cursed[index]=true;
+                }
+                break;
+
         }
     }
 }

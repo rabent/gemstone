@@ -127,7 +127,7 @@ public class weaponmanager : MonoBehaviour
         GameObject melee=gamemanager.instance.poolmng.pulling(prefabid);
         melee.transform.parent=pivot.transform;
         melee.transform.position=pivot.transform.position+new Vector3(0,1,0);
-        melee.GetComponent<melee>().init(damage, penet, element, radius, force);
+        melee.GetComponent<melee>().init(damage, penet, curse, element, radius, force);
         tween=pivot.transform.DORotate(new Vector3(0,0,180f),0.75f)
         .SetEase(Ease.OutQuart)
         .OnKill(()=> {
@@ -145,7 +145,7 @@ public class weaponmanager : MonoBehaviour
         GameObject melee=gamemanager.instance.poolmng.pulling(prefabid);
         melee.transform.parent=pivot1.transform;
         melee.transform.position=pivot1.transform.position+new Vector3(0,2,0);
-        melee.GetComponent<melee>().init(damage, penet, element, radius, force);
+        melee.GetComponent<melee>().init(damage, penet, curse, element, radius, force);
         tween=pivot1.transform.DORotate(new Vector3(0,0,360),2f, RotateMode.FastBeyond360)
         .SetEase(Ease.Linear)
         .SetLoops(-1)

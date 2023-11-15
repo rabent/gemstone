@@ -120,6 +120,11 @@ public class shopmanager : MonoBehaviour
       else {
          Time.timeScale=1;
          Debug.Log("merchant close");
+         foreach(GameObject obj in monoliths) {
+            weaponmanager wpmn=obj.GetComponent<weaponmanager>();
+            wpmn.monolith_active();
+         }
+         goldless_pannel.SetActive(false);
          merchant_pannel.SetActive(false);
       }
    }

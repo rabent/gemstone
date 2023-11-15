@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5057fd548eda22428412b202873ee3a, type: 3}
-  m_Name: damage added passive
+  m_Name: enemy damage
   m_EditorClassIdentifier: 
   isactive: 0
   ispassive: 1
   isspecial: 0
-  curse: 0
-  color: 1
+  curse: 9
+  color: 0
   id: 0
-  damage: 2
+  damage: 0
   force: 0
   element: 0
   count: 0
@@ -26,10 +26,12 @@ MonoBehaviour:
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 1
   penet: 0
-  gem_name: "\uD53C\uD574 \uC99D\uAC00 \uBCF4\uC870"
-  gem_explain: "\uC7A5\uCC29\uB41C \uC82C\uC758 \uD53C\uD574\uB97C 2 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+  delay_reduct: 1
+  gem_name: "\uB178\uC1E0\uC758 \uC800\uC8FC"
+  gem_explain: "\uACF5\uACA9\uC5D0 \uC801\uC911\uD55C \uC0C1\uB300\uAC00 \uAC00\uD558\uB294
+    \uD53C\uD574\uAC00 20% \uAC10\uC18C\uD569\uB2C8\uB2E4."
   tags:
   - "\uD328\uC2DC\uBE0C"
-  - "\uD53C\uD574"
+  - "\uC800\uC8FC"
   required_tag:
   - "\uBC94\uC6A9"

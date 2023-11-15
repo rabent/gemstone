@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5057fd548eda22428412b202873ee3a, type: 3}
-  m_Name: magic radius increase
+  m_Name: enemy gold
   m_EditorClassIdentifier: 
   isactive: 0
   ispassive: 1
   isspecial: 0
-  curse: 0
+  curse: 10
   color: 0
   id: 0
   damage: 0
@@ -24,13 +24,14 @@ MonoBehaviour:
   count: 0
   speed: 1
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  radius: 1.3
+  radius: 1
   penet: 0
   delay_reduct: 1
-  gem_name: "\uB9C8\uBC95 \uBC18\uACBD \uC99D\uAC00 \uBCF4\uC870"
-  gem_explain: "\uD0DC\uADF8\uC5D0 \"\uB9C8\uBC95\"\uC774 \uB2EC\uB9B0 \uC82C\uC758
-    \uACF5\uACA9 \uBC18\uACBD\uC744 30% \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+  gem_name: "\uBE48\uACE4\uC758 \uC800\uC8FC"
+  gem_explain: "\uACF5\uACA9\uC5D0 \uC801\uC911\uD55C \uC801\uC774 \uC0AC\uB9DD \uC2DC
+    \uC5BB\uB294 \uACE8\uB4DC\uB7C9\uC774 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
   tags:
   - "\uD328\uC2DC\uBE0C"
+  - "\uC800\uC8FC"
   required_tag:
-  - "\uB9C8\uBC95"
+  - "\uBC94\uC6A9"

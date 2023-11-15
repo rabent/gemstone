@@ -109,6 +109,7 @@ public class gamemanager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.I)) { //인벤토리 오픈 및 초기화
             inventory.SetActive(true);
             invenmanager.slot_refresh();
+            hpbar.gameObject.SetActive(false);
             Time.timeScale=0;
             inv_active=true;
         }
@@ -119,6 +120,7 @@ public class gamemanager : MonoBehaviour
                 mono.GetComponent<weaponmanager>().monolith_active();
             }
             inventory.SetActive(false);
+            hpbar.gameObject.SetActive(true);
             inv_active=false;
             Time.timeScale=1;
         }

@@ -15,11 +15,12 @@ public class melee : MonoBehaviour
     public float anti_fireres=0;
     public float anti_iceres=0;
     public float anti_lightres=0;
-    public void init(float dam, int pen, int elem, float rad, float force) {
+    public void init(float dam, int pen, List<int> curse, int elem, float rad, float force) {
         this.damage=dam;
         this.penet=pen;
         this.radius=rad;
         this.force=force;
+        this.curse=curse;
         if(elem==1) this.fire=true;
         else if (elem==2) this.ice=true;
         else if (elem==3) this.lightn=true;
@@ -35,14 +36,23 @@ public class melee : MonoBehaviour
 
     void curse_use(int index, Collider2D collision) {
         switch(index) {
-            case 1: //화염 저항 감소
-                collision.GetComponent<Enemy>().fireres-=0.3f;
+           case 1: //화염 저항
+                if(!collision.GetComponent<Enemy>().cursed[index]){
+                    collision.GetComponent<Enemy>().fireres-=0.3f;
+                    collision.GetComponent<Enemy>().cursed[index]=true;
+                }
                 break;
             case 2: //빙결 저항 감소
-                collision.GetComponent<Enemy>().iceres-=0.3f;
+                if(!collision.GetComponent<Enemy>().cursed[index]){
+                    collision.GetComponent<Enemy>().iceres-=0.3f;
+                    collision.GetComponent<Enemy>().cursed[index]=true;
+                }
                 break;
             case 3: //번개 저항 감소
-                collision.GetComponent<Enemy>().lightres-=0.3f;
+                if(!collision.GetComponent<Enemy>().cursed[index]){
+                    collision.GetComponent<Enemy>().lightres-=0.3f;
+                    collision.GetComponent<Enemy>().cursed[index]=true;
+                }
                 break;
             case 4: //화염 저항 무시
                 this.anti_fireres=0.2f;
@@ -53,6 +63,25 @@ public class melee : MonoBehaviour
             case 6: //번개 저항 무시
                 this.anti_lightres=0.2f;
                 break;
+            case 8:
+                if(!collision.GetComponent<Enemy>().cursed[index]){
+                    collision.GetComponent<Enemy>().speed*=0.85f;
+                    collision.GetComponent<Enemy>().cursed[index]=true;
+                }
+                break;
+            case 9:
+                if(!collision.GetComponent<Enemy>().cursed[index]){
+                    collision.GetComponent<Enemy>().damage*=0.8f;
+                    collision.GetComponent<Enemy>().cursed[index]=true;
+                }
+                break;
+            case 10:
+                if(!collision.GetComponent<Enemy>().cursed[index]){
+                    collision.GetComponent<Enemy>().gold=(int)(collision.GetComponent<Enemy>().gold*1.2f);
+                    collision.GetComponent<Enemy>().cursed[index]=true;
+                }
+                break;
+
         }
     }
 }

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b5057fd548eda22428412b202873ee3a, type: 3}
-  m_Name: attack speed
+  m_Name: all radius
   m_EditorClassIdentifier: 
   isactive: 0
   ispassive: 1
@@ -24,13 +24,13 @@ MonoBehaviour:
   count: 0
   speed: 1
   spr: {fileID: 362616440, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
-  radius: 1
+  radius: 1.2
   penet: 0
-  delay_reduct: 0.85
-  gem_name: "\uACF5\uACA9\uC18D\uB3C4 \uC99D\uAC00 \uBCF4\uC870"
-  gem_explain: "\uC82C\uC758 \uACF5\uACA9\uC18D\uB3C4\uB97C \uC57D\uAC04 \uC99D\uAC00\uC2DC\uD0B5\uB2C8\uB2E4."
+  delay_reduct: 1
+  gem_name: "\uBC18\uACBD \uC99D\uAC00 \uBCF4\uC870"
+  gem_explain: "\uD0DC\uADF8\uC5D0 \"\uBC18\uACBD\"\uC774 \uB2EC\uB9B0 \uC82C\uB4E4\uC758
+    \uACF5\uACA9\uBC18\uACBD\uC774 20% \uC99D\uAC00\uD569\uB2C8\uB2E4."
   tags:
   - "\uD328\uC2DC\uBE0C"
-  - "\uC18D\uB3C4"
   required_tag:
-  - "\uBC94\uC6A9"
+  - "\uBC18\uACBD"
