@@ -13976,7 +13976,7 @@ PrefabInstance:
     - target: {fileID: 4463747378773342522, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
       propertyPath: gemData
       value: 
-      objectReference: {fileID: 11400000, guid: 630ddb0302975a848a8fb419d575362e, type: 2}
+      objectReference: {fileID: 11400000, guid: cea729ba0774e7243a2aa72446300e4c, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 115314673bbcb8744ae571bad8de1d8e, type: 3}
 --- !u!1 &681838025

@@ -28,6 +28,9 @@ public class special : MonoBehaviour
         }
     }
 
+    private void OnDisable() {
+        StopAllCoroutines();
+    }
     IEnumerator shadow_false(GameObject shadow) {
         yield return new WaitForSeconds(5f);
         shadow.SetActive(false);

@@ -132,8 +132,8 @@ public class Enemy : MonoBehaviour
             rigid.simulated = false;
             spriter.sortingOrder = 1;
             if(this.is_boss) {
-            Debug.Log("boss dead");
-            StartCoroutine(open_merchant());
+                if(this.spriteType==4) gamemanager.instance.game_clear();
+                else StartCoroutine(open_merchant());
             }
             anim.SetBool("Dead", true);
             audiomanager.instance.PlaySfx(audiomanager.Sfx.Dead);

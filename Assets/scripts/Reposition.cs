@@ -17,24 +17,27 @@ public class Reposition : MonoBehaviour
 
         Vector3 playerPos = gamemanager.instance.player.transform.position;
         Vector3 myPos = transform.position;
-        float diffX = Mathf.Abs(playerPos.x - myPos.x);
-        float diffY = Mathf.Abs(playerPos.y - myPos.y);
+        float difx=playerPos.x-myPos.x;
+        float dify=playerPos.y-myPos.y;
+        float dirx = difx < 0 ? -1 : 1;
+        float diry = dify < 0 ? -1 : 1;
+        difx = Mathf.Abs(difx);
+        dify = Mathf.Abs(dify);
 
         Vector3 playerDir = gamemanager.instance.player.inputvec;
-        float dirX = playerDir.x < 0 ? -1 : 1;
-        float dirY = playerDir.y < 0 ? -1 : 1;
+        
 
         switch(transform.tag) {
             case "Ground": //맵을 이동
-                if (Mathf.Abs(diffX - diffY) <= 0.1f) {
-                    transform.Translate(Vector3.up * dirY * 40);
-                    transform.Translate(Vector3.right * dirX * 40);
+                if (Mathf.Abs(difx - dify) <= 0.1f) {
+                    transform.Translate(Vector3.up * diry * 40);
+                    transform.Translate(Vector3.right * dirx * 40);
                 }
-                else if (diffX > diffY){
-                    transform.Translate(Vector3.right * dirX * 40);
+                else if (difx > dify){
+                    transform.Translate(Vector3.right * dirx * 40);
                 }
-                else if (diffX < diffY){
-                    transform.Translate(Vector3.up * dirY * 40);
+                else if (difx < dify){
+                    transform.Translate(Vector3.up * diry * 40);
                 }
                 break;
             case "Enemy": //맵밖의 몬스터를 맵과 함께 근처로 이동
