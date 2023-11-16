@@ -26,7 +26,11 @@ public class Reposition : MonoBehaviour
 
         switch(transform.tag) {
             case "Ground": //맵을 이동
-                if (diffX > diffY){
+                if (Mathf.Abs(diffX - diffY) <= 0.1f) {
+                    transform.Translate(Vector3.up * dirY * 40);
+                    transform.Translate(Vector3.right * dirX * 40);
+                }
+                else if (diffX > diffY){
                     transform.Translate(Vector3.right * dirX * 40);
                 }
                 else if (diffX < diffY){

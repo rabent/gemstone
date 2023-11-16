@@ -23,11 +23,14 @@ public class gamemanager : MonoBehaviour
     public TMP_Text min_text;
     public TMP_Text sec_text; 
     public TMP_Text gold_text;
+    public TMP_Text kill_text;
     public int gold=0;
+    public int kill=0;
     public gemData char1;
     public gemData char2;
     public gemData char3;
     public GameObject game_over_screen;
+    public GameObject clear_screen;
     public float maxGameTime = 2 * 10f; // 20�? / 5 * 60f >> 5�?
     public float health;
     public float maxhealth=1000;
@@ -142,6 +145,12 @@ public class gamemanager : MonoBehaviour
 
     public void game_over() {
         game_over_screen.SetActive(true);
+        StartCoroutine(game_over_back());
+    }
+
+    public void game_clear() {
+        clear_screen.SetActive(true);
+        kill_text.text=kill.ToString();
         StartCoroutine(game_over_back());
     }
 

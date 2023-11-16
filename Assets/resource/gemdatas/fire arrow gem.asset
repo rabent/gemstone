@@ -25,10 +25,10 @@ MonoBehaviour:
   speed: 12
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 1
-  penet: 1
+  penet: 2
   delay_reduct: 1
   gem_name: "\uBD88\uD654\uC0B4"
-  gem_explain: "\uC801\uC744 1\uBA85 \uAD00\uD1B5\uD560 \uC218 \uC788\uB294 \uD654\uC5FC
+  gem_explain: "\uC801\uC744 2\uBA85 \uAD00\uD1B5\uD560 \uC218 \uC788\uB294 \uD654\uC5FC
     \uC18D\uC131 \uD654\uC0B4\uC744 \uBC1C\uC0AC\uD569\uB2C8\uB2E4."
   tags:
   - "\uC561\uD2F0\uBE0C"

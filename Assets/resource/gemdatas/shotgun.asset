@@ -25,7 +25,7 @@ MonoBehaviour:
   speed: 15
   spr: {fileID: 1807624531, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 1
-  penet: 0
+  penet: 1
   delay_reduct: 1
   gem_name: "\uC0B0\uD0C4\uC0AC\uACA9"
   gem_explain: "\uCE90\uB9AD\uD130\uC758 \uC804\uBC29\uC73C\uB85C \uC0B0\uD0C4\uC744

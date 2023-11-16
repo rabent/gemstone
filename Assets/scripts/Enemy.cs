@@ -83,6 +83,7 @@ public class Enemy : MonoBehaviour
         lightres=data.lightres;
         gold=data.gold;
         is_boss=data.is_boss;
+        if(is_boss) rigid.mass=50;
     }
 
     void OnTriggerEnter2D(Collider2D collision) 
@@ -157,6 +158,7 @@ public class Enemy : MonoBehaviour
         vfx.transform.position=this.transform.position;
         }
         gamemanager.instance.gold+=this.gold;
+        gamemanager.instance.kill++;
         gameObject.SetActive(false);
     }
 

@@ -26,7 +26,7 @@ MonoBehaviour:
   spr: {fileID: -1997803578, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
   radius: 0.5
   penet: 0
-  delay_reduct: 1
+  delay_reduct: 0.8
   gem_name: "\uACE0\uB4DC\uB984"
   gem_explain: "\uC801\uB4E4\uC744 \uAD00\uD1B5\uD558\uB294 \uC5BC\uC74C \uC18D\uC131
     \uACE0\uB4DC\uB984\uC744 \uBC1C\uC0AC\uD569\uB2C8\uB2E4."
