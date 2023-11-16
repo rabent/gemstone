@@ -200,6 +200,7 @@ public class weaponmanager : MonoBehaviour
         this.penet=0;
         this.element=0;
         this.force=3;
+        this.delay_percent=1;
         active_on=false;
         curse.Clear();
         tween.Kill();
