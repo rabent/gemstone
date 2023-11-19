@@ -43333,7 +43333,7 @@ MonoBehaviour:
     lightres: 0.1
     gold: 5
     is_boss: 0
-  - spawnTime: 25
+  - spawnTime: 0.6
     spriteType: 3
     health: 90
     speed: 1.5
