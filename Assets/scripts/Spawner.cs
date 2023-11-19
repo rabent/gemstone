@@ -39,9 +39,9 @@ public class Spawner : MonoBehaviour
     void Update() //게임 진행 시간에 따라 게임의 스테이지 레벨이 증가
     {
         timer += Time.deltaTime;
-        level = Mathf.Min(Mathf.FloorToInt(gamemanager.instance.gameTime / 20f), 2);
+        level = Mathf.Min(Mathf.FloorToInt(gamemanager.instance.gameTime / 120f), 2);
 
-        if(level<spawnData.Length && timer > spawnData[level].spawnTime)
+        if(level<spawnData.Length && timer > spawnData[level+stage/3].spawnTime)
         {
             timer = 0;
             Spawn();
