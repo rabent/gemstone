@@ -63,38 +63,48 @@ public class shopmanager : MonoBehaviour
 
    public void open_monolith0() { //각 석판의 개방 함수
       weaponmanager wpn=monoliths[0].GetComponent<weaponmanager>();
-      if(gamemanager.instance.gold>=50) {
+      if(gamemanager.instance.gold>=100) {
          if(wpn.slot_index==3) {}
-         else wpn.slot_expand();
-         gamemanager.instance.gold-=50;
+         else {
+         wpn.slot_expand();
+         gamemanager.instance.gold-=100;
+         }
       }
       else StartCoroutine(no_gold());
    }
 
    public void open_monolith1() {
       weaponmanager wpn=monoliths[1].GetComponent<weaponmanager>();
-      if(gamemanager.instance.gold>=50) {
+      if(gamemanager.instance.gold>=100) {
          if(wpn.slot_index==3) {}
-         else wpn.slot_expand();
-         gamemanager.instance.gold-=50;
+         else {
+         wpn.slot_expand();
+         gamemanager.instance.gold-=100;
+         }
       }
       else StartCoroutine(no_gold());
    }
 
    public void open_monolith2() {
       weaponmanager wpn=monoliths[2].GetComponent<weaponmanager>();
-      if(gamemanager.instance.gold>=50) {
+      if(gamemanager.instance.gold>=100) {
          if(wpn.slot_index==3) {}
-         else wpn.slot_expand();
+         else {
+            wpn.slot_expand();
+            gamemanager.instance.gold-=100;
+         }
       }
       else StartCoroutine(no_gold());
    }
 
    public void open_monolith3() {
       weaponmanager wpn=monoliths[3].GetComponent<weaponmanager>();
-      if(gamemanager.instance.gold>=50) {
+      if(gamemanager.instance.gold>=100) {
          if(wpn.slot_index==3) {}
-         else wpn.slot_expand();
+         else {
+            wpn.slot_expand();
+            gamemanager.instance.gold-=100;
+         }
       }
       else StartCoroutine(no_gold());
    }
